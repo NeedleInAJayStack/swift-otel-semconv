@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `heroku.app` namespace
         public enum app {
-            /// `heroku.app.id`
-            /// 
-            /// Unique identifier for the application 
+            /// `heroku.app.id`: Unique identifier for the application 
             /// 
             /// - Stability: experimental
             /// 
@@ -25,9 +23,7 @@ extension SemConv {
     
         /// `heroku.release` namespace
         public enum release {
-            /// `heroku.release.commit`
-            /// 
-            /// Commit hash for the current release 
+            /// `heroku.release.commit`: Commit hash for the current release 
             /// 
             /// - Stability: experimental
             /// 
@@ -36,9 +32,7 @@ extension SemConv {
             /// - Example: `e6134959463efd8966b20e75b913cafe3f5ec`
             public static let commit = "heroku.release.commit"
         
-            /// `heroku.release.creation_timestamp`
-            /// 
-            /// Time and date the release was created 
+            /// `heroku.release.creation_timestamp`: Time and date the release was created 
             /// 
             /// - Stability: experimental
             /// 

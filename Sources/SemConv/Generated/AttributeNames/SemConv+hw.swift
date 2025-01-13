@@ -5,9 +5,7 @@
 extension SemConv {
     /// `hw` namespace
     public enum hw {
-        /// `hw.id`
-        /// 
-        /// An identifier for the hardware component, unique within the monitored host 
+        /// `hw.id`: An identifier for the hardware component, unique within the monitored host 
         /// 
         /// - Stability: experimental
         /// 
@@ -16,9 +14,7 @@ extension SemConv {
         /// - Example: `win32battery_battery_testsysa33_1`
         public static let id = "hw.id"
     
-        /// `hw.name`
-        /// 
-        /// An easily-recognizable name for the hardware component 
+        /// `hw.name`: An easily-recognizable name for the hardware component 
         /// 
         /// - Stability: experimental
         /// 
@@ -27,9 +23,7 @@ extension SemConv {
         /// - Example: `eth0`
         public static let name = "hw.name"
     
-        /// `hw.parent`
-        /// 
-        /// Unique identifier of the parent component (typically the `hw.id` attribute of the enclosure, or disk controller) 
+        /// `hw.parent`: Unique identifier of the parent component (typically the `hw.id` attribute of the enclosure, or disk controller) 
         /// 
         /// - Stability: experimental
         /// 
@@ -38,9 +32,7 @@ extension SemConv {
         /// - Example: `dellStorage_perc_0`
         public static let parent = "hw.parent"
     
-        /// `hw.state`
-        /// 
-        /// The current state of the component 
+        /// `hw.state`: The current state of the component 
         /// 
         /// - Stability: experimental
         /// 
@@ -50,9 +42,7 @@ extension SemConv {
         ///     - `failed`: Failed
         public static let state = "hw.state"
     
-        /// `hw.type`
-        /// 
-        /// Type of the component 
+        /// `hw.type`: Type of the component 
         /// 
         /// - Stability: experimental
         /// 

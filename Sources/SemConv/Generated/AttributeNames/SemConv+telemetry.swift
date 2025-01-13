@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `telemetry.distro` namespace
         public enum distro {
-            /// `telemetry.distro.name`
-            /// 
-            /// The name of the auto instrumentation agent or distribution, if used. 
+            /// `telemetry.distro.name`: The name of the auto instrumentation agent or distribution, if used. 
             /// 
             /// - Stability: experimental
             /// 
@@ -22,9 +20,7 @@ extension SemConv {
             /// - Example: `parts-unlimited-java`
             public static let name = "telemetry.distro.name"
         
-            /// `telemetry.distro.version`
-            /// 
-            /// The version string of the auto instrumentation agent or distribution, if used. 
+            /// `telemetry.distro.version`: The version string of the auto instrumentation agent or distribution, if used. 
             /// 
             /// - Stability: experimental
             /// 
@@ -38,9 +34,7 @@ extension SemConv {
     
         /// `telemetry.sdk` namespace
         public enum sdk {
-            /// `telemetry.sdk.language`
-            /// 
-            /// The language of the telemetry SDK. 
+            /// `telemetry.sdk.language`: The language of the telemetry SDK. 
             /// 
             /// - Stability: stable
             /// 
@@ -59,9 +53,7 @@ extension SemConv {
             ///     - `webjs`
             public static let language = "telemetry.sdk.language"
         
-            /// `telemetry.sdk.name`
-            /// 
-            /// The name of the telemetry SDK as defined above. 
+            /// `telemetry.sdk.name`: The name of the telemetry SDK as defined above. 
             /// 
             /// - Stability: stable
             /// 
@@ -72,9 +64,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "telemetry.sdk.name"
         
-            /// `telemetry.sdk.version`
-            /// 
-            /// The version string of the telemetry SDK. 
+            /// `telemetry.sdk.version`: The version string of the telemetry SDK. 
             /// 
             /// - Stability: stable
             /// 

@@ -5,9 +5,7 @@
 extension SemConv {
     /// `webengine` namespace
     public enum webengine {
-        /// `webengine.description`
-        /// 
-        /// Additional description of the web engine (e.g. detailed version and edition information). 
+        /// `webengine.description`: Additional description of the web engine (e.g. detailed version and edition information). 
         /// 
         /// - Stability: experimental
         /// 
@@ -16,9 +14,7 @@ extension SemConv {
         /// - Example: `WildFly Full 21.0.0.Final (WildFly Core 13.0.1.Final) - 2.2.2.Final`
         public static let description = "webengine.description"
     
-        /// `webengine.name`
-        /// 
-        /// The name of the web engine. 
+        /// `webengine.name`: The name of the web engine. 
         /// 
         /// - Stability: experimental
         /// 
@@ -27,9 +23,7 @@ extension SemConv {
         /// - Example: `WildFly`
         public static let name = "webengine.name"
     
-        /// `webengine.version`
-        /// 
-        /// The version of the web engine. 
+        /// `webengine.version`: The version of the web engine. 
         /// 
         /// - Stability: experimental
         /// 

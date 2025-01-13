@@ -5,9 +5,7 @@
 extension SemConv {
     /// `event` namespace
     public enum event {
-        /// `event.name`
-        /// 
-        /// Identifies the class / type of event. 
+        /// `event.name`: Identifies the class / type of event. 
         /// 
         /// - Stability: experimental
         /// 

@@ -13,9 +13,7 @@ extension SemConv {
         
             /// `linux.memory.slab` namespace
             public enum slab {
-                /// `linux.memory.slab.state`
-                /// 
-                /// The Linux Slab memory state
+                /// `linux.memory.slab.state`: The Linux Slab memory state
                 /// 
                 /// - Stability: experimental
                 /// 

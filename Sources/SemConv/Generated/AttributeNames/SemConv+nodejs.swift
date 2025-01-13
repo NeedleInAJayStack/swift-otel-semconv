@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `nodejs.eventloop` namespace
         public enum eventloop {
-            /// `nodejs.eventloop.state`
-            /// 
-            /// The state of event loop time.
+            /// `nodejs.eventloop.state`: The state of event loop time.
             /// 
             /// - Stability: experimental
             /// 

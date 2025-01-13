@@ -5,9 +5,7 @@
 extension SemConv {
     /// `os` namespace
     public enum os {
-        /// `os.build_id`
-        /// 
-        /// Unique identifier for a particular build or compilation of the operating system.
+        /// `os.build_id`: Unique identifier for a particular build or compilation of the operating system.
         /// 
         /// - Stability: experimental
         /// 
@@ -19,9 +17,7 @@ extension SemConv {
         ///     - `22621`
         public static let build_id = "os.build_id"
     
-        /// `os.description`
-        /// 
-        /// Human readable (not intended to be parsed) OS version information, like e.g. reported by `ver` or `lsb_release -a` commands. 
+        /// `os.description`: Human readable (not intended to be parsed) OS version information, like e.g. reported by `ver` or `lsb_release -a` commands. 
         /// 
         /// - Stability: experimental
         /// 
@@ -32,9 +28,7 @@ extension SemConv {
         ///     - `Ubuntu 18.04.1 LTS`
         public static let description = "os.description"
     
-        /// `os.name`
-        /// 
-        /// Human readable operating system name.
+        /// `os.name`: Human readable operating system name.
         /// 
         /// - Stability: experimental
         /// 
@@ -46,9 +40,7 @@ extension SemConv {
         ///     - `Ubuntu`
         public static let name = "os.name"
     
-        /// `os.type`
-        /// 
-        /// The operating system type. 
+        /// `os.type`: The operating system type. 
         /// 
         /// - Stability: experimental
         /// 
@@ -66,9 +58,7 @@ extension SemConv {
         ///     - `z_os`: IBM z/OS
         public static let type = "os.type"
     
-        /// `os.version`
-        /// 
-        /// The version string of the operating system as defined in [Version Attributes](/docs/resource/README.md#version-attributes). 
+        /// `os.version`: The version string of the operating system as defined in [Version Attributes](/docs/resource/README.md#version-attributes). 
         /// 
         /// - Stability: experimental
         /// 

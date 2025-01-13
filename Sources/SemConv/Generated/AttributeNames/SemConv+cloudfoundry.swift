@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `cloudfoundry.app` namespace
         public enum app {
-            /// `cloudfoundry.app.id`
-            /// 
-            /// The guid of the application. 
+            /// `cloudfoundry.app.id`: The guid of the application. 
             /// 
             /// - Stability: experimental
             /// 
@@ -22,9 +20,7 @@ extension SemConv {
             /// - Example: `218fc5a9-a5f1-4b54-aa05-46717d0ab26d`
             public static let id = "cloudfoundry.app.id"
         
-            /// `cloudfoundry.app.name`
-            /// 
-            /// The name of the application. 
+            /// `cloudfoundry.app.name`: The name of the application. 
             /// 
             /// - Stability: experimental
             /// 
@@ -37,9 +33,7 @@ extension SemConv {
         
             /// `cloudfoundry.app.instance` namespace
             public enum instance {
-                /// `cloudfoundry.app.instance.id`
-                /// 
-                /// The index of the application instance. 0 when just one instance is active. 
+                /// `cloudfoundry.app.instance.id`: The index of the application instance. 0 when just one instance is active. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -58,9 +52,7 @@ extension SemConv {
     
         /// `cloudfoundry.org` namespace
         public enum org {
-            /// `cloudfoundry.org.id`
-            /// 
-            /// The guid of the CloudFoundry org the application is running in. 
+            /// `cloudfoundry.org.id`: The guid of the CloudFoundry org the application is running in. 
             /// 
             /// - Stability: experimental
             /// 
@@ -71,9 +63,7 @@ extension SemConv {
             /// - Example: `218fc5a9-a5f1-4b54-aa05-46717d0ab26d`
             public static let id = "cloudfoundry.org.id"
         
-            /// `cloudfoundry.org.name`
-            /// 
-            /// The name of the CloudFoundry organization the app is running in. 
+            /// `cloudfoundry.org.name`: The name of the CloudFoundry organization the app is running in. 
             /// 
             /// - Stability: experimental
             /// 
@@ -89,9 +79,7 @@ extension SemConv {
     
         /// `cloudfoundry.process` namespace
         public enum process {
-            /// `cloudfoundry.process.id`
-            /// 
-            /// The UID identifying the process. 
+            /// `cloudfoundry.process.id`: The UID identifying the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -102,9 +90,7 @@ extension SemConv {
             /// - Example: `218fc5a9-a5f1-4b54-aa05-46717d0ab26d`
             public static let id = "cloudfoundry.process.id"
         
-            /// `cloudfoundry.process.type`
-            /// 
-            /// The type of process. 
+            /// `cloudfoundry.process.type`: The type of process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -120,9 +106,7 @@ extension SemConv {
     
         /// `cloudfoundry.space` namespace
         public enum space {
-            /// `cloudfoundry.space.id`
-            /// 
-            /// The guid of the CloudFoundry space the application is running in. 
+            /// `cloudfoundry.space.id`: The guid of the CloudFoundry space the application is running in. 
             /// 
             /// - Stability: experimental
             /// 
@@ -133,9 +117,7 @@ extension SemConv {
             /// - Example: `218fc5a9-a5f1-4b54-aa05-46717d0ab26d`
             public static let id = "cloudfoundry.space.id"
         
-            /// `cloudfoundry.space.name`
-            /// 
-            /// The name of the CloudFoundry space the application is running in. 
+            /// `cloudfoundry.space.name`: The name of the CloudFoundry space the application is running in. 
             /// 
             /// - Stability: experimental
             /// 
@@ -151,9 +133,7 @@ extension SemConv {
     
         /// `cloudfoundry.system` namespace
         public enum system {
-            /// `cloudfoundry.system.id`
-            /// 
-            /// A guid or another name describing the event source. 
+            /// `cloudfoundry.system.id`: A guid or another name describing the event source. 
             /// 
             /// - Stability: experimental
             /// 
@@ -166,9 +146,7 @@ extension SemConv {
         
             /// `cloudfoundry.system.instance` namespace
             public enum instance {
-                /// `cloudfoundry.system.instance.id`
-                /// 
-                /// A guid describing the concrete instance of the event source. 
+                /// `cloudfoundry.system.instance.id`: A guid describing the concrete instance of the event source. 
                 /// 
                 /// - Stability: experimental
                 /// 

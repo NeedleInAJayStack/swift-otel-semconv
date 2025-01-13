@@ -5,9 +5,7 @@
 extension SemConv {
     /// `rpc` namespace
     public enum rpc {
-        /// `rpc.method`
-        /// 
-        /// The name of the (logical) method being called, must be equal to the $method part in the span name.
+        /// `rpc.method`: The name of the (logical) method being called, must be equal to the $method part in the span name.
         /// 
         /// - Stability: experimental
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
         /// - Example: `exampleMethod`
         public static let method = "rpc.method"
     
-        /// `rpc.service`
-        /// 
-        /// The full (logical) name of the service being called, including its package name, if applicable.
+        /// `rpc.service`: The full (logical) name of the service being called, including its package name, if applicable.
         /// 
         /// - Stability: experimental
         /// 
@@ -31,9 +27,7 @@ extension SemConv {
         /// - Example: `myservice.EchoService`
         public static let service = "rpc.service"
     
-        /// `rpc.system`
-        /// 
-        /// A string identifying the remoting system. See below for a list of well-known identifiers.
+        /// `rpc.system`: A string identifying the remoting system. See below for a list of well-known identifiers.
         /// 
         /// - Stability: experimental
         /// 
@@ -47,9 +41,7 @@ extension SemConv {
     
         /// `rpc.connect_rpc` namespace
         public enum connect_rpc {
-            /// `rpc.connect_rpc.error_code`
-            /// 
-            /// The [error codes](https://connect.build/docs/protocol/#error-codes) of the Connect request. Error codes are always string values.
+            /// `rpc.connect_rpc.error_code`: The [error codes](https://connect.build/docs/protocol/#error-codes) of the Connect request. Error codes are always string values.
             /// 
             /// - Stability: experimental
             /// 
@@ -74,9 +66,7 @@ extension SemConv {
         
             /// `rpc.connect_rpc.request` namespace
             public enum request {
-                /// `rpc.connect_rpc.request.metadata`
-                /// 
-                /// Connect request metadata, `<key>` being the normalized Connect Metadata key (lowercase), the value being the metadata values. 
+                /// `rpc.connect_rpc.request.metadata`: Connect request metadata, `<key>` being the normalized Connect Metadata key (lowercase), the value being the metadata values. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -92,9 +82,7 @@ extension SemConv {
         
             /// `rpc.connect_rpc.response` namespace
             public enum response {
-                /// `rpc.connect_rpc.response.metadata`
-                /// 
-                /// Connect response metadata, `<key>` being the normalized Connect Metadata key (lowercase), the value being the metadata values. 
+                /// `rpc.connect_rpc.response.metadata`: Connect response metadata, `<key>` being the normalized Connect Metadata key (lowercase), the value being the metadata values. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -111,9 +99,7 @@ extension SemConv {
     
         /// `rpc.grpc` namespace
         public enum grpc {
-            /// `rpc.grpc.status_code`
-            /// 
-            /// The [numeric status code](https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md) of the gRPC request.
+            /// `rpc.grpc.status_code`: The [numeric status code](https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md) of the gRPC request.
             /// 
             /// - Stability: experimental
             /// 
@@ -139,9 +125,7 @@ extension SemConv {
         
             /// `rpc.grpc.request` namespace
             public enum request {
-                /// `rpc.grpc.request.metadata`
-                /// 
-                /// gRPC request metadata, `<key>` being the normalized gRPC Metadata key (lowercase), the value being the metadata values. 
+                /// `rpc.grpc.request.metadata`: gRPC request metadata, `<key>` being the normalized gRPC Metadata key (lowercase), the value being the metadata values. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -157,9 +141,7 @@ extension SemConv {
         
             /// `rpc.grpc.response` namespace
             public enum response {
-                /// `rpc.grpc.response.metadata`
-                /// 
-                /// gRPC response metadata, `<key>` being the normalized gRPC Metadata key (lowercase), the value being the metadata values. 
+                /// `rpc.grpc.response.metadata`: gRPC response metadata, `<key>` being the normalized gRPC Metadata key (lowercase), the value being the metadata values. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -176,9 +158,7 @@ extension SemConv {
     
         /// `rpc.jsonrpc` namespace
         public enum jsonrpc {
-            /// `rpc.jsonrpc.error_code`
-            /// 
-            /// `error.code` property of response if it is an error response.
+            /// `rpc.jsonrpc.error_code`: `error.code` property of response if it is an error response.
             /// 
             /// - Stability: experimental
             /// 
@@ -189,9 +169,7 @@ extension SemConv {
             ///     - `100`
             public static let error_code = "rpc.jsonrpc.error_code"
         
-            /// `rpc.jsonrpc.error_message`
-            /// 
-            /// `error.message` property of response if it is an error response.
+            /// `rpc.jsonrpc.error_message`: `error.message` property of response if it is an error response.
             /// 
             /// - Stability: experimental
             /// 
@@ -202,9 +180,7 @@ extension SemConv {
             ///     - `User already exists`
             public static let error_message = "rpc.jsonrpc.error_message"
         
-            /// `rpc.jsonrpc.request_id`
-            /// 
-            /// `id` property of request or response. Since protocol allows id to be int, string, `null` or missing (for notifications), value is expected to be cast to string for simplicity. Use empty string in case of `null` value. Omit entirely if this is a notification. 
+            /// `rpc.jsonrpc.request_id`: `id` property of request or response. Since protocol allows id to be int, string, `null` or missing (for notifications), value is expected to be cast to string for simplicity. Use empty string in case of `null` value. Omit entirely if this is a notification. 
             /// 
             /// - Stability: experimental
             /// 
@@ -216,9 +192,7 @@ extension SemConv {
             ///     - ``
             public static let request_id = "rpc.jsonrpc.request_id"
         
-            /// `rpc.jsonrpc.version`
-            /// 
-            /// Protocol version as in `jsonrpc` property of request/response. Since JSON-RPC 1.0 doesn't specify this, the value can be omitted.
+            /// `rpc.jsonrpc.version`: Protocol version as in `jsonrpc` property of request/response. Since JSON-RPC 1.0 doesn't specify this, the value can be omitted.
             /// 
             /// - Stability: experimental
             /// 
@@ -234,18 +208,14 @@ extension SemConv {
     
         /// `rpc.message` namespace
         public enum message {
-            /// `rpc.message.compressed_size`
-            /// 
-            /// Compressed size of the message in bytes.
+            /// `rpc.message.compressed_size`: Compressed size of the message in bytes.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: int
             public static let compressed_size = "rpc.message.compressed_size"
         
-            /// `rpc.message.id`
-            /// 
-            /// MUST be calculated as two different counters starting from `1` one for sent messages and one for received message.
+            /// `rpc.message.id`: MUST be calculated as two different counters starting from `1` one for sent messages and one for received message.
             /// 
             /// - Stability: experimental
             /// 
@@ -254,9 +224,7 @@ extension SemConv {
             /// This way we guarantee that the values will be consistent between different implementations.
             public static let id = "rpc.message.id"
         
-            /// `rpc.message.type`
-            /// 
-            /// Whether this is a received or sent message.
+            /// `rpc.message.type`: Whether this is a received or sent message.
             /// 
             /// - Stability: experimental
             /// 
@@ -265,9 +233,7 @@ extension SemConv {
             ///     - `RECEIVED`
             public static let type = "rpc.message.type"
         
-            /// `rpc.message.uncompressed_size`
-            /// 
-            /// Uncompressed size of the message in bytes.
+            /// `rpc.message.uncompressed_size`: Uncompressed size of the message in bytes.
             /// 
             /// - Stability: experimental
             /// 

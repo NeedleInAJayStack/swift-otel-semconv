@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `dns.question` namespace
         public enum question {
-            /// `dns.question.name`
-            /// 
-            /// The name being queried.
+            /// `dns.question.name`: The name being queried.
             /// 
             /// - Stability: experimental
             /// 

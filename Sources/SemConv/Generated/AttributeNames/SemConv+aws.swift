@@ -5,9 +5,7 @@
 extension SemConv {
     /// `aws` namespace
     public enum aws {
-        /// `aws.request_id`
-        /// 
-        /// The AWS request ID as returned in the response headers `x-amz-request-id` or `x-amz-requestid`.
+        /// `aws.request_id`: The AWS request ID as returned in the response headers `x-amz-request-id` or `x-amz-requestid`.
         /// 
         /// - Stability: experimental
         /// 
@@ -20,45 +18,35 @@ extension SemConv {
     
         /// `aws.dynamodb` namespace
         public enum dynamodb {
-            /// `aws.dynamodb.attribute_definitions`
-            /// 
-            /// The JSON-serialized value of each item in the `AttributeDefinitions` request field.
+            /// `aws.dynamodb.attribute_definitions`: The JSON-serialized value of each item in the `AttributeDefinitions` request field.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let attribute_definitions = "aws.dynamodb.attribute_definitions"
         
-            /// `aws.dynamodb.attributes_to_get`
-            /// 
-            /// The value of the `AttributesToGet` request parameter.
+            /// `aws.dynamodb.attributes_to_get`: The value of the `AttributesToGet` request parameter.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let attributes_to_get = "aws.dynamodb.attributes_to_get"
         
-            /// `aws.dynamodb.consistent_read`
-            /// 
-            /// The value of the `ConsistentRead` request parameter.
+            /// `aws.dynamodb.consistent_read`: The value of the `ConsistentRead` request parameter.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: boolean
             public static let consistent_read = "aws.dynamodb.consistent_read"
         
-            /// `aws.dynamodb.consumed_capacity`
-            /// 
-            /// The JSON-serialized value of each item in the `ConsumedCapacity` response field.
+            /// `aws.dynamodb.consumed_capacity`: The JSON-serialized value of each item in the `ConsumedCapacity` response field.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let consumed_capacity = "aws.dynamodb.consumed_capacity"
         
-            /// `aws.dynamodb.count`
-            /// 
-            /// The value of the `Count` response parameter.
+            /// `aws.dynamodb.count`: The value of the `Count` response parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -67,9 +55,7 @@ extension SemConv {
             /// - Example: `10`
             public static let count = "aws.dynamodb.count"
         
-            /// `aws.dynamodb.exclusive_start_table`
-            /// 
-            /// The value of the `ExclusiveStartTableName` request parameter.
+            /// `aws.dynamodb.exclusive_start_table`: The value of the `ExclusiveStartTableName` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -80,27 +66,21 @@ extension SemConv {
             ///     - `CatsTable`
             public static let exclusive_start_table = "aws.dynamodb.exclusive_start_table"
         
-            /// `aws.dynamodb.global_secondary_index_updates`
-            /// 
-            /// The JSON-serialized value of each item in the `GlobalSecondaryIndexUpdates` request field.
+            /// `aws.dynamodb.global_secondary_index_updates`: The JSON-serialized value of each item in the `GlobalSecondaryIndexUpdates` request field.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let global_secondary_index_updates = "aws.dynamodb.global_secondary_index_updates"
         
-            /// `aws.dynamodb.global_secondary_indexes`
-            /// 
-            /// The JSON-serialized value of each item of the `GlobalSecondaryIndexes` request field
+            /// `aws.dynamodb.global_secondary_indexes`: The JSON-serialized value of each item of the `GlobalSecondaryIndexes` request field
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let global_secondary_indexes = "aws.dynamodb.global_secondary_indexes"
         
-            /// `aws.dynamodb.index_name`
-            /// 
-            /// The value of the `IndexName` request parameter.
+            /// `aws.dynamodb.index_name`: The value of the `IndexName` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -109,9 +89,7 @@ extension SemConv {
             /// - Example: `name_to_group`
             public static let index_name = "aws.dynamodb.index_name"
         
-            /// `aws.dynamodb.item_collection_metrics`
-            /// 
-            /// The JSON-serialized value of the `ItemCollectionMetrics` response field.
+            /// `aws.dynamodb.item_collection_metrics`: The JSON-serialized value of the `ItemCollectionMetrics` response field.
             /// 
             /// - Stability: experimental
             /// 
@@ -120,9 +98,7 @@ extension SemConv {
             /// - Example: `{ "string" : [ { "ItemCollectionKey": { "string" : { "B": blob, "BOOL": boolean, "BS": [ blob ], "L": [ "AttributeValue" ], "M": { "string" : "AttributeValue" }, "N": "string", "NS": [ "string" ], "NULL": boolean, "S": "string", "SS": [ "string" ] } }, "SizeEstimateRangeGB": [ number ] } ] }`
             public static let item_collection_metrics = "aws.dynamodb.item_collection_metrics"
         
-            /// `aws.dynamodb.limit`
-            /// 
-            /// The value of the `Limit` request parameter.
+            /// `aws.dynamodb.limit`: The value of the `Limit` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -131,18 +107,14 @@ extension SemConv {
             /// - Example: `10`
             public static let limit = "aws.dynamodb.limit"
         
-            /// `aws.dynamodb.local_secondary_indexes`
-            /// 
-            /// The JSON-serialized value of each item of the `LocalSecondaryIndexes` request field.
+            /// `aws.dynamodb.local_secondary_indexes`: The JSON-serialized value of each item of the `LocalSecondaryIndexes` request field.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let local_secondary_indexes = "aws.dynamodb.local_secondary_indexes"
         
-            /// `aws.dynamodb.projection`
-            /// 
-            /// The value of the `ProjectionExpression` request parameter.
+            /// `aws.dynamodb.projection`: The value of the `ProjectionExpression` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -154,9 +126,7 @@ extension SemConv {
             ///     - `Title, Description, RelatedItems, ProductReviews`
             public static let projection = "aws.dynamodb.projection"
         
-            /// `aws.dynamodb.provisioned_read_capacity`
-            /// 
-            /// The value of the `ProvisionedThroughput.ReadCapacityUnits` request parameter.
+            /// `aws.dynamodb.provisioned_read_capacity`: The value of the `ProvisionedThroughput.ReadCapacityUnits` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -167,9 +137,7 @@ extension SemConv {
             ///     - `2.0`
             public static let provisioned_read_capacity = "aws.dynamodb.provisioned_read_capacity"
         
-            /// `aws.dynamodb.provisioned_write_capacity`
-            /// 
-            /// The value of the `ProvisionedThroughput.WriteCapacityUnits` request parameter.
+            /// `aws.dynamodb.provisioned_write_capacity`: The value of the `ProvisionedThroughput.WriteCapacityUnits` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -180,18 +148,14 @@ extension SemConv {
             ///     - `2.0`
             public static let provisioned_write_capacity = "aws.dynamodb.provisioned_write_capacity"
         
-            /// `aws.dynamodb.scan_forward`
-            /// 
-            /// The value of the `ScanIndexForward` request parameter.
+            /// `aws.dynamodb.scan_forward`: The value of the `ScanIndexForward` request parameter.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: boolean
             public static let scan_forward = "aws.dynamodb.scan_forward"
         
-            /// `aws.dynamodb.scanned_count`
-            /// 
-            /// The value of the `ScannedCount` response parameter.
+            /// `aws.dynamodb.scanned_count`: The value of the `ScannedCount` response parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -200,9 +164,7 @@ extension SemConv {
             /// - Example: `50`
             public static let scanned_count = "aws.dynamodb.scanned_count"
         
-            /// `aws.dynamodb.segment`
-            /// 
-            /// The value of the `Segment` request parameter.
+            /// `aws.dynamodb.segment`: The value of the `Segment` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -211,9 +173,7 @@ extension SemConv {
             /// - Example: `10`
             public static let segment = "aws.dynamodb.segment"
         
-            /// `aws.dynamodb.select`
-            /// 
-            /// The value of the `Select` request parameter.
+            /// `aws.dynamodb.select`: The value of the `Select` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -224,9 +184,7 @@ extension SemConv {
             ///     - `COUNT`
             public static let select = "aws.dynamodb.select"
         
-            /// `aws.dynamodb.table_count`
-            /// 
-            /// The number of items in the `TableNames` response parameter.
+            /// `aws.dynamodb.table_count`: The number of items in the `TableNames` response parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -235,18 +193,14 @@ extension SemConv {
             /// - Example: `20`
             public static let table_count = "aws.dynamodb.table_count"
         
-            /// `aws.dynamodb.table_names`
-            /// 
-            /// The keys in the `RequestItems` object field.
+            /// `aws.dynamodb.table_names`: The keys in the `RequestItems` object field.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let table_names = "aws.dynamodb.table_names"
         
-            /// `aws.dynamodb.total_segments`
-            /// 
-            /// The value of the `TotalSegments` request parameter.
+            /// `aws.dynamodb.total_segments`: The value of the `TotalSegments` request parameter.
             /// 
             /// - Stability: experimental
             /// 
@@ -260,9 +214,7 @@ extension SemConv {
     
         /// `aws.ecs` namespace
         public enum ecs {
-            /// `aws.ecs.launchtype`
-            /// 
-            /// The [launch type](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) for an ECS task. 
+            /// `aws.ecs.launchtype`: The [launch type](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) for an ECS task. 
             /// 
             /// - Stability: experimental
             /// 
@@ -273,9 +225,7 @@ extension SemConv {
         
             /// `aws.ecs.cluster` namespace
             public enum cluster {
-                /// `aws.ecs.cluster.arn`
-                /// 
-                /// The ARN of an [ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html). 
+                /// `aws.ecs.cluster.arn`: The ARN of an [ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html). 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -289,9 +239,7 @@ extension SemConv {
         
             /// `aws.ecs.container` namespace
             public enum container {
-                /// `aws.ecs.container.arn`
-                /// 
-                /// The Amazon Resource Name (ARN) of an [ECS container instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html). 
+                /// `aws.ecs.container.arn`: The Amazon Resource Name (ARN) of an [ECS container instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html). 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -305,9 +253,7 @@ extension SemConv {
         
             /// `aws.ecs.task` namespace
             public enum task {
-                /// `aws.ecs.task.arn`
-                /// 
-                /// The ARN of a running [ECS task](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids). 
+                /// `aws.ecs.task.arn`: The ARN of a running [ECS task](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids). 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -318,9 +264,7 @@ extension SemConv {
                 ///     - `arn:aws:ecs:us-west-1:123456789123:task/my-cluster/task-id/23ebb8ac-c18f-46c6-8bbe-d55d0e37cfbd`
                 public static let arn = "aws.ecs.task.arn"
             
-                /// `aws.ecs.task.family`
-                /// 
-                /// The family name of the [ECS task definition](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html) used to create the ECS task. 
+                /// `aws.ecs.task.family`: The family name of the [ECS task definition](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html) used to create the ECS task. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -329,9 +273,7 @@ extension SemConv {
                 /// - Example: `opentelemetry-family`
                 public static let family = "aws.ecs.task.family"
             
-                /// `aws.ecs.task.id`
-                /// 
-                /// The ID of a running ECS task. The ID MUST be extracted from `task.arn`. 
+                /// `aws.ecs.task.id`: The ID of a running ECS task. The ID MUST be extracted from `task.arn`. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -342,9 +284,7 @@ extension SemConv {
                 ///     - `23ebb8ac-c18f-46c6-8bbe-d55d0e37cfbd`
                 public static let id = "aws.ecs.task.id"
             
-                /// `aws.ecs.task.revision`
-                /// 
-                /// The revision for the task definition used to create the ECS task. 
+                /// `aws.ecs.task.revision`: The revision for the task definition used to create the ECS task. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -365,9 +305,7 @@ extension SemConv {
         
             /// `aws.eks.cluster` namespace
             public enum cluster {
-                /// `aws.eks.cluster.arn`
-                /// 
-                /// The ARN of an EKS cluster. 
+                /// `aws.eks.cluster.arn`: The ARN of an EKS cluster. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -382,9 +320,7 @@ extension SemConv {
     
         /// `aws.lambda` namespace
         public enum lambda {
-            /// `aws.lambda.invoked_arn`
-            /// 
-            /// The full invoked ARN as provided on the `Context` passed to the function (`Lambda-Runtime-Invoked-Function-Arn` header on the `/runtime/invocation/next` applicable). 
+            /// `aws.lambda.invoked_arn`: The full invoked ARN as provided on the `Context` passed to the function (`Lambda-Runtime-Invoked-Function-Arn` header on the `/runtime/invocation/next` applicable). 
             /// 
             /// - Stability: experimental
             /// 
@@ -404,9 +340,7 @@ extension SemConv {
         
             /// `aws.log.group` namespace
             public enum group {
-                /// `aws.log.group.arns`
-                /// 
-                /// The Amazon Resource Name(s) (ARN) of the AWS log group(s). 
+                /// `aws.log.group.arns`: The Amazon Resource Name(s) (ARN) of the AWS log group(s). 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -415,9 +349,7 @@ extension SemConv {
                 /// See the [log group ARN format documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format). 
                 public static let arns = "aws.log.group.arns"
             
-                /// `aws.log.group.names`
-                /// 
-                /// The name(s) of the AWS log group(s) an application is writing to. 
+                /// `aws.log.group.names`: The name(s) of the AWS log group(s) an application is writing to. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -431,9 +363,7 @@ extension SemConv {
         
             /// `aws.log.stream` namespace
             public enum stream {
-                /// `aws.log.stream.arns`
-                /// 
-                /// The ARN(s) of the AWS log stream(s). 
+                /// `aws.log.stream.arns`: The ARN(s) of the AWS log stream(s). 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -442,9 +372,7 @@ extension SemConv {
                 /// See the [log stream ARN format documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format). One log group can contain several log streams, so these ARNs necessarily identify both a log group and a log stream. 
                 public static let arns = "aws.log.stream.arns"
             
-                /// `aws.log.stream.names`
-                /// 
-                /// The name(s) of the AWS log stream(s) an application is writing to. 
+                /// `aws.log.stream.names`: The name(s) of the AWS log stream(s) an application is writing to. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -457,9 +385,7 @@ extension SemConv {
     
         /// `aws.s3` namespace
         public enum s3 {
-            /// `aws.s3.bucket`
-            /// 
-            /// The S3 bucket name the request refers to. Corresponds to the `--bucket` parameter of the [S3 API](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) operations.
+            /// `aws.s3.bucket`: The S3 bucket name the request refers to. Corresponds to the `--bucket` parameter of the [S3 API](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) operations.
             /// 
             /// - Stability: experimental
             /// 
@@ -470,9 +396,7 @@ extension SemConv {
             /// - Example: `some-bucket-name`
             public static let bucket = "aws.s3.bucket"
         
-            /// `aws.s3.copy_source`
-            /// 
-            /// The source object (in the form `bucket`/`key`) for the copy operation.
+            /// `aws.s3.copy_source`: The source object (in the form `bucket`/`key`) for the copy operation.
             /// 
             /// - Stability: experimental
             /// 
@@ -483,9 +407,7 @@ extension SemConv {
             /// - Example: `someFile.yml`
             public static let copy_source = "aws.s3.copy_source"
         
-            /// `aws.s3.delete`
-            /// 
-            /// The delete request container that specifies the objects to be deleted.
+            /// `aws.s3.delete`: The delete request container that specifies the objects to be deleted.
             /// 
             /// - Stability: experimental
             /// 
@@ -496,9 +418,7 @@ extension SemConv {
             /// - Example: `Objects=[{Key=string,VersionId=string},{Key=string,VersionId=string}],Quiet=boolean`
             public static let delete = "aws.s3.delete"
         
-            /// `aws.s3.key`
-            /// 
-            /// The S3 object key the request refers to. Corresponds to the `--key` parameter of the [S3 API](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) operations.
+            /// `aws.s3.key`: The S3 object key the request refers to. Corresponds to the `--key` parameter of the [S3 API](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) operations.
             /// 
             /// - Stability: experimental
             /// 
@@ -509,9 +429,7 @@ extension SemConv {
             /// - Example: `someFile.yml`
             public static let key = "aws.s3.key"
         
-            /// `aws.s3.part_number`
-            /// 
-            /// The part number of the part being uploaded in a multipart-upload operation. This is a positive integer between 1 and 10,000.
+            /// `aws.s3.part_number`: The part number of the part being uploaded in a multipart-upload operation. This is a positive integer between 1 and 10,000.
             /// 
             /// - Stability: experimental
             /// 
@@ -522,9 +440,7 @@ extension SemConv {
             /// - Example: `3456`
             public static let part_number = "aws.s3.part_number"
         
-            /// `aws.s3.upload_id`
-            /// 
-            /// Upload ID that identifies the multipart upload.
+            /// `aws.s3.upload_id`: Upload ID that identifies the multipart upload.
             /// 
             /// - Stability: experimental
             /// 

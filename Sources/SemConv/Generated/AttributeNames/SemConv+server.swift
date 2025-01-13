@@ -5,9 +5,7 @@
 extension SemConv {
     /// `server` namespace
     public enum server {
-        /// `server.address`
-        /// 
-        /// Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
+        /// `server.address`: Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
         /// 
         /// - Stability: stable
         /// 
@@ -21,9 +19,7 @@ extension SemConv {
         ///     - `/tmp/my.sock`
         public static let address = "server.address"
     
-        /// `server.port`
-        /// 
-        /// Server port number.
+        /// `server.port`: Server port number.
         /// 
         /// - Stability: stable
         /// 

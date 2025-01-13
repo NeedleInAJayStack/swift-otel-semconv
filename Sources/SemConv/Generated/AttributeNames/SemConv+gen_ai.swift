@@ -5,9 +5,7 @@
 extension SemConv {
     /// `gen_ai` namespace
     public enum gen_ai {
-        /// `gen_ai.completion`
-        /// 
-        /// Deprecated, use Event API to report completions contents.
+        /// `gen_ai.completion`: Deprecated, use Event API to report completions contents.
         /// 
         /// - Stability: experimental
         /// 
@@ -17,9 +15,7 @@ extension SemConv {
         @available(*, deprecated, message: "Removed, no replacement at this time.")
         public static let completion = "gen_ai.completion"
     
-        /// `gen_ai.prompt`
-        /// 
-        /// Deprecated, use Event API to report prompt contents.
+        /// `gen_ai.prompt`: Deprecated, use Event API to report prompt contents.
         /// 
         /// - Stability: experimental
         /// 
@@ -29,9 +25,7 @@ extension SemConv {
         @available(*, deprecated, message: "Removed, no replacement at this time.")
         public static let prompt = "gen_ai.prompt"
     
-        /// `gen_ai.system`
-        /// 
-        /// The Generative AI product as identified by the client or server instrumentation.
+        /// `gen_ai.system`: The Generative AI product as identified by the client or server instrumentation.
         /// 
         /// - Stability: experimental
         /// 
@@ -52,9 +46,7 @@ extension SemConv {
         
             /// `gen_ai.openai.request` namespace
             public enum request {
-                /// `gen_ai.openai.request.response_format`
-                /// 
-                /// The response format that is requested.
+                /// `gen_ai.openai.request.response_format`: The response format that is requested.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -66,9 +58,7 @@ extension SemConv {
                 /// - Example: `json`
                 public static let response_format = "gen_ai.openai.request.response_format"
             
-                /// `gen_ai.openai.request.seed`
-                /// 
-                /// Requests with same seed value more likely to return same result.
+                /// `gen_ai.openai.request.seed`: Requests with same seed value more likely to return same result.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -77,9 +67,7 @@ extension SemConv {
                 /// - Example: `100`
                 public static let seed = "gen_ai.openai.request.seed"
             
-                /// `gen_ai.openai.request.service_tier`
-                /// 
-                /// The service tier requested. May be a specific tier, detault, or auto.
+                /// `gen_ai.openai.request.service_tier`: The service tier requested. May be a specific tier, detault, or auto.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -97,9 +85,7 @@ extension SemConv {
         
             /// `gen_ai.openai.response` namespace
             public enum response {
-                /// `gen_ai.openai.response.service_tier`
-                /// 
-                /// The service tier used for the response.
+                /// `gen_ai.openai.response.service_tier`: The service tier used for the response.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -116,9 +102,7 @@ extension SemConv {
     
         /// `gen_ai.operation` namespace
         public enum operation {
-            /// `gen_ai.operation.name`
-            /// 
-            /// The name of the operation being performed.
+            /// `gen_ai.operation.name`: The name of the operation being performed.
             /// 
             /// - Stability: experimental
             /// 
@@ -134,9 +118,7 @@ extension SemConv {
     
         /// `gen_ai.request` namespace
         public enum request {
-            /// `gen_ai.request.frequency_penalty`
-            /// 
-            /// The frequency penalty setting for the GenAI request.
+            /// `gen_ai.request.frequency_penalty`: The frequency penalty setting for the GenAI request.
             /// 
             /// - Stability: experimental
             /// 
@@ -145,9 +127,7 @@ extension SemConv {
             /// - Example: `0.1`
             public static let frequency_penalty = "gen_ai.request.frequency_penalty"
         
-            /// `gen_ai.request.max_tokens`
-            /// 
-            /// The maximum number of tokens the model generates for a request.
+            /// `gen_ai.request.max_tokens`: The maximum number of tokens the model generates for a request.
             /// 
             /// - Stability: experimental
             /// 
@@ -156,9 +136,7 @@ extension SemConv {
             /// - Example: `100`
             public static let max_tokens = "gen_ai.request.max_tokens"
         
-            /// `gen_ai.request.model`
-            /// 
-            /// The name of the GenAI model a request is being made to.
+            /// `gen_ai.request.model`: The name of the GenAI model a request is being made to.
             /// 
             /// - Stability: experimental
             /// 
@@ -167,9 +145,7 @@ extension SemConv {
             /// - Example: `gpt-4`
             public static let model = "gen_ai.request.model"
         
-            /// `gen_ai.request.presence_penalty`
-            /// 
-            /// The presence penalty setting for the GenAI request.
+            /// `gen_ai.request.presence_penalty`: The presence penalty setting for the GenAI request.
             /// 
             /// - Stability: experimental
             /// 
@@ -178,18 +154,14 @@ extension SemConv {
             /// - Example: `0.1`
             public static let presence_penalty = "gen_ai.request.presence_penalty"
         
-            /// `gen_ai.request.stop_sequences`
-            /// 
-            /// List of sequences that the model will use to stop generating further tokens.
+            /// `gen_ai.request.stop_sequences`: List of sequences that the model will use to stop generating further tokens.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let stop_sequences = "gen_ai.request.stop_sequences"
         
-            /// `gen_ai.request.temperature`
-            /// 
-            /// The temperature setting for the GenAI request.
+            /// `gen_ai.request.temperature`: The temperature setting for the GenAI request.
             /// 
             /// - Stability: experimental
             /// 
@@ -198,9 +170,7 @@ extension SemConv {
             /// - Example: `0.0`
             public static let temperature = "gen_ai.request.temperature"
         
-            /// `gen_ai.request.top_k`
-            /// 
-            /// The top_k sampling setting for the GenAI request.
+            /// `gen_ai.request.top_k`: The top_k sampling setting for the GenAI request.
             /// 
             /// - Stability: experimental
             /// 
@@ -209,9 +179,7 @@ extension SemConv {
             /// - Example: `1.0`
             public static let top_k = "gen_ai.request.top_k"
         
-            /// `gen_ai.request.top_p`
-            /// 
-            /// The top_p sampling setting for the GenAI request.
+            /// `gen_ai.request.top_p`: The top_p sampling setting for the GenAI request.
             /// 
             /// - Stability: experimental
             /// 
@@ -225,18 +193,14 @@ extension SemConv {
     
         /// `gen_ai.response` namespace
         public enum response {
-            /// `gen_ai.response.finish_reasons`
-            /// 
-            /// Array of reasons the model stopped generating tokens, corresponding to each generation received.
+            /// `gen_ai.response.finish_reasons`: Array of reasons the model stopped generating tokens, corresponding to each generation received.
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: stringArray
             public static let finish_reasons = "gen_ai.response.finish_reasons"
         
-            /// `gen_ai.response.id`
-            /// 
-            /// The unique identifier for the completion.
+            /// `gen_ai.response.id`: The unique identifier for the completion.
             /// 
             /// - Stability: experimental
             /// 
@@ -245,9 +209,7 @@ extension SemConv {
             /// - Example: `chatcmpl-123`
             public static let id = "gen_ai.response.id"
         
-            /// `gen_ai.response.model`
-            /// 
-            /// The name of the model that generated the response.
+            /// `gen_ai.response.model`: The name of the model that generated the response.
             /// 
             /// - Stability: experimental
             /// 
@@ -261,9 +223,7 @@ extension SemConv {
     
         /// `gen_ai.token` namespace
         public enum token {
-            /// `gen_ai.token.type`
-            /// 
-            /// The type of token being counted.
+            /// `gen_ai.token.type`: The type of token being counted.
             /// 
             /// - Stability: experimental
             /// 
@@ -281,9 +241,7 @@ extension SemConv {
     
         /// `gen_ai.usage` namespace
         public enum usage {
-            /// `gen_ai.usage.completion_tokens`
-            /// 
-            /// Deprecated, use `gen_ai.usage.output_tokens` instead.
+            /// `gen_ai.usage.completion_tokens`: Deprecated, use `gen_ai.usage.output_tokens` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -293,9 +251,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `gen_ai.usage.output_tokens` attribute.")
             public static let completion_tokens = "gen_ai.usage.completion_tokens"
         
-            /// `gen_ai.usage.input_tokens`
-            /// 
-            /// The number of tokens used in the GenAI input (prompt).
+            /// `gen_ai.usage.input_tokens`: The number of tokens used in the GenAI input (prompt).
             /// 
             /// - Stability: experimental
             /// 
@@ -304,9 +260,7 @@ extension SemConv {
             /// - Example: `100`
             public static let input_tokens = "gen_ai.usage.input_tokens"
         
-            /// `gen_ai.usage.output_tokens`
-            /// 
-            /// The number of tokens used in the GenAI response (completion).
+            /// `gen_ai.usage.output_tokens`: The number of tokens used in the GenAI response (completion).
             /// 
             /// - Stability: experimental
             /// 
@@ -315,9 +269,7 @@ extension SemConv {
             /// - Example: `180`
             public static let output_tokens = "gen_ai.usage.output_tokens"
         
-            /// `gen_ai.usage.prompt_tokens`
-            /// 
-            /// Deprecated, use `gen_ai.usage.input_tokens` instead.
+            /// `gen_ai.usage.prompt_tokens`: Deprecated, use `gen_ai.usage.input_tokens` instead.
             /// 
             /// - Stability: experimental
             /// 

@@ -5,9 +5,7 @@
 extension SemConv {
     /// `process` namespace
     public enum process {
-        /// `process.args_count`
-        /// 
-        /// Length of the process.command_args array 
+        /// `process.args_count`: Length of the process.command_args array 
         /// 
         /// - Stability: experimental
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
         /// - Example: `4`
         public static let args_count = "process.args_count"
     
-        /// `process.command`
-        /// 
-        /// The command used to launch the process (i.e. the command name). On Linux based systems, can be set to the zeroth string in `proc/[pid]/cmdline`. On Windows, can be set to the first parameter extracted from `GetCommandLineW`. 
+        /// `process.command`: The command used to launch the process (i.e. the command name). On Linux based systems, can be set to the zeroth string in `proc/[pid]/cmdline`. On Windows, can be set to the first parameter extracted from `GetCommandLineW`. 
         /// 
         /// - Stability: experimental
         /// 
@@ -29,18 +25,14 @@ extension SemConv {
         /// - Example: `cmd/otelcol`
         public static let command = "process.command"
     
-        /// `process.command_args`
-        /// 
-        /// All the command arguments (including the command/executable itself) as received by the process. On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according to the list of null-delimited strings extracted from `proc/[pid]/cmdline`. For libc-based executables, this would be the full argv vector passed to `main`. 
+        /// `process.command_args`: All the command arguments (including the command/executable itself) as received by the process. On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according to the list of null-delimited strings extracted from `proc/[pid]/cmdline`. For libc-based executables, this would be the full argv vector passed to `main`. 
         /// 
         /// - Stability: experimental
         /// 
         /// - Type: stringArray
         public static let command_args = "process.command_args"
     
-        /// `process.command_line`
-        /// 
-        /// The full command used to launch the process as a single string representing the full command. On Windows, can be set to the result of `GetCommandLineW`. Do not set this if you have to assemble it just for monitoring; use `process.command_args` instead. 
+        /// `process.command_line`: The full command used to launch the process as a single string representing the full command. On Windows, can be set to the result of `GetCommandLineW`. Do not set this if you have to assemble it just for monitoring; use `process.command_args` instead. 
         /// 
         /// - Stability: experimental
         /// 
@@ -49,9 +41,7 @@ extension SemConv {
         /// - Example: `C:\cmd\otecol --config="my directory\config.yaml"`
         public static let command_line = "process.command_line"
     
-        /// `process.context_switch_type`
-        /// 
-        /// Specifies whether the context switches for this data point were voluntary or involuntary.
+        /// `process.context_switch_type`: Specifies whether the context switches for this data point were voluntary or involuntary.
         /// 
         /// - Stability: experimental
         /// 
@@ -60,18 +50,14 @@ extension SemConv {
         ///     - `involuntary`
         public static let context_switch_type = "process.context_switch_type"
     
-        /// `process.interactive`
-        /// 
-        /// Whether the process is connected to an interactive shell. 
+        /// `process.interactive`: Whether the process is connected to an interactive shell. 
         /// 
         /// - Stability: experimental
         /// 
         /// - Type: boolean
         public static let interactive = "process.interactive"
     
-        /// `process.owner`
-        /// 
-        /// The username of the user that owns the process. 
+        /// `process.owner`: The username of the user that owns the process. 
         /// 
         /// - Stability: experimental
         /// 
@@ -80,9 +66,7 @@ extension SemConv {
         /// - Example: `root`
         public static let owner = "process.owner"
     
-        /// `process.parent_pid`
-        /// 
-        /// Parent Process identifier (PPID). 
+        /// `process.parent_pid`: Parent Process identifier (PPID). 
         /// 
         /// - Stability: experimental
         /// 
@@ -91,9 +75,7 @@ extension SemConv {
         /// - Example: `111`
         public static let parent_pid = "process.parent_pid"
     
-        /// `process.pid`
-        /// 
-        /// Process identifier (PID). 
+        /// `process.pid`: Process identifier (PID). 
         /// 
         /// - Stability: experimental
         /// 
@@ -102,9 +84,7 @@ extension SemConv {
         /// - Example: `1234`
         public static let pid = "process.pid"
     
-        /// `process.title`
-        /// 
-        /// Process title (proctitle) 
+        /// `process.title`: Process title (proctitle) 
         /// 
         /// - Stability: experimental
         /// 
@@ -118,9 +98,7 @@ extension SemConv {
         ///     - `bash`
         public static let title = "process.title"
     
-        /// `process.vpid`
-        /// 
-        /// Virtual process identifier. 
+        /// `process.vpid`: Virtual process identifier. 
         /// 
         /// - Stability: experimental
         /// 
@@ -131,9 +109,7 @@ extension SemConv {
         /// - Example: `12`
         public static let vpid = "process.vpid"
     
-        /// `process.working_directory`
-        /// 
-        /// The working directory of the process. 
+        /// `process.working_directory`: The working directory of the process. 
         /// 
         /// - Stability: experimental
         /// 
@@ -144,9 +120,7 @@ extension SemConv {
     
         /// `process.cpu` namespace
         public enum cpu {
-            /// `process.cpu.state`
-            /// 
-            /// Deprecated, use `cpu.mode` instead.
+            /// `process.cpu.state`: Deprecated, use `cpu.mode` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -162,9 +136,7 @@ extension SemConv {
     
         /// `process.creation` namespace
         public enum creation {
-            /// `process.creation.time`
-            /// 
-            /// The date and time the process was created, in ISO 8601 format. 
+            /// `process.creation.time`: The date and time the process was created, in ISO 8601 format. 
             /// 
             /// - Stability: experimental
             /// 
@@ -178,9 +150,7 @@ extension SemConv {
     
         /// `process.executable` namespace
         public enum executable {
-            /// `process.executable.name`
-            /// 
-            /// The name of the process executable. On Linux based systems, can be set to the `Name` in `proc/[pid]/status`. On Windows, can be set to the base name of `GetProcessImageFileNameW`. 
+            /// `process.executable.name`: The name of the process executable. On Linux based systems, can be set to the `Name` in `proc/[pid]/status`. On Windows, can be set to the base name of `GetProcessImageFileNameW`. 
             /// 
             /// - Stability: experimental
             /// 
@@ -189,9 +159,7 @@ extension SemConv {
             /// - Example: `otelcol`
             public static let name = "process.executable.name"
         
-            /// `process.executable.path`
-            /// 
-            /// The full path to the process executable. On Linux based systems, can be set to the target of `proc/[pid]/exe`. On Windows, can be set to the result of `GetProcessImageFileNameW`. 
+            /// `process.executable.path`: The full path to the process executable. On Linux based systems, can be set to the target of `proc/[pid]/exe`. On Windows, can be set to the result of `GetProcessImageFileNameW`. 
             /// 
             /// - Stability: experimental
             /// 
@@ -202,9 +170,7 @@ extension SemConv {
         
             /// `process.executable.build_id` namespace
             public enum build_id {
-                /// `process.executable.build_id.gnu`
-                /// 
-                /// The GNU build ID as found in the `.note.gnu.build-id` ELF section (hex string). 
+                /// `process.executable.build_id.gnu`: The GNU build ID as found in the `.note.gnu.build-id` ELF section (hex string). 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -213,9 +179,7 @@ extension SemConv {
                 /// - Example: `c89b11207f6479603b0d49bf291c092c2b719293`
                 public static let gnu = "process.executable.build_id.gnu"
             
-                /// `process.executable.build_id.go`
-                /// 
-                /// The Go build ID as retrieved by `go tool buildid <go executable>`. 
+                /// `process.executable.build_id.go`: The Go build ID as retrieved by `go tool buildid <go executable>`. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -224,9 +188,7 @@ extension SemConv {
                 /// - Example: `foh3mEXu7BLZjsN9pOwG/kATcXlYVCDEFouRMQed_/WwRFB1hPo9LBkekthSPG/x8hMC8emW2cCjXD0_1aY`
                 public static let go = "process.executable.build_id.go"
             
-                /// `process.executable.build_id.profiling`
-                /// 
-                /// Profiling specific build ID for executables. See the OTel specification for Profiles for more information. 
+                /// `process.executable.build_id.profiling`: Profiling specific build ID for executables. See the OTel specification for Profiles for more information. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -241,9 +203,7 @@ extension SemConv {
     
         /// `process.exit` namespace
         public enum exit {
-            /// `process.exit.code`
-            /// 
-            /// The exit code of the process. 
+            /// `process.exit.code`: The exit code of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -252,9 +212,7 @@ extension SemConv {
             /// - Example: `127`
             public static let code = "process.exit.code"
         
-            /// `process.exit.time`
-            /// 
-            /// The date and time the process exited, in ISO 8601 format. 
+            /// `process.exit.time`: The date and time the process exited, in ISO 8601 format. 
             /// 
             /// - Stability: experimental
             /// 
@@ -268,9 +226,7 @@ extension SemConv {
     
         /// `process.group_leader` namespace
         public enum group_leader {
-            /// `process.group_leader.pid`
-            /// 
-            /// The PID of the process's group leader. This is also the process group ID (PGID) of the process. 
+            /// `process.group_leader.pid`: The PID of the process's group leader. This is also the process group ID (PGID) of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -284,9 +240,7 @@ extension SemConv {
     
         /// `process.paging` namespace
         public enum paging {
-            /// `process.paging.fault_type`
-            /// 
-            /// The type of page fault for this data point. Type `major` is for major/hard page faults, and `minor` is for minor/soft page faults. 
+            /// `process.paging.fault_type`: The type of page fault for this data point. Type `major` is for major/hard page faults, and `minor` is for minor/soft page faults. 
             /// 
             /// - Stability: experimental
             /// 
@@ -300,9 +254,7 @@ extension SemConv {
     
         /// `process.real_user` namespace
         public enum real_user {
-            /// `process.real_user.id`
-            /// 
-            /// The real user ID (RUID) of the process. 
+            /// `process.real_user.id`: The real user ID (RUID) of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -311,9 +263,7 @@ extension SemConv {
             /// - Example: `1000`
             public static let id = "process.real_user.id"
         
-            /// `process.real_user.name`
-            /// 
-            /// The username of the real user of the process. 
+            /// `process.real_user.name`: The username of the real user of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -327,9 +277,7 @@ extension SemConv {
     
         /// `process.runtime` namespace
         public enum runtime {
-            /// `process.runtime.description`
-            /// 
-            /// An additional description about the runtime of the process, for example a specific vendor customization of the runtime environment. 
+            /// `process.runtime.description`: An additional description about the runtime of the process, for example a specific vendor customization of the runtime environment. 
             /// 
             /// - Stability: experimental
             /// 
@@ -338,9 +286,7 @@ extension SemConv {
             /// - Example: `Eclipse OpenJ9 Eclipse OpenJ9 VM openj9-0.21.0`
             public static let description = "process.runtime.description"
         
-            /// `process.runtime.name`
-            /// 
-            /// The name of the runtime of this process. 
+            /// `process.runtime.name`: The name of the runtime of this process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -349,9 +295,7 @@ extension SemConv {
             /// - Example: `OpenJDK Runtime Environment`
             public static let name = "process.runtime.name"
         
-            /// `process.runtime.version`
-            /// 
-            /// The version of the runtime of this process, as returned by the runtime without modification. 
+            /// `process.runtime.version`: The version of the runtime of this process, as returned by the runtime without modification. 
             /// 
             /// - Stability: experimental
             /// 
@@ -365,9 +309,7 @@ extension SemConv {
     
         /// `process.saved_user` namespace
         public enum saved_user {
-            /// `process.saved_user.id`
-            /// 
-            /// The saved user ID (SUID) of the process. 
+            /// `process.saved_user.id`: The saved user ID (SUID) of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -376,9 +318,7 @@ extension SemConv {
             /// - Example: `1002`
             public static let id = "process.saved_user.id"
         
-            /// `process.saved_user.name`
-            /// 
-            /// The username of the saved user. 
+            /// `process.saved_user.name`: The username of the saved user. 
             /// 
             /// - Stability: experimental
             /// 
@@ -392,9 +332,7 @@ extension SemConv {
     
         /// `process.session_leader` namespace
         public enum session_leader {
-            /// `process.session_leader.pid`
-            /// 
-            /// The PID of the process's session leader. This is also the session ID (SID) of the process. 
+            /// `process.session_leader.pid`: The PID of the process's session leader. This is also the session ID (SID) of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -408,9 +346,7 @@ extension SemConv {
     
         /// `process.user` namespace
         public enum user {
-            /// `process.user.id`
-            /// 
-            /// The effective user ID (EUID) of the process. 
+            /// `process.user.id`: The effective user ID (EUID) of the process. 
             /// 
             /// - Stability: experimental
             /// 
@@ -419,9 +355,7 @@ extension SemConv {
             /// - Example: `1001`
             public static let id = "process.user.id"
         
-            /// `process.user.name`
-            /// 
-            /// The username of the effective user of the process. 
+            /// `process.user.name`: The username of the effective user of the process. 
             /// 
             /// - Stability: experimental
             /// 

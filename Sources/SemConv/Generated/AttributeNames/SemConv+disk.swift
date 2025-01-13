@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `disk.io` namespace
         public enum io {
-            /// `disk.io.direction`
-            /// 
-            /// The disk IO operation direction.
+            /// `disk.io.direction`: The disk IO operation direction.
             /// 
             /// - Stability: experimental
             /// 

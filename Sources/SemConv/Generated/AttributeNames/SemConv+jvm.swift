@@ -13,9 +13,7 @@ extension SemConv {
         
             /// `jvm.buffer.pool` namespace
             public enum pool {
-                /// `jvm.buffer.pool.name`
-                /// 
-                /// Name of the buffer pool.
+                /// `jvm.buffer.pool.name`: Name of the buffer pool.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -34,9 +32,7 @@ extension SemConv {
     
         /// `jvm.gc` namespace
         public enum gc {
-            /// `jvm.gc.action`
-            /// 
-            /// Name of the garbage collector action.
+            /// `jvm.gc.action`: Name of the garbage collector action.
             /// 
             /// - Stability: stable
             /// 
@@ -49,9 +45,7 @@ extension SemConv {
             ///     - `end of major GC`
             public static let action = "jvm.gc.action"
         
-            /// `jvm.gc.name`
-            /// 
-            /// Name of the garbage collector.
+            /// `jvm.gc.name`: Name of the garbage collector.
             /// 
             /// - Stability: stable
             /// 
@@ -69,9 +63,7 @@ extension SemConv {
     
         /// `jvm.memory` namespace
         public enum memory {
-            /// `jvm.memory.type`
-            /// 
-            /// The type of memory.
+            /// `jvm.memory.type`: The type of memory.
             /// 
             /// - Stability: stable
             /// 
@@ -86,9 +78,7 @@ extension SemConv {
         
             /// `jvm.memory.pool` namespace
             public enum pool {
-                /// `jvm.memory.pool.name`
-                /// 
-                /// Name of the memory pool.
+                /// `jvm.memory.pool.name`: Name of the memory pool.
                 /// 
                 /// - Stability: stable
                 /// 
@@ -108,18 +98,14 @@ extension SemConv {
     
         /// `jvm.thread` namespace
         public enum thread {
-            /// `jvm.thread.daemon`
-            /// 
-            /// Whether the thread is daemon or not.
+            /// `jvm.thread.daemon`: Whether the thread is daemon or not.
             /// 
             /// - Stability: stable
             /// 
             /// - Type: boolean
             public static let daemon = "jvm.thread.daemon"
         
-            /// `jvm.thread.state`
-            /// 
-            /// State of the thread.
+            /// `jvm.thread.state`: State of the thread.
             /// 
             /// - Stability: stable
             /// 

@@ -5,9 +5,7 @@
 extension SemConv {
     /// `net` namespace
     public enum net {
-        /// `net.transport`
-        /// 
-        /// Deprecated, use `network.transport`.
+        /// `net.transport`: Deprecated, use `network.transport`.
         /// 
         /// - Stability: experimental
         /// 
@@ -22,9 +20,7 @@ extension SemConv {
     
         /// `net.host` namespace
         public enum host {
-            /// `net.host.ip`
-            /// 
-            /// Deprecated, use `network.local.address`.
+            /// `net.host.ip`: Deprecated, use `network.local.address`.
             /// 
             /// - Stability: experimental
             /// 
@@ -34,9 +30,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `network.local.address`.")
             public static let ip = "net.host.ip"
         
-            /// `net.host.name`
-            /// 
-            /// Deprecated, use `server.address`.
+            /// `net.host.name`: Deprecated, use `server.address`.
             /// 
             /// - Stability: experimental
             /// 
@@ -46,9 +40,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `server.address`.")
             public static let name = "net.host.name"
         
-            /// `net.host.port`
-            /// 
-            /// Deprecated, use `server.port`.
+            /// `net.host.port`: Deprecated, use `server.port`.
             /// 
             /// - Stability: experimental
             /// 
@@ -63,9 +55,7 @@ extension SemConv {
     
         /// `net.peer` namespace
         public enum peer {
-            /// `net.peer.ip`
-            /// 
-            /// Deprecated, use `network.peer.address`.
+            /// `net.peer.ip`: Deprecated, use `network.peer.address`.
             /// 
             /// - Stability: experimental
             /// 
@@ -75,9 +65,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `network.peer.address`.")
             public static let ip = "net.peer.ip"
         
-            /// `net.peer.name`
-            /// 
-            /// Deprecated, use `server.address` on client spans and `client.address` on server spans.
+            /// `net.peer.name`: Deprecated, use `server.address` on client spans and `client.address` on server spans.
             /// 
             /// - Stability: experimental
             /// 
@@ -87,9 +75,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `server.address` on client spans and `client.address` on server spans.")
             public static let name = "net.peer.name"
         
-            /// `net.peer.port`
-            /// 
-            /// Deprecated, use `server.port` on client spans and `client.port` on server spans.
+            /// `net.peer.port`: Deprecated, use `server.port` on client spans and `client.port` on server spans.
             /// 
             /// - Stability: experimental
             /// 
@@ -104,9 +90,7 @@ extension SemConv {
     
         /// `net.protocol` namespace
         public enum `protocol` {
-            /// `net.protocol.name`
-            /// 
-            /// Deprecated, use `network.protocol.name`.
+            /// `net.protocol.name`: Deprecated, use `network.protocol.name`.
             /// 
             /// - Stability: experimental
             /// 
@@ -119,9 +103,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `network.protocol.name`.")
             public static let name = "net.protocol.name"
         
-            /// `net.protocol.version`
-            /// 
-            /// Deprecated, use `network.protocol.version`.
+            /// `net.protocol.version`: Deprecated, use `network.protocol.version`.
             /// 
             /// - Stability: experimental
             /// 
@@ -136,9 +118,7 @@ extension SemConv {
     
         /// `net.sock` namespace
         public enum sock {
-            /// `net.sock.family`
-            /// 
-            /// Deprecated, use `network.transport` and `network.type`.
+            /// `net.sock.family`: Deprecated, use `network.transport` and `network.type`.
             /// 
             /// - Stability: experimental
             /// 
@@ -151,9 +131,7 @@ extension SemConv {
         
             /// `net.sock.host` namespace
             public enum host {
-                /// `net.sock.host.addr`
-                /// 
-                /// Deprecated, use `network.local.address`.
+                /// `net.sock.host.addr`: Deprecated, use `network.local.address`.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -163,9 +141,7 @@ extension SemConv {
                 @available(*, deprecated, message: "Replaced by `network.local.address`.")
                 public static let addr = "net.sock.host.addr"
             
-                /// `net.sock.host.port`
-                /// 
-                /// Deprecated, use `network.local.port`.
+                /// `net.sock.host.port`: Deprecated, use `network.local.port`.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -180,9 +156,7 @@ extension SemConv {
         
             /// `net.sock.peer` namespace
             public enum peer {
-                /// `net.sock.peer.addr`
-                /// 
-                /// Deprecated, use `network.peer.address`.
+                /// `net.sock.peer.addr`: Deprecated, use `network.peer.address`.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -192,9 +166,7 @@ extension SemConv {
                 @available(*, deprecated, message: "Replaced by `network.peer.address`.")
                 public static let addr = "net.sock.peer.addr"
             
-                /// `net.sock.peer.name`
-                /// 
-                /// Deprecated, no replacement at this time.
+                /// `net.sock.peer.name`: Deprecated, no replacement at this time.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -204,9 +176,7 @@ extension SemConv {
                 @available(*, deprecated, message: "Removed.")
                 public static let name = "net.sock.peer.name"
             
-                /// `net.sock.peer.port`
-                /// 
-                /// Deprecated, use `network.peer.port`.
+                /// `net.sock.peer.port`: Deprecated, use `network.peer.port`.
                 /// 
                 /// - Stability: experimental
                 /// 

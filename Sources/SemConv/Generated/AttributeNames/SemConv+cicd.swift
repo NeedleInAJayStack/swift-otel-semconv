@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `cicd.pipeline` namespace
         public enum pipeline {
-            /// `cicd.pipeline.name`
-            /// 
-            /// The human readable name of the pipeline within a CI/CD system. 
+            /// `cicd.pipeline.name`: The human readable name of the pipeline within a CI/CD system. 
             /// 
             /// - Stability: experimental
             /// 
@@ -26,9 +24,7 @@ extension SemConv {
         
             /// `cicd.pipeline.run` namespace
             public enum run {
-                /// `cicd.pipeline.run.id`
-                /// 
-                /// The unique identifier of a pipeline run within a CI/CD system. 
+                /// `cicd.pipeline.run.id`: The unique identifier of a pipeline run within a CI/CD system. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -42,9 +38,7 @@ extension SemConv {
         
             /// `cicd.pipeline.task` namespace
             public enum task {
-                /// `cicd.pipeline.task.name`
-                /// 
-                /// The human readable name of a task within a pipeline. Task here most closely aligns with a [computing process](https://en.wikipedia.org/wiki/Pipeline_(computing)) in a pipeline. Other terms for tasks include commands, steps, and procedures. 
+                /// `cicd.pipeline.task.name`: The human readable name of a task within a pipeline. Task here most closely aligns with a [computing process](https://en.wikipedia.org/wiki/Pipeline_(computing)) in a pipeline. Other terms for tasks include commands, steps, and procedures. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -57,9 +51,7 @@ extension SemConv {
                 ///     - `deploy_binary`
                 public static let name = "cicd.pipeline.task.name"
             
-                /// `cicd.pipeline.task.type`
-                /// 
-                /// The type of the task within a pipeline. 
+                /// `cicd.pipeline.task.type`: The type of the task within a pipeline. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -76,9 +68,7 @@ extension SemConv {
             
                 /// `cicd.pipeline.task.run` namespace
                 public enum run {
-                    /// `cicd.pipeline.task.run.id`
-                    /// 
-                    /// The unique identifier of a task run within a pipeline. 
+                    /// `cicd.pipeline.task.run.id`: The unique identifier of a task run within a pipeline. 
                     /// 
                     /// - Stability: experimental
                     /// 
@@ -89,9 +79,7 @@ extension SemConv {
                 
                     /// `cicd.pipeline.task.run.url` namespace
                     public enum url {
-                        /// `cicd.pipeline.task.run.url.full`
-                        /// 
-                        /// The [URL](https://en.wikipedia.org/wiki/URL) of the pipeline run providing the complete address in order to locate and identify the pipeline run. 
+                        /// `cicd.pipeline.task.run.url.full`: The [URL](https://en.wikipedia.org/wiki/URL) of the pipeline run providing the complete address in order to locate and identify the pipeline run. 
                         /// 
                         /// - Stability: experimental
                         /// 

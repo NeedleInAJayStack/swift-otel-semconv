@@ -5,9 +5,7 @@
 extension SemConv {
     /// `signalr` namespace
     public enum signalr {
-        /// `signalr.transport`
-        /// 
-        /// [SignalR transport type](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md)
+        /// `signalr.transport`: [SignalR transport type](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md)
         /// 
         /// - Stability: stable
         /// 
@@ -23,9 +21,7 @@ extension SemConv {
     
         /// `signalr.connection` namespace
         public enum connection {
-            /// `signalr.connection.status`
-            /// 
-            /// SignalR HTTP connection closure status.
+            /// `signalr.connection.status`: SignalR HTTP connection closure status.
             /// 
             /// - Stability: stable
             /// 

@@ -5,9 +5,7 @@
 extension SemConv {
     /// `destination` namespace
     public enum destination {
-        /// `destination.address`
-        /// 
-        /// Destination address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
+        /// `destination.address`: Destination address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
         /// 
         /// - Stability: experimental
         /// 
@@ -21,9 +19,7 @@ extension SemConv {
         ///     - `/tmp/my.sock`
         public static let address = "destination.address"
     
-        /// `destination.port`
-        /// 
-        /// Destination port number
+        /// `destination.port`: Destination port number
         /// 
         /// - Stability: experimental
         /// 

@@ -5,18 +5,14 @@
 extension SemConv {
     /// `faas` namespace
     public enum faas {
-        /// `faas.coldstart`
-        /// 
-        /// A boolean that is true if the serverless function is executed for the first time (aka cold-start). 
+        /// `faas.coldstart`: A boolean that is true if the serverless function is executed for the first time (aka cold-start). 
         /// 
         /// - Stability: experimental
         /// 
         /// - Type: boolean
         public static let coldstart = "faas.coldstart"
     
-        /// `faas.cron`
-        /// 
-        /// A string containing the schedule period as [Cron Expression](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm). 
+        /// `faas.cron`: A string containing the schedule period as [Cron Expression](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm). 
         /// 
         /// - Stability: experimental
         /// 
@@ -25,9 +21,7 @@ extension SemConv {
         /// - Example: `0/5 * * * ? *`
         public static let cron = "faas.cron"
     
-        /// `faas.instance`
-        /// 
-        /// The execution environment ID as a string, that will be potentially reused for other invocations to the same function/function version. 
+        /// `faas.instance`: The execution environment ID as a string, that will be potentially reused for other invocations to the same function/function version. 
         /// 
         /// - Stability: experimental
         /// 
@@ -38,9 +32,7 @@ extension SemConv {
         /// - Example: `2021/06/28/[$LATEST]2f399eb14537447da05ab2a2e39309de`
         public static let instance = "faas.instance"
     
-        /// `faas.invocation_id`
-        /// 
-        /// The invocation ID of the current function invocation. 
+        /// `faas.invocation_id`: The invocation ID of the current function invocation. 
         /// 
         /// - Stability: experimental
         /// 
@@ -49,9 +41,7 @@ extension SemConv {
         /// - Example: `af9d5aa4-a685-4c5f-a22b-444f80b3cc28`
         public static let invocation_id = "faas.invocation_id"
     
-        /// `faas.invoked_name`
-        /// 
-        /// The name of the invoked function. 
+        /// `faas.invoked_name`: The name of the invoked function. 
         /// 
         /// - Stability: experimental
         /// 
@@ -62,9 +52,7 @@ extension SemConv {
         /// - Example: `my-function`
         public static let invoked_name = "faas.invoked_name"
     
-        /// `faas.invoked_provider`
-        /// 
-        /// The cloud provider of the invoked function. 
+        /// `faas.invoked_provider`: The cloud provider of the invoked function. 
         /// 
         /// - Stability: experimental
         /// 
@@ -78,9 +66,7 @@ extension SemConv {
         /// SHOULD be equal to the `cloud.provider` resource attribute of the invoked function. 
         public static let invoked_provider = "faas.invoked_provider"
     
-        /// `faas.invoked_region`
-        /// 
-        /// The cloud region of the invoked function. 
+        /// `faas.invoked_region`: The cloud region of the invoked function. 
         /// 
         /// - Stability: experimental
         /// 
@@ -91,9 +77,7 @@ extension SemConv {
         /// - Example: `eu-central-1`
         public static let invoked_region = "faas.invoked_region"
     
-        /// `faas.max_memory`
-        /// 
-        /// The amount of memory available to the serverless function converted to Bytes. 
+        /// `faas.max_memory`: The amount of memory available to the serverless function converted to Bytes. 
         /// 
         /// - Stability: experimental
         /// 
@@ -104,9 +88,7 @@ extension SemConv {
         /// - Example: `134217728`
         public static let max_memory = "faas.max_memory"
     
-        /// `faas.name`
-        /// 
-        /// The name of the single function that this runtime instance executes. 
+        /// `faas.name`: The name of the single function that this runtime instance executes. 
         /// 
         /// - Stability: experimental
         /// 
@@ -119,9 +101,7 @@ extension SemConv {
         ///     - `myazurefunctionapp/some-function-name`
         public static let name = "faas.name"
     
-        /// `faas.time`
-        /// 
-        /// A string containing the function invocation time in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in [UTC](https://www.w3.org/TR/NOTE-datetime). 
+        /// `faas.time`: A string containing the function invocation time in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in [UTC](https://www.w3.org/TR/NOTE-datetime). 
         /// 
         /// - Stability: experimental
         /// 
@@ -130,9 +110,7 @@ extension SemConv {
         /// - Example: `2020-01-23T13:47:06Z`
         public static let time = "faas.time"
     
-        /// `faas.trigger`
-        /// 
-        /// Type of the trigger which caused this function invocation. 
+        /// `faas.trigger`: Type of the trigger which caused this function invocation. 
         /// 
         /// - Stability: experimental
         /// 
@@ -144,9 +122,7 @@ extension SemConv {
         ///     - `other`: If none of the others apply
         public static let trigger = "faas.trigger"
     
-        /// `faas.version`
-        /// 
-        /// The immutable version of the function being executed.
+        /// `faas.version`: The immutable version of the function being executed.
         /// 
         /// - Stability: experimental
         /// 
@@ -161,9 +137,7 @@ extension SemConv {
     
         /// `faas.document` namespace
         public enum document {
-            /// `faas.document.collection`
-            /// 
-            /// The name of the source on which the triggering operation was performed. For example, in Cloud Storage or S3 corresponds to the bucket name, and in Cosmos DB to the database name. 
+            /// `faas.document.collection`: The name of the source on which the triggering operation was performed. For example, in Cloud Storage or S3 corresponds to the bucket name, and in Cosmos DB to the database name. 
             /// 
             /// - Stability: experimental
             /// 
@@ -174,9 +148,7 @@ extension SemConv {
             ///     - `myDbName`
             public static let collection = "faas.document.collection"
         
-            /// `faas.document.name`
-            /// 
-            /// The document name/table subjected to the operation. For example, in Cloud Storage or S3 is the name of the file, and in Cosmos DB the table name. 
+            /// `faas.document.name`: The document name/table subjected to the operation. For example, in Cloud Storage or S3 is the name of the file, and in Cosmos DB the table name. 
             /// 
             /// - Stability: experimental
             /// 
@@ -187,9 +159,7 @@ extension SemConv {
             ///     - `myTableName`
             public static let name = "faas.document.name"
         
-            /// `faas.document.operation`
-            /// 
-            /// Describes the type of the operation that was performed on the data.
+            /// `faas.document.operation`: Describes the type of the operation that was performed on the data.
             /// 
             /// - Stability: experimental
             /// 
@@ -199,9 +169,7 @@ extension SemConv {
             ///     - `delete`: When an object is deleted.
             public static let operation = "faas.document.operation"
         
-            /// `faas.document.time`
-            /// 
-            /// A string containing the time when the data was accessed in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in [UTC](https://www.w3.org/TR/NOTE-datetime). 
+            /// `faas.document.time`: A string containing the time when the data was accessed in the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in [UTC](https://www.w3.org/TR/NOTE-datetime). 
             /// 
             /// - Stability: experimental
             /// 

@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `k8s.cluster` namespace
         public enum cluster {
-            /// `k8s.cluster.name`
-            /// 
-            /// The name of the cluster. 
+            /// `k8s.cluster.name`: The name of the cluster. 
             /// 
             /// - Stability: experimental
             /// 
@@ -20,9 +18,7 @@ extension SemConv {
             /// - Example: `opentelemetry-cluster`
             public static let name = "k8s.cluster.name"
         
-            /// `k8s.cluster.uid`
-            /// 
-            /// A pseudo-ID for the cluster, set to the UID of the `kube-system` namespace. 
+            /// `k8s.cluster.uid`: A pseudo-ID for the cluster, set to the UID of the `kube-system` namespace. 
             /// 
             /// - Stability: experimental
             /// 
@@ -38,9 +34,7 @@ extension SemConv {
     
         /// `k8s.container` namespace
         public enum container {
-            /// `k8s.container.name`
-            /// 
-            /// The name of the Container from Pod specification, must be unique within a Pod. Container runtime usually uses different globally unique name (`container.name`). 
+            /// `k8s.container.name`: The name of the Container from Pod specification, must be unique within a Pod. Container runtime usually uses different globally unique name (`container.name`). 
             /// 
             /// - Stability: experimental
             /// 
@@ -49,9 +43,7 @@ extension SemConv {
             /// - Example: `redis`
             public static let name = "k8s.container.name"
         
-            /// `k8s.container.restart_count`
-            /// 
-            /// Number of times the container was restarted. This attribute can be used to identify a particular container (running or stopped) within a container spec. 
+            /// `k8s.container.restart_count`: Number of times the container was restarted. This attribute can be used to identify a particular container (running or stopped) within a container spec. 
             /// 
             /// - Stability: experimental
             /// 
@@ -60,9 +52,7 @@ extension SemConv {
         
             /// `k8s.container.status` namespace
             public enum status {
-                /// `k8s.container.status.last_terminated_reason`
-                /// 
-                /// Last terminated reason of the Container. 
+                /// `k8s.container.status.last_terminated_reason`: Last terminated reason of the Container. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -79,9 +69,7 @@ extension SemConv {
     
         /// `k8s.cronjob` namespace
         public enum cronjob {
-            /// `k8s.cronjob.name`
-            /// 
-            /// The name of the CronJob. 
+            /// `k8s.cronjob.name`: The name of the CronJob. 
             /// 
             /// - Stability: experimental
             /// 
@@ -90,9 +78,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "k8s.cronjob.name"
         
-            /// `k8s.cronjob.uid`
-            /// 
-            /// The UID of the CronJob. 
+            /// `k8s.cronjob.uid`: The UID of the CronJob. 
             /// 
             /// - Stability: experimental
             /// 
@@ -106,9 +92,7 @@ extension SemConv {
     
         /// `k8s.daemonset` namespace
         public enum daemonset {
-            /// `k8s.daemonset.name`
-            /// 
-            /// The name of the DaemonSet. 
+            /// `k8s.daemonset.name`: The name of the DaemonSet. 
             /// 
             /// - Stability: experimental
             /// 
@@ -117,9 +101,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "k8s.daemonset.name"
         
-            /// `k8s.daemonset.uid`
-            /// 
-            /// The UID of the DaemonSet. 
+            /// `k8s.daemonset.uid`: The UID of the DaemonSet. 
             /// 
             /// - Stability: experimental
             /// 
@@ -133,9 +115,7 @@ extension SemConv {
     
         /// `k8s.deployment` namespace
         public enum deployment {
-            /// `k8s.deployment.name`
-            /// 
-            /// The name of the Deployment. 
+            /// `k8s.deployment.name`: The name of the Deployment. 
             /// 
             /// - Stability: experimental
             /// 
@@ -144,9 +124,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "k8s.deployment.name"
         
-            /// `k8s.deployment.uid`
-            /// 
-            /// The UID of the Deployment. 
+            /// `k8s.deployment.uid`: The UID of the Deployment. 
             /// 
             /// - Stability: experimental
             /// 
@@ -160,9 +138,7 @@ extension SemConv {
     
         /// `k8s.job` namespace
         public enum job {
-            /// `k8s.job.name`
-            /// 
-            /// The name of the Job. 
+            /// `k8s.job.name`: The name of the Job. 
             /// 
             /// - Stability: experimental
             /// 
@@ -171,9 +147,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "k8s.job.name"
         
-            /// `k8s.job.uid`
-            /// 
-            /// The UID of the Job. 
+            /// `k8s.job.uid`: The UID of the Job. 
             /// 
             /// - Stability: experimental
             /// 
@@ -187,9 +161,7 @@ extension SemConv {
     
         /// `k8s.namespace` namespace
         public enum namespace {
-            /// `k8s.namespace.name`
-            /// 
-            /// The name of the namespace that the pod is running in. 
+            /// `k8s.namespace.name`: The name of the namespace that the pod is running in. 
             /// 
             /// - Stability: experimental
             /// 
@@ -203,9 +175,7 @@ extension SemConv {
     
         /// `k8s.node` namespace
         public enum node {
-            /// `k8s.node.name`
-            /// 
-            /// The name of the Node. 
+            /// `k8s.node.name`: The name of the Node. 
             /// 
             /// - Stability: experimental
             /// 
@@ -214,9 +184,7 @@ extension SemConv {
             /// - Example: `node-1`
             public static let name = "k8s.node.name"
         
-            /// `k8s.node.uid`
-            /// 
-            /// The UID of the Node. 
+            /// `k8s.node.uid`: The UID of the Node. 
             /// 
             /// - Stability: experimental
             /// 
@@ -230,9 +198,7 @@ extension SemConv {
     
         /// `k8s.pod` namespace
         public enum pod {
-            /// `k8s.pod.annotation`
-            /// 
-            /// The annotation key-value pairs placed on the Pod, the `<key>` being the annotation name, the value being the annotation value. 
+            /// `k8s.pod.annotation`: The annotation key-value pairs placed on the Pod, the `<key>` being the annotation name, the value being the annotation value. 
             /// 
             /// - Stability: experimental
             /// 
@@ -244,9 +210,7 @@ extension SemConv {
             ///     - `k8s.pod.annotation.data=`
             public static let annotation = "k8s.pod.annotation"
         
-            /// `k8s.pod.label`
-            /// 
-            /// The label key-value pairs placed on the Pod, the `<key>` being the label name, the value being the label value. 
+            /// `k8s.pod.label`: The label key-value pairs placed on the Pod, the `<key>` being the label name, the value being the label value. 
             /// 
             /// - Stability: experimental
             /// 
@@ -258,9 +222,7 @@ extension SemConv {
             ///     - `k8s.pod.label.data=`
             public static let label = "k8s.pod.label"
         
-            /// `k8s.pod.labels`
-            /// 
-            /// Deprecated, use `k8s.pod.label` instead.
+            /// `k8s.pod.labels`: Deprecated, use `k8s.pod.label` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -270,9 +232,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `k8s.pod.label`.")
             public static let labels = "k8s.pod.labels"
         
-            /// `k8s.pod.name`
-            /// 
-            /// The name of the Pod. 
+            /// `k8s.pod.name`: The name of the Pod. 
             /// 
             /// - Stability: experimental
             /// 
@@ -281,9 +241,7 @@ extension SemConv {
             /// - Example: `opentelemetry-pod-autoconf`
             public static let name = "k8s.pod.name"
         
-            /// `k8s.pod.uid`
-            /// 
-            /// The UID of the Pod. 
+            /// `k8s.pod.uid`: The UID of the Pod. 
             /// 
             /// - Stability: experimental
             /// 
@@ -297,9 +255,7 @@ extension SemConv {
     
         /// `k8s.replicaset` namespace
         public enum replicaset {
-            /// `k8s.replicaset.name`
-            /// 
-            /// The name of the ReplicaSet. 
+            /// `k8s.replicaset.name`: The name of the ReplicaSet. 
             /// 
             /// - Stability: experimental
             /// 
@@ -308,9 +264,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "k8s.replicaset.name"
         
-            /// `k8s.replicaset.uid`
-            /// 
-            /// The UID of the ReplicaSet. 
+            /// `k8s.replicaset.uid`: The UID of the ReplicaSet. 
             /// 
             /// - Stability: experimental
             /// 
@@ -324,9 +278,7 @@ extension SemConv {
     
         /// `k8s.statefulset` namespace
         public enum statefulset {
-            /// `k8s.statefulset.name`
-            /// 
-            /// The name of the StatefulSet. 
+            /// `k8s.statefulset.name`: The name of the StatefulSet. 
             /// 
             /// - Stability: experimental
             /// 
@@ -335,9 +287,7 @@ extension SemConv {
             /// - Example: `opentelemetry`
             public static let name = "k8s.statefulset.name"
         
-            /// `k8s.statefulset.uid`
-            /// 
-            /// The UID of the StatefulSet. 
+            /// `k8s.statefulset.uid`: The UID of the StatefulSet. 
             /// 
             /// - Stability: experimental
             /// 
@@ -351,9 +301,7 @@ extension SemConv {
     
         /// `k8s.volume` namespace
         public enum volume {
-            /// `k8s.volume.name`
-            /// 
-            /// The name of the K8s volume. 
+            /// `k8s.volume.name`: The name of the K8s volume. 
             /// 
             /// - Stability: experimental
             /// 
@@ -362,9 +310,7 @@ extension SemConv {
             /// - Example: `volume0`
             public static let name = "k8s.volume.name"
         
-            /// `k8s.volume.type`
-            /// 
-            /// The type of the K8s volume. 
+            /// `k8s.volume.type`: The type of the K8s volume. 
             /// 
             /// - Stability: experimental
             /// 

@@ -5,9 +5,7 @@
 extension SemConv {
     /// `db` namespace
     public enum db {
-        /// `db.connection_string`
-        /// 
-        /// Deprecated, use `server.address`, `server.port` attributes instead.
+        /// `db.connection_string`: Deprecated, use `server.address`, `server.port` attributes instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -17,9 +15,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `server.address` and `server.port`.")
         public static let connection_string = "db.connection_string"
     
-        /// `db.name`
-        /// 
-        /// Deprecated, use `db.namespace` instead.
+        /// `db.name`: Deprecated, use `db.namespace` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -31,9 +27,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `db.namespace`.")
         public static let name = "db.name"
     
-        /// `db.namespace`
-        /// 
-        /// The name of the database, fully qualified within the server address and port. 
+        /// `db.namespace`: The name of the database, fully qualified within the server address and port. 
         /// 
         /// - Stability: experimental
         /// 
@@ -46,9 +40,7 @@ extension SemConv {
         ///     - `test.users`
         public static let namespace = "db.namespace"
     
-        /// `db.operation`
-        /// 
-        /// Deprecated, use `db.operation.name` instead.
+        /// `db.operation`: Deprecated, use `db.operation.name` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -61,9 +53,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `db.operation.name`.")
         public static let _operation = "db.operation"
     
-        /// `db.statement`
-        /// 
-        /// The database statement being executed.
+        /// `db.statement`: The database statement being executed.
         /// 
         /// - Stability: experimental
         /// 
@@ -75,9 +65,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `db.query.text`.")
         public static let statement = "db.statement"
     
-        /// `db.system`
-        /// 
-        /// The database management system (DBMS) product as identified by the client instrumentation.
+        /// `db.system`: The database management system (DBMS) product as identified by the client instrumentation.
         /// 
         /// - Stability: experimental
         /// 
@@ -140,9 +128,7 @@ extension SemConv {
         /// The actual DBMS may differ from the one identified by the client. For example, when using PostgreSQL client libraries to connect to a CockroachDB, the `db.system` is set to `postgresql` based on the instrumentation's best knowledge. This attribute has stability level RELEASE CANDIDATE. 
         public static let system = "db.system"
     
-        /// `db.user`
-        /// 
-        /// Deprecated, no replacement at this time.
+        /// `db.user`: Deprecated, no replacement at this time.
         /// 
         /// - Stability: experimental
         /// 
@@ -156,9 +142,7 @@ extension SemConv {
     
         /// `db.cassandra` namespace
         public enum cassandra {
-            /// `db.cassandra.consistency_level`
-            /// 
-            /// The consistency level of the query. Based on consistency values from [CQL](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html). 
+            /// `db.cassandra.consistency_level`: The consistency level of the query. Based on consistency values from [CQL](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html). 
             /// 
             /// - Stability: experimental
             /// 
@@ -176,18 +160,14 @@ extension SemConv {
             ///     - `local_serial`
             public static let consistency_level = "db.cassandra.consistency_level"
         
-            /// `db.cassandra.idempotence`
-            /// 
-            /// Whether or not the query is idempotent. 
+            /// `db.cassandra.idempotence`: Whether or not the query is idempotent. 
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: boolean
             public static let idempotence = "db.cassandra.idempotence"
         
-            /// `db.cassandra.page_size`
-            /// 
-            /// The fetch size used for paging, i.e. how many rows will be returned at once. 
+            /// `db.cassandra.page_size`: The fetch size used for paging, i.e. how many rows will be returned at once. 
             /// 
             /// - Stability: experimental
             /// 
@@ -196,9 +176,7 @@ extension SemConv {
             /// - Example: `5000`
             public static let page_size = "db.cassandra.page_size"
         
-            /// `db.cassandra.speculative_execution_count`
-            /// 
-            /// The number of times a query was speculatively executed. Not set or `0` if the query was not executed speculatively. 
+            /// `db.cassandra.speculative_execution_count`: The number of times a query was speculatively executed. Not set or `0` if the query was not executed speculatively. 
             /// 
             /// - Stability: experimental
             /// 
@@ -209,9 +187,7 @@ extension SemConv {
             ///     - `2`
             public static let speculative_execution_count = "db.cassandra.speculative_execution_count"
         
-            /// `db.cassandra.table`
-            /// 
-            /// Deprecated, use `db.collection.name` instead.
+            /// `db.cassandra.table`: Deprecated, use `db.collection.name` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -223,9 +199,7 @@ extension SemConv {
         
             /// `db.cassandra.coordinator` namespace
             public enum coordinator {
-                /// `db.cassandra.coordinator.dc`
-                /// 
-                /// The data center of the coordinating node for a query. 
+                /// `db.cassandra.coordinator.dc`: The data center of the coordinating node for a query. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -234,9 +208,7 @@ extension SemConv {
                 /// - Example: `us-west-2`
                 public static let dc = "db.cassandra.coordinator.dc"
             
-                /// `db.cassandra.coordinator.id`
-                /// 
-                /// The ID of the coordinating node for a query. 
+                /// `db.cassandra.coordinator.id`: The ID of the coordinating node for a query. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -255,9 +227,7 @@ extension SemConv {
         
             /// `db.client.connection` namespace
             public enum connection {
-                /// `db.client.connection.state`
-                /// 
-                /// The state of a connection in the pool
+                /// `db.client.connection.state`: The state of a connection in the pool
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -270,9 +240,7 @@ extension SemConv {
             
                 /// `db.client.connection.pool` namespace
                 public enum pool {
-                    /// `db.client.connection.pool.name`
-                    /// 
-                    /// The name of the connection pool; unique within the instrumented application. In case the connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination of parameters that would make the name unique, for example, combining attributes `server.address`, `server.port`, and `db.namespace`, formatted as `server.address:server.port/db.namespace`. Instrumentations that generate connection pool name following different patterns SHOULD document it. 
+                    /// `db.client.connection.pool.name`: The name of the connection pool; unique within the instrumented application. In case the connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination of parameters that would make the name unique, for example, combining attributes `server.address`, `server.port`, and `db.namespace`, formatted as `server.address:server.port/db.namespace`. Instrumentations that generate connection pool name following different patterns SHOULD document it. 
                     /// 
                     /// - Stability: experimental
                     /// 
@@ -287,9 +255,7 @@ extension SemConv {
         
             /// `db.client.connections` namespace
             public enum connections {
-                /// `db.client.connections.state`
-                /// 
-                /// Deprecated, use `db.client.connection.state` instead.
+                /// `db.client.connections.state`: Deprecated, use `db.client.connection.state` instead.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -303,9 +269,7 @@ extension SemConv {
             
                 /// `db.client.connections.pool` namespace
                 public enum pool {
-                    /// `db.client.connections.pool.name`
-                    /// 
-                    /// Deprecated, use `db.client.connection.pool.name` instead.
+                    /// `db.client.connections.pool.name`: Deprecated, use `db.client.connection.pool.name` instead.
                     /// 
                     /// - Stability: experimental
                     /// 
@@ -322,9 +286,7 @@ extension SemConv {
     
         /// `db.collection` namespace
         public enum collection {
-            /// `db.collection.name`
-            /// 
-            /// The name of a collection (table, container) within the database.
+            /// `db.collection.name`: The name of a collection (table, container) within the database.
             /// 
             /// - Stability: experimental
             /// 
@@ -342,9 +304,7 @@ extension SemConv {
     
         /// `db.cosmosdb` namespace
         public enum cosmosdb {
-            /// `db.cosmosdb.client_id`
-            /// 
-            /// Unique Cosmos client instance id.
+            /// `db.cosmosdb.client_id`: Unique Cosmos client instance id.
             /// 
             /// - Stability: experimental
             /// 
@@ -353,9 +313,7 @@ extension SemConv {
             /// - Example: `3ba4827d-4422-483f-b59f-85b74211c11d`
             public static let client_id = "db.cosmosdb.client_id"
         
-            /// `db.cosmosdb.connection_mode`
-            /// 
-            /// Cosmos client connection mode.
+            /// `db.cosmosdb.connection_mode`: Cosmos client connection mode.
             /// 
             /// - Stability: experimental
             /// 
@@ -364,9 +322,7 @@ extension SemConv {
             ///     - `direct`: Direct connection.
             public static let connection_mode = "db.cosmosdb.connection_mode"
         
-            /// `db.cosmosdb.container`
-            /// 
-            /// Deprecated, use `db.collection.name` instead.
+            /// `db.cosmosdb.container`: Deprecated, use `db.collection.name` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -376,9 +332,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `db.collection.name`.")
             public static let container = "db.cosmosdb.container"
         
-            /// `db.cosmosdb.operation_type`
-            /// 
-            /// Cosmos DB Operation Type.
+            /// `db.cosmosdb.operation_type`: Cosmos DB Operation Type.
             /// 
             /// - Stability: experimental
             /// 
@@ -400,9 +354,7 @@ extension SemConv {
             ///     - `upsert`
             public static let operation_type = "db.cosmosdb.operation_type"
         
-            /// `db.cosmosdb.request_charge`
-            /// 
-            /// RU consumed for that operation
+            /// `db.cosmosdb.request_charge`: RU consumed for that operation
             /// 
             /// - Stability: experimental
             /// 
@@ -413,18 +365,14 @@ extension SemConv {
             ///     - `1.0`
             public static let request_charge = "db.cosmosdb.request_charge"
         
-            /// `db.cosmosdb.request_content_length`
-            /// 
-            /// Request payload size in bytes
+            /// `db.cosmosdb.request_content_length`: Request payload size in bytes
             /// 
             /// - Stability: experimental
             /// 
             /// - Type: int
             public static let request_content_length = "db.cosmosdb.request_content_length"
         
-            /// `db.cosmosdb.status_code`
-            /// 
-            /// Deprecated, use `db.response.status_code` instead.
+            /// `db.cosmosdb.status_code`: Deprecated, use `db.response.status_code` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -436,9 +384,7 @@ extension SemConv {
             @available(*, deprecated, message: "Replaced by `db.response.status_code`.")
             public static let status_code = "db.cosmosdb.status_code"
         
-            /// `db.cosmosdb.sub_status_code`
-            /// 
-            /// Cosmos DB sub status code.
+            /// `db.cosmosdb.sub_status_code`: Cosmos DB sub status code.
             /// 
             /// - Stability: experimental
             /// 
@@ -454,9 +400,7 @@ extension SemConv {
     
         /// `db.elasticsearch` namespace
         public enum elasticsearch {
-            /// `db.elasticsearch.path_parts`
-            /// 
-            /// A dynamic value in the url path. 
+            /// `db.elasticsearch.path_parts`: A dynamic value in the url path. 
             /// 
             /// - Stability: experimental
             /// 
@@ -471,9 +415,7 @@ extension SemConv {
         
             /// `db.elasticsearch.cluster` namespace
             public enum cluster {
-                /// `db.elasticsearch.cluster.name`
-                /// 
-                /// Deprecated, use `db.namespace` instead. 
+                /// `db.elasticsearch.cluster.name`: Deprecated, use `db.namespace` instead. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -488,9 +430,7 @@ extension SemConv {
         
             /// `db.elasticsearch.node` namespace
             public enum node {
-                /// `db.elasticsearch.node.name`
-                /// 
-                /// Represents the human-readable identifier of the node/instance to which a request was routed. 
+                /// `db.elasticsearch.node.name`: Represents the human-readable identifier of the node/instance to which a request was routed. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -505,9 +445,7 @@ extension SemConv {
     
         /// `db.instance` namespace
         public enum instance {
-            /// `db.instance.id`
-            /// 
-            /// Deprecated, no general replacement at this time. For Elasticsearch, use `db.elasticsearch.node.name` instead.
+            /// `db.instance.id`: Deprecated, no general replacement at this time. For Elasticsearch, use `db.elasticsearch.node.name` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -522,9 +460,7 @@ extension SemConv {
     
         /// `db.jdbc` namespace
         public enum jdbc {
-            /// `db.jdbc.driver_classname`
-            /// 
-            /// Removed, no replacement at this time.
+            /// `db.jdbc.driver_classname`: Removed, no replacement at this time.
             /// 
             /// - Stability: experimental
             /// 
@@ -541,9 +477,7 @@ extension SemConv {
     
         /// `db.mongodb` namespace
         public enum mongodb {
-            /// `db.mongodb.collection`
-            /// 
-            /// Deprecated, use `db.collection.name` instead.
+            /// `db.mongodb.collection`: Deprecated, use `db.collection.name` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -558,9 +492,7 @@ extension SemConv {
     
         /// `db.mssql` namespace
         public enum mssql {
-            /// `db.mssql.instance_name`
-            /// 
-            /// Deprecated, SQL Server instance is now populated as a part of `db.namespace` attribute.
+            /// `db.mssql.instance_name`: Deprecated, SQL Server instance is now populated as a part of `db.namespace` attribute.
             /// 
             /// - Stability: experimental
             /// 
@@ -575,9 +507,7 @@ extension SemConv {
     
         /// `db.operation` namespace
         public enum operation {
-            /// `db.operation.name`
-            /// 
-            /// The name of the operation or command being executed. 
+            /// `db.operation.name`: The name of the operation or command being executed. 
             /// 
             /// - Stability: experimental
             /// 
@@ -593,9 +523,7 @@ extension SemConv {
         
             /// `db.operation.batch` namespace
             public enum batch {
-                /// `db.operation.batch.size`
-                /// 
-                /// The number of queries included in a batch operation.
+                /// `db.operation.batch.size`: The number of queries included in a batch operation.
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -615,9 +543,7 @@ extension SemConv {
     
         /// `db.query` namespace
         public enum query {
-            /// `db.query.parameter`
-            /// 
-            /// A query parameter used in `db.query.text`, with `<key>` being the parameter name, and the attribute value being a string representation of the parameter value. 
+            /// `db.query.parameter`: A query parameter used in `db.query.text`, with `<key>` being the parameter name, and the attribute value being a string representation of the parameter value. 
             /// 
             /// - Stability: experimental
             /// 
@@ -630,9 +556,7 @@ extension SemConv {
             ///     - `55`
             public static let parameter = "db.query.parameter"
         
-            /// `db.query.text`
-            /// 
-            /// The database query being executed. 
+            /// `db.query.text`: The database query being executed. 
             /// 
             /// - Stability: experimental
             /// 
@@ -650,9 +574,7 @@ extension SemConv {
     
         /// `db.redis` namespace
         public enum redis {
-            /// `db.redis.database_index`
-            /// 
-            /// Deprecated, use `db.namespace` instead.
+            /// `db.redis.database_index`: Deprecated, use `db.namespace` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -670,9 +592,7 @@ extension SemConv {
     
         /// `db.response` namespace
         public enum response {
-            /// `db.response.status_code`
-            /// 
-            /// Database response status code.
+            /// `db.response.status_code`: Database response status code.
             /// 
             /// - Stability: experimental
             /// 
@@ -692,9 +612,7 @@ extension SemConv {
     
         /// `db.sql` namespace
         public enum sql {
-            /// `db.sql.table`
-            /// 
-            /// Deprecated, use `db.collection.name` instead.
+            /// `db.sql.table`: Deprecated, use `db.collection.name` instead.
             /// 
             /// - Stability: experimental
             /// 

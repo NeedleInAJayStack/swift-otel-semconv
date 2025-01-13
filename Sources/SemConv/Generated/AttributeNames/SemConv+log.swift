@@ -5,9 +5,7 @@
 extension SemConv {
     /// `log` namespace
     public enum log {
-        /// `log.iostream`
-        /// 
-        /// The stream associated with the log. See below for a list of well-known values. 
+        /// `log.iostream`: The stream associated with the log. See below for a list of well-known values. 
         /// 
         /// - Stability: experimental
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
     
         /// `log.file` namespace
         public enum file {
-            /// `log.file.name`
-            /// 
-            /// The basename of the file. 
+            /// `log.file.name`: The basename of the file. 
             /// 
             /// - Stability: experimental
             /// 
@@ -29,9 +25,7 @@ extension SemConv {
             /// - Example: `audit.log`
             public static let name = "log.file.name"
         
-            /// `log.file.name_resolved`
-            /// 
-            /// The basename of the file, with symlinks resolved. 
+            /// `log.file.name_resolved`: The basename of the file, with symlinks resolved. 
             /// 
             /// - Stability: experimental
             /// 
@@ -40,9 +34,7 @@ extension SemConv {
             /// - Example: `uuid.log`
             public static let name_resolved = "log.file.name_resolved"
         
-            /// `log.file.path`
-            /// 
-            /// The full path to the file. 
+            /// `log.file.path`: The full path to the file. 
             /// 
             /// - Stability: experimental
             /// 
@@ -51,9 +43,7 @@ extension SemConv {
             /// - Example: `/var/log/mysql/audit.log`
             public static let path = "log.file.path"
         
-            /// `log.file.path_resolved`
-            /// 
-            /// The full path to the file, with symlinks resolved. 
+            /// `log.file.path_resolved`: The full path to the file, with symlinks resolved. 
             /// 
             /// - Stability: experimental
             /// 
@@ -67,9 +57,7 @@ extension SemConv {
     
         /// `log.record` namespace
         public enum record {
-            /// `log.record.original`
-            /// 
-            /// The complete original Log Record. 
+            /// `log.record.original`: The complete original Log Record. 
             /// 
             /// - Stability: experimental
             /// 
@@ -82,9 +70,7 @@ extension SemConv {
             ///     - `[INFO] 8/3/24 12:34:56 Something happened`
             public static let original = "log.record.original"
         
-            /// `log.record.uid`
-            /// 
-            /// A unique identifier for the Log Record. 
+            /// `log.record.uid`: A unique identifier for the Log Record. 
             /// 
             /// - Stability: experimental
             /// 

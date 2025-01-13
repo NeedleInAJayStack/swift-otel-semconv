@@ -54,7 +54,7 @@ public extension SemConv {
             ///
             /// - Type: string
             ///
-            /// `deployment.environment.name` does not affect the uniqueness constraints defined through the `service.namespace`, `service.name` and `service.instance.id` resource attributes. This implies that resources carrying the following attribute combinations MUST be considered to be identifying the same service:  * `service.name=frontend`, `deployment.environment.name=production` * `service.name=frontend`, `deployment.environment.name=staging`.
+            /// `deployment.environment.name` does not affect the uniqueness constraints defined through the `service.namespace`, `service.name` and `service.instance.id` resource attributes. This implies that resources carrying the following attribute combinations MUST be considered to be identifying the same service:  - `service.name=frontend`, `deployment.environment.name=production` - `service.name=frontend`, `deployment.environment.name=staging`.
             ///
             /// - Examples:
             ///     - `staging`

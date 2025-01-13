@@ -624,7 +624,7 @@ public extension SpanAttributes {
                 ///
                 /// - Type: string
                 ///
-                /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization. If the collection name is parsed from the query text, it SHOULD be the first collection name found in the query and it SHOULD match the value provided in the query text including any schema and database name prefix. For batch operations, if the individual operations are known to have the same collection name then that collection name SHOULD be used, otherwise `db.collection.name` SHOULD NOT be captured. This attribute has stability level RELEASE CANDIDATE.
+                /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization.  The collection name SHOULD NOT be extracted from `db.query.text`, unless the query format is known to only ever have a single collection name present.  For batch operations, if the individual operations are known to have the same collection name then that collection name SHOULD be used.  This attribute has stability level RELEASE CANDIDATE.
                 ///
                 /// - Examples:
                 ///     - `public.users`
@@ -667,15 +667,50 @@ public extension SpanAttributes {
                 /// - Stability: experimental
                 ///
                 /// - Type: enum
-                ///     - `gateway`: Gateway (HTTP) connections mode
+                ///     - `gateway`: Gateway (HTTP) connection.
                 ///     - `direct`: Direct connection.
                 public var connection_mode: Self.Key<Connection_ModeEnum> { .init(name: SemConv.db.cosmosdb.connection_mode) }
 
                 public enum Connection_ModeEnum: String, SpanAttributeConvertible {
-                    /// `gateway`: Gateway (HTTP) connections mode
+                    /// `gateway`: Gateway (HTTP) connection.
                     case gateway
                     /// `direct`: Direct connection.
                     case direct
+                    public func toSpanAttribute() -> Tracing.SpanAttribute {
+                        return .string(rawValue)
+                    }
+                }
+
+                /// `db.cosmosdb.consistency_level`: Account or request [consistency level](https://learn.microsoft.com/azure/cosmos-db/consistency-levels).
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: enum
+                ///     - `Strong`
+                ///     - `BoundedStaleness`
+                ///     - `Session`
+                ///     - `Eventual`
+                ///     - `ConsistentPrefix`
+                ///
+                /// - Examples:
+                ///     - `Eventual`
+                ///     - `ConsistentPrefix`
+                ///     - `BoundedStaleness`
+                ///     - `Strong`
+                ///     - `Session`
+                public var consistency_level: Self.Key<Consistency_LevelEnum> { .init(name: SemConv.db.cosmosdb.consistency_level) }
+
+                public enum Consistency_LevelEnum: String, SpanAttributeConvertible {
+                    /// `Strong`
+                    case strong = "Strong"
+                    /// `BoundedStaleness`
+                    case bounded_staleness = "BoundedStaleness"
+                    /// `Session`
+                    case session = "Session"
+                    /// `Eventual`
+                    case eventual = "Eventual"
+                    /// `ConsistentPrefix`
+                    case consistent_prefix = "ConsistentPrefix"
                     public func toSpanAttribute() -> Tracing.SpanAttribute {
                         return .string(rawValue)
                     }
@@ -691,7 +726,7 @@ public extension SpanAttributes {
                 @available(*, deprecated, message: "Replaced by `db.collection.name`.")
                 public var container: Self.Key<String> { .init(name: SemConv.db.cosmosdb.container) }
 
-                /// `db.cosmosdb.operation_type`: Cosmos DB Operation Type.
+                /// `db.cosmosdb.operation_type`: Deprecated, no replacement at this time.
                 ///
                 /// - Stability: experimental
                 ///
@@ -711,6 +746,7 @@ public extension SpanAttributes {
                 ///     - `read_feed`
                 ///     - `replace`
                 ///     - `upsert`
+                @available(*, deprecated, message: "No replacement at this time.")
                 public var operation_type: Self.Key<Operation_TypeEnum> { .init(name: SemConv.db.cosmosdb.operation_type) }
 
                 public enum Operation_TypeEnum: String, SpanAttributeConvertible {
@@ -749,7 +785,16 @@ public extension SpanAttributes {
                     }
                 }
 
-                /// `db.cosmosdb.request_charge`: RU consumed for that operation
+                /// `db.cosmosdb.regions_contacted`: List of regions contacted during operation in the order that they were contacted. If there is more than one region listed, it indicates that the operation was performed on multiple regions i.e. cross-regional call.
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: stringArray
+                ///
+                /// Region name matches the format of `displayName` in [Azure Location API](https://learn.microsoft.com/rest/api/subscription/subscriptions/list-locations?view=rest-subscription-2021-10-01&tabs=HTTP#location)
+                public var regions_contacted: Self.Key<[String]> { .init(name: SemConv.db.cosmosdb.regions_contacted) }
+
+                /// `db.cosmosdb.request_charge`: Request units consumed for the operation.
                 ///
                 /// - Stability: experimental
                 ///
@@ -760,7 +805,7 @@ public extension SpanAttributes {
                 ///     - `1.0`
                 public var request_charge: Self.Key<Double> { .init(name: SemConv.db.cosmosdb.request_charge) }
 
-                /// `db.cosmosdb.request_content_length`: Request payload size in bytes
+                /// `db.cosmosdb.request_content_length`: Request payload size in bytes.
                 ///
                 /// - Stability: experimental
                 ///
@@ -1075,6 +1120,55 @@ public extension SpanAttributes {
                 self.attributes = attributes
             }
 
+            /// `db.operation.parameter`: A database operation parameter, with `<key>` being the parameter name, and the attribute value being a string representation of the parameter value.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: templateString
+            ///
+            /// If a parameter has no name and instead is referenced only by index, then `<key>` SHOULD be the 0-based index. If `db.query.text` is also captured, then `db.operation.parameter.<key>` SHOULD match up with the parameterized placeholders present in `db.query.text`. This attribute has stability level RELEASE CANDIDATE.
+            ///
+            /// - Examples:
+            ///     - `someval`
+            ///     - `55`
+            public var parameter: ParameterAttributes {
+                get {
+                    .init(attributes: self.attributes)
+                }
+                set {
+                    self.attributes = newValue.attributes
+                }
+            }
+
+            public struct ParameterAttributes {
+                public var attributes: SpanAttributes
+
+                public init(attributes: SpanAttributes) {
+                    self.attributes = attributes
+                }
+
+                public mutating func set(_ key: String, to value: String) {
+                    let attributeId = self.attributeId(forKey: key)
+                    attributes[attributeId] = value
+                }
+
+                private func attributeId(forKey key: String) -> String {
+                    var attributeId = "db.operation.parameter."
+
+                    for index in key.indices {
+                        let character = key[index]
+
+                        if character == "-" {
+                            attributeId.append("_")
+                        } else {
+                            attributeId.append(character.lowercased())
+                        }
+                    }
+
+                    return attributeId
+                }
+            }
+
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
                 /// `db.operation.name`: The name of the operation or command being executed.
@@ -1083,7 +1177,7 @@ public extension SpanAttributes {
                 ///
                 /// - Type: string
                 ///
-                /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization. If the operation name is parsed from the query text, it SHOULD be the first operation name found in the query. For batch operations, if the individual operations are known to have the same operation name then that operation name SHOULD be used prepended by `BATCH `, otherwise `db.operation.name` SHOULD be `BATCH` or some other database system specific term if more applicable. This attribute has stability level RELEASE CANDIDATE.
+                /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization.  The operation name SHOULD NOT be extracted from `db.query.text`, unless the query format is known to only ever have a single operation name present.  For batch operations, if the individual operations are known to have the same operation name then that operation name SHOULD be used prepended by `BATCH `, otherwise `db.operation.name` SHOULD be `BATCH` or some other database system specific term if more applicable.  This attribute has stability level RELEASE CANDIDATE.
                 ///
                 /// - Examples:
                 ///     - `findAndModify`
@@ -1153,8 +1247,6 @@ public extension SpanAttributes {
             ///
             /// - Type: templateString
             ///
-            /// Query parameters should only be captured when `db.query.text` is parameterized with placeholders. If a parameter has no name and instead is referenced only by index, then `<key>` SHOULD be the 0-based index. This attribute has stability level RELEASE CANDIDATE.
-            ///
             /// - Examples:
             ///     - `someval`
             ///     - `55`
@@ -1198,6 +1290,20 @@ public extension SpanAttributes {
 
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
+                /// `db.query.summary`: Low cardinality representation of a database query text.
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: string
+                ///
+                /// `db.query.summary` provides static summary of the query text. It describes a class of database queries and is useful as a grouping key, especially when analyzing telemetry for database calls involving complex queries. Summary may be available to the instrumentation through instrumentation hooks or other means. If it is not available, instrumentations that support query parsing SHOULD generate a summary following [Generating query summary](../../docs/database/database-spans.md#generating-a-summary-of-the-query-text) section. This attribute has stability level RELEASE CANDIDATE.
+                ///
+                /// - Examples:
+                ///     - `SELECT wuser_table`
+                ///     - `INSERT shipping_details SELECT orders`
+                ///     - `get user by id`
+                public var summary: Self.Key<String> { .init(name: SemConv.db.query.summary) }
+
                 /// `db.query.text`: The database query being executed.
                 ///
                 /// - Stability: experimental
@@ -1208,7 +1314,7 @@ public extension SpanAttributes {
                 ///
                 /// - Examples:
                 ///     - `SELECT * FROM wuser_table where username = ?`
-                ///     - `SET mykey "WuValue"`
+                ///     - `SET mykey ?`
                 public var text: Self.Key<String> { .init(name: SemConv.db.query.text) }
             }
         }
@@ -1268,6 +1374,18 @@ public extension SpanAttributes {
 
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
+                /// `db.response.returned_rows`: Number of rows returned by the operation.
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: int
+                ///
+                /// - Examples:
+                ///     - `10`
+                ///     - `30`
+                ///     - `1000`
+                public var returned_rows: Self.Key<Int> { .init(name: SemConv.db.response.returned_rows) }
+
                 /// `db.response.status_code`: Database response status code.
                 ///
                 /// - Stability: experimental

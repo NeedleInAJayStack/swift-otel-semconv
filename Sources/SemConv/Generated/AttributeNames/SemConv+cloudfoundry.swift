@@ -37,7 +37,7 @@ public extension SemConv {
                 ///
                 /// - Type: string
                 ///
-                /// CloudFoundry defines the `instance_id` in the [Loggegator v2 envelope](https://github.com/cloudfoundry/loggregator-api#v2-envelope). It is used for logs and metrics emitted by CloudFoundry. It is supposed to contain the application instance index for applications deployed on the runtime.  Application instrumentation should use the value from environment variable `CF_INSTANCE_INDEX`.
+                /// CloudFoundry defines the `instance_id` in the [Loggregator v2 envelope](https://github.com/cloudfoundry/loggregator-api#v2-envelope). It is used for logs and metrics emitted by CloudFoundry. It is supposed to contain the application instance index for applications deployed on the runtime.  Application instrumentation should use the value from environment variable `CF_INSTANCE_INDEX`.
                 ///
                 /// - Examples:
                 ///     - `0`

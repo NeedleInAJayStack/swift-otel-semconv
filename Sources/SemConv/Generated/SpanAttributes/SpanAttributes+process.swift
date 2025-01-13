@@ -302,13 +302,23 @@ public extension SpanAttributes {
                     /// - Example: `foh3mEXu7BLZjsN9pOwG/kATcXlYVCDEFouRMQed_/WwRFB1hPo9LBkekthSPG/x8hMC8emW2cCjXD0_1aY`
                     public var go: Self.Key<String> { .init(name: SemConv.process.executable.build_id.go) }
 
-                    /// `process.executable.build_id.profiling`: Profiling specific build ID for executables. See the OTel specification for Profiles for more information.
+                    /// `process.executable.build_id.htlhash`: Profiling specific build ID for executables. See the OTel specification for Profiles for more information.
                     ///
                     /// - Stability: experimental
                     ///
                     /// - Type: string
                     ///
                     /// - Example: `600DCAFE4A110000F2BF38C493F5FB92`
+                    public var htlhash: Self.Key<String> { .init(name: SemConv.process.executable.build_id.htlhash) }
+
+                    /// `process.executable.build_id.profiling`: "Deprecated, use `process.executable.build_id.htlhash` instead."
+                    ///
+                    /// - Stability: experimental
+                    ///
+                    /// - Type: string
+                    ///
+                    /// - Example: `600DCAFE4A110000F2BF38C493F5FB92`
+                    @available(*, deprecated, message: "Replaced by `process.executable.build_id.htlhash`")
                     public var profiling: Self.Key<String> { .init(name: SemConv.process.executable.build_id.profiling) }
                 }
             }
@@ -382,6 +392,41 @@ public extension SpanAttributes {
                 ///
                 /// - Example: `23`
                 public var pid: Self.Key<Int> { .init(name: SemConv.process.group_leader.pid) }
+            }
+        }
+
+        /// `process.linux` namespace
+        public var linux: LinuxAttributes {
+            get {
+                .init(attributes: self.attributes)
+            }
+            set {
+                self.attributes = newValue.attributes
+            }
+        }
+
+        @dynamicMemberLookup
+        public struct LinuxAttributes: SpanAttributeNamespace {
+            public var attributes: SpanAttributes
+
+            public init(attributes: SpanAttributes) {
+                self.attributes = attributes
+            }
+
+            public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
+                public init() {}
+                /// `process.linux.cgroup`: The control group associated with the process.
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: string
+                ///
+                /// Control groups (cgroups) are a kernel feature used to organize and manage process resources. This attribute provides the path(s) to the cgroup(s) associated with the process, which should match the contents of the [/proc/<PID>/cgroup](https://man7.org/linux/man-pages/man7/cgroups.7.html) file.
+                ///
+                /// - Examples:
+                ///     - `1:name=systemd:/user.slice/user-1000.slice/session-3.scope`
+                ///     - `0::/user.slice/user-1000.slice/user@1000.service/tmux-spawn-0267755b-4639-4a27-90ed-f19f88e53748.scope`
+                public var cgroup: Self.Key<String> { .init(name: SemConv.process.linux.cgroup) }
             }
         }
 

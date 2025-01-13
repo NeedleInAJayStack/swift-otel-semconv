@@ -112,7 +112,7 @@ public extension SpanAttributes {
 
                 public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                     public init() {}
-                    /// `cicd.pipeline.task.name`: The human readable name of a task within a pipeline. Task here most closely aligns with a [computing process](https://en.wikipedia.org/wiki/Pipeline_(computing)) in a pipeline. Other terms for tasks include commands, steps, and procedures.
+                    /// `cicd.pipeline.task.name`: The human readable name of a task within a pipeline. Task here most closely aligns with a [computing process](https://wikipedia.org/wiki/Pipeline_(computing)) in a pipeline. Other terms for tasks include commands, steps, and procedures.
                     ///
                     /// - Stability: experimental
                     ///
@@ -203,7 +203,7 @@ public extension SpanAttributes {
 
                         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                             public init() {}
-                            /// `cicd.pipeline.task.run.url.full`: The [URL](https://en.wikipedia.org/wiki/URL) of the pipeline run providing the complete address in order to locate and identify the pipeline run.
+                            /// `cicd.pipeline.task.run.url.full`: The [URL](https://wikipedia.org/wiki/URL) of the pipeline run providing the complete address in order to locate and identify the pipeline run.
                             ///
                             /// - Stability: experimental
                             ///

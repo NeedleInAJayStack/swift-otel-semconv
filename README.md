@@ -70,5 +70,5 @@ docker run --rm -v ./:/repo ghcr.io/nicklockwood/swiftformat:latest /repo
 
 This package is versioned independently from semantic conventions, but the supported semantic convention version will be documented clearly.
 
-[semconv-badge]: https://img.shields.io/badge/semconv-1.28.0-blue.svg
+[semconv-badge]: https://img.shields.io/badge/semconv-1.29.0-blue.svg
 [semconv-url]: https://github.com/open-telemetry/semantic-conventions.git

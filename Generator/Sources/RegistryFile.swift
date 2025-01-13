@@ -18,7 +18,7 @@ struct Group: Codable {
         case metric
         case span
     }
-    
+
     enum Instrument: String, Codable {
         case gauge
         case updowncounter
@@ -33,14 +33,14 @@ struct Attribute: Codable {
     let note: String?
     let deprecated: String?
     let examples: [String]?
-    
+
     enum RequirementLevel: String, Codable {
         case required
     }
-    
+
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(String.self, forKey: .id)
+        id = try container.decode(String.self, forKey: .id)
         if let type = try? container.decode(StandardType.self, forKey: .type) {
             self.type = type
         } else if let type = try? container.decode(EnumType.self, forKey: .type) {
@@ -48,20 +48,20 @@ struct Attribute: Codable {
         } else {
             throw DecodingError.dataCorrupted(.init(codingPath: container.codingPath, debugDescription: "Unexpected `type` value"))
         }
-        self.stability = try container.decode(Stability.self, forKey: .stability)
-        self.brief = try container.decodeIfPresent(String.self, forKey: .brief)
-        self.note = try container.decodeIfPresent(String.self, forKey: .note)
-        self.deprecated = try container.decodeIfPresent(String.self, forKey: .deprecated)
+        stability = try container.decode(Stability.self, forKey: .stability)
+        brief = try container.decodeIfPresent(String.self, forKey: .brief)
+        note = try container.decodeIfPresent(String.self, forKey: .note)
+        deprecated = try container.decodeIfPresent(String.self, forKey: .deprecated)
         if !container.contains(.examples) {
-            self.examples = nil
+            examples = nil
         } else if let example = try? container.decode(String.self, forKey: .examples) {
-            self.examples = [example]
+            examples = [example]
         } else {
             let examples = try? container.decode([String].self, forKey: .examples)
             self.examples = examples
         }
     }
-    
+
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
@@ -78,7 +78,7 @@ struct Attribute: Codable {
         try container.encodeIfPresent(deprecated, forKey: .deprecated)
         try container.encodeIfPresent(examples, forKey: .examples)
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case type
@@ -88,7 +88,7 @@ struct Attribute: Codable {
         case deprecated
         case examples
     }
-    
+
     // Attributes may have a declared type or be a list of enum values
     protocol AttributeType: Codable {}
 
@@ -105,7 +105,7 @@ struct Attribute: Codable {
         case intArray = "int[]"
         case templateInt = "template[int]"
         case templateIntArray = "template[int[]]"
-        case string = "string"
+        case string
         case stringArray = "string[]"
         case templateString = "template[string]"
         case templateStringArray = "template[string[]]"
@@ -113,7 +113,7 @@ struct Attribute: Codable {
 
     struct EnumType: AttributeType {
         let members: [EnumMember]
-        
+
         struct EnumMember: Codable {
             let id: String
             let value: String

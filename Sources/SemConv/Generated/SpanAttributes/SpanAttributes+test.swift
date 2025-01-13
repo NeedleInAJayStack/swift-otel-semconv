@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `test` namespace
-    public var test: TestAttributes {
+    var test: TestAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,20 +14,19 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct TestAttributes: SpanAttributeNamespace {
+    struct TestAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-    
         }
-    
+
         /// `test.case` namespace
         public var `case`: CaseAttributes {
             get {
@@ -37,30 +36,30 @@ extension SpanAttributes {
                 self.attributes = newValue.attributes
             }
         }
-        
+
         @dynamicMemberLookup
         public struct CaseAttributes: SpanAttributeNamespace {
             public var attributes: SpanAttributes
-        
+
             public init(attributes: SpanAttributes) {
                 self.attributes = attributes
             }
-        
+
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
-                /// `test.case.name`: The fully qualified human readable name of the [test case](https://en.wikipedia.org/wiki/Test_case). 
-                /// 
+                /// `test.case.name`: The fully qualified human readable name of the [test case](https://en.wikipedia.org/wiki/Test_case).
+                ///
                 /// - Stability: experimental
-                /// 
+                ///
                 /// - Type: string
-                /// 
+                ///
                 /// - Examples:
                 ///     - `org.example.TestCase1.test1`
                 ///     - `example/tests/TestCase1.test1`
                 ///     - `ExampleTestCase1_test1`
                 public var name: Self.Key<String> { .init(name: SemConv.test.case.name) }
             }
-        
+
             /// `test.case.result` namespace
             public var result: ResultAttributes {
                 get {
@@ -70,45 +69,43 @@ extension SpanAttributes {
                     self.attributes = newValue.attributes
                 }
             }
-            
+
             @dynamicMemberLookup
             public struct ResultAttributes: SpanAttributeNamespace {
                 public var attributes: SpanAttributes
-            
+
                 public init(attributes: SpanAttributes) {
                     self.attributes = attributes
                 }
-            
+
                 public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                     public init() {}
-                    /// `test.case.result.status`: The status of the actual test case result from test execution. 
-                    /// 
+                    /// `test.case.result.status`: The status of the actual test case result from test execution.
+                    ///
                     /// - Stability: experimental
-                    /// 
+                    ///
                     /// - Type: enum
                     ///     - `pass`: pass
                     ///     - `fail`: fail
-                    /// 
+                    ///
                     /// - Examples:
                     ///     - `pass`
                     ///     - `fail`
                     public var status: Self.Key<StatusEnum> { .init(name: SemConv.test.case.result.status) }
-                    
+
                     public enum StatusEnum: String, SpanAttributeConvertible {
                         /// `pass`: pass
-                        case pass = "pass"
+                        case pass
                         /// `fail`: fail
-                        case fail = "fail"
+                        case fail
                         public func toSpanAttribute() -> Tracing.SpanAttribute {
-                            return .string(self.rawValue)
+                            return .string(rawValue)
                         }
                     }
                 }
-            
-            
             }
         }
-    
+
         /// `test.suite` namespace
         public var suite: SuiteAttributes {
             get {
@@ -118,27 +115,27 @@ extension SpanAttributes {
                 self.attributes = newValue.attributes
             }
         }
-        
+
         @dynamicMemberLookup
         public struct SuiteAttributes: SpanAttributeNamespace {
             public var attributes: SpanAttributes
-        
+
             public init(attributes: SpanAttributes) {
                 self.attributes = attributes
             }
-        
+
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
-                /// `test.suite.name`: The human readable name of a [test suite](https://en.wikipedia.org/wiki/Test_suite). 
-                /// 
+                /// `test.suite.name`: The human readable name of a [test suite](https://en.wikipedia.org/wiki/Test_suite).
+                ///
                 /// - Stability: experimental
-                /// 
+                ///
                 /// - Type: string
-                /// 
+                ///
                 /// - Example: `TestSuite1`
                 public var name: Self.Key<String> { .init(name: SemConv.test.suite.name) }
             }
-        
+
             /// `test.suite.run` namespace
             public var run: RunAttributes {
                 get {
@@ -148,21 +145,21 @@ extension SpanAttributes {
                     self.attributes = newValue.attributes
                 }
             }
-            
+
             @dynamicMemberLookup
             public struct RunAttributes: SpanAttributeNamespace {
                 public var attributes: SpanAttributes
-            
+
                 public init(attributes: SpanAttributes) {
                     self.attributes = attributes
                 }
-            
+
                 public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                     public init() {}
-                    /// `test.suite.run.status`: The status of the test suite run. 
-                    /// 
+                    /// `test.suite.run.status`: The status of the test suite run.
+                    ///
                     /// - Stability: experimental
-                    /// 
+                    ///
                     /// - Type: enum
                     ///     - `success`: success
                     ///     - `failure`: failure
@@ -170,7 +167,7 @@ extension SpanAttributes {
                     ///     - `aborted`: aborted
                     ///     - `timed_out`: timed_out
                     ///     - `in_progress`: in_progress
-                    /// 
+                    ///
                     /// - Examples:
                     ///     - `success`
                     ///     - `failure`
@@ -179,27 +176,25 @@ extension SpanAttributes {
                     ///     - `timed_out`
                     ///     - `in_progress`
                     public var status: Self.Key<StatusEnum> { .init(name: SemConv.test.suite.run.status) }
-                    
+
                     public enum StatusEnum: String, SpanAttributeConvertible {
                         /// `success`: success
-                        case success = "success"
+                        case success
                         /// `failure`: failure
-                        case failure = "failure"
+                        case failure
                         /// `skipped`: skipped
-                        case skipped = "skipped"
+                        case skipped
                         /// `aborted`: aborted
-                        case aborted = "aborted"
+                        case aborted
                         /// `timed_out`: timed_out
-                        case timed_out = "timed_out"
+                        case timed_out
                         /// `in_progress`: in_progress
-                        case in_progress = "in_progress"
+                        case in_progress
                         public func toSpanAttribute() -> Tracing.SpanAttribute {
-                            return .string(self.rawValue)
+                            return .string(rawValue)
                         }
                     }
                 }
-            
-            
             }
         }
     }

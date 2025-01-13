@@ -16,7 +16,7 @@ let package = Package(
         .target(
             name: "SemConv",
             dependencies: [
-                .product(name: "Tracing", package: "swift-distributed-tracing")
+                .product(name: "Tracing", package: "swift-distributed-tracing"),
             ]
         ),
         .testTarget(

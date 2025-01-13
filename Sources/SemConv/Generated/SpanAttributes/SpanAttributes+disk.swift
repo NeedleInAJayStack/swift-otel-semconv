@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `disk` namespace
-    public var disk: DiskAttributes {
+    var disk: DiskAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,20 +14,19 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct DiskAttributes: SpanAttributeNamespace {
+    struct DiskAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-    
         }
-    
+
         /// `disk.io` namespace
         public var io: IoAttributes {
             get {
@@ -37,40 +36,38 @@ extension SpanAttributes {
                 self.attributes = newValue.attributes
             }
         }
-        
+
         @dynamicMemberLookup
         public struct IoAttributes: SpanAttributeNamespace {
             public var attributes: SpanAttributes
-        
+
             public init(attributes: SpanAttributes) {
                 self.attributes = attributes
             }
-        
+
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
                 /// `disk.io.direction`: The disk IO operation direction.
-                /// 
+                ///
                 /// - Stability: experimental
-                /// 
+                ///
                 /// - Type: enum
                 ///     - `read`
                 ///     - `write`
-                /// 
+                ///
                 /// - Example: `read`
                 public var direction: Self.Key<DirectionEnum> { .init(name: SemConv.disk.io.direction) }
-                
+
                 public enum DirectionEnum: String, SpanAttributeConvertible {
                     /// `read`
-                    case read = "read"
+                    case read
                     /// `write`
-                    case write = "write"
+                    case write
                     public func toSpanAttribute() -> Tracing.SpanAttribute {
-                        return .string(self.rawValue)
+                        return .string(rawValue)
                     }
                 }
             }
-        
-        
         }
     }
 }

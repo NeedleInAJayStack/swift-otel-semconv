@@ -10,8 +10,8 @@ func renderDocs(_ attribute: Attribute) -> String {
     if let brief = attribute.brief {
         result.append(": \(brief.replacingOccurrences(of: "\n", with: " "))")
     }
-    result.append("\n\n- Stability: \( attribute.stability )")
-    
+    result.append("\n\n- Stability: \(attribute.stability)")
+
     if let attributeType = attribute.type as? Attribute.EnumType {
         result.append("\n\n- Type: enum")
         for member in attributeType.members {
@@ -23,14 +23,14 @@ func renderDocs(_ attribute: Attribute) -> String {
     } else {
         result.append("\n\n- Type: \(attribute.type)")
     }
-    
+
     if let note = attribute.note {
         result.append("\n\n\(note.replacingOccurrences(of: "\n", with: " "))")
     }
-    
+
     if let examples = attribute.examples {
         if examples.count == 1 {
-            result.append("\n\n- Example: `\( examples[0] )`")
+            result.append("\n\n- Example: `\(examples[0])`")
         } else {
             result.append("\n\n- Examples:")
             for example in examples {
@@ -38,7 +38,7 @@ func renderDocs(_ attribute: Attribute) -> String {
             }
         }
     }
-    
+
     return result.split(separator: "\n", omittingEmptySubsequences: false)
         .map { "/// " + $0 }
         .joined(separator: "\n")

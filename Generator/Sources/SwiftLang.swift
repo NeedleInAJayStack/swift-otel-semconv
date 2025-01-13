@@ -38,7 +38,7 @@ let swiftKeywords: Set<String> = [
     "subscript",
     "typealias",
     "var",
-    
+
     // Keywords used in statements
     "break",
     "case",
@@ -59,7 +59,7 @@ let swiftKeywords: Set<String> = [
     "switch",
     "where",
     "while",
-    
+
     // Keywords used in expressions and types
     "Any",
     "as",

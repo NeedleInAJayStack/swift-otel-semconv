@@ -1,6 +1,8 @@
 import SemConv
-import Testing
+import XCTest
 
-@Test func testAttributeName() async throws {
-    #expect(SemConv.http.response.status_code == "http.response.status_code")
+class AttributeNameTests: XCTestCase {
+    func testAttributeName() async throws {
+        XCTAssertEqual(SemConv.http.response.status_code, "http.response.status_code")
+    }
 }

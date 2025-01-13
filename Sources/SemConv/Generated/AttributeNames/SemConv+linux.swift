@@ -2,31 +2,25 @@
 
 // swiftlint:disable all
 
-extension SemConv {
+public extension SemConv {
     /// `linux` namespace
-    public enum linux {
-    
-    
+    enum linux {
         /// `linux.memory` namespace
         public enum memory {
-        
-        
             /// `linux.memory.slab` namespace
             public enum slab {
                 /// `linux.memory.slab.state`: The Linux Slab memory state
-                /// 
+                ///
                 /// - Stability: experimental
-                /// 
+                ///
                 /// - Type: enum
                 ///     - `reclaimable`
                 ///     - `unreclaimable`
-                /// 
+                ///
                 /// - Examples:
                 ///     - `reclaimable`
                 ///     - `unreclaimable`
                 public static let state = "linux.memory.slab.state"
-            
-            
             }
         }
     }

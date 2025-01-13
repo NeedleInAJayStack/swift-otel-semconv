@@ -2,13 +2,13 @@
 
 // swiftlint:disable all
 
-extension SemConv {
+public extension SemConv {
     /// `cpu` namespace
-    public enum cpu {
+    enum cpu {
         /// `cpu.mode`: The mode of the CPU
-        /// 
+        ///
         /// - Stability: experimental
-        /// 
+        ///
         /// - Type: enum
         ///     - `user`
         ///     - `system`
@@ -18,12 +18,10 @@ extension SemConv {
         ///     - `interrupt`
         ///     - `steal`
         ///     - `kernel`
-        /// 
+        ///
         /// - Examples:
         ///     - `user`
         ///     - `system`
         public static let mode = "cpu.mode"
-    
-    
     }
 }

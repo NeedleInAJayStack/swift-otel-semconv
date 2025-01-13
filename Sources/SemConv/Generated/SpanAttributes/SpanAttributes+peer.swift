@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `peer` namespace
-    public var peer: PeerAttributes {
+    var peer: PeerAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,27 +14,25 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct PeerAttributes: SpanAttributeNamespace {
+    struct PeerAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-            /// `peer.service`: The [`service.name`](/docs/resource/README.md#service) of the remote service. SHOULD be equal to the actual `service.name` resource attribute of the remote service if any. 
-            /// 
+            /// `peer.service`: The [`service.name`](/docs/resource/README.md#service) of the remote service. SHOULD be equal to the actual `service.name` resource attribute of the remote service if any.
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `AuthTokenCache`
             public var service: Self.Key<String> { .init(name: SemConv.peer.service) }
         }
-    
-    
     }
 }

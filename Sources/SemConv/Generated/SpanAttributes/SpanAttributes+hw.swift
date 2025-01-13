@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `hw` namespace
-    public var hw: HwAttributes {
+    var hw: HwAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,70 +14,70 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct HwAttributes: SpanAttributeNamespace {
+    struct HwAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-            /// `hw.id`: An identifier for the hardware component, unique within the monitored host 
-            /// 
+            /// `hw.id`: An identifier for the hardware component, unique within the monitored host
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `win32battery_battery_testsysa33_1`
             public var id: Self.Key<String> { .init(name: SemConv.hw.id) }
-    
-            /// `hw.name`: An easily-recognizable name for the hardware component 
-            /// 
+
+            /// `hw.name`: An easily-recognizable name for the hardware component
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `eth0`
             public var name: Self.Key<String> { .init(name: SemConv.hw.name) }
-    
-            /// `hw.parent`: Unique identifier of the parent component (typically the `hw.id` attribute of the enclosure, or disk controller) 
-            /// 
+
+            /// `hw.parent`: Unique identifier of the parent component (typically the `hw.id` attribute of the enclosure, or disk controller)
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `dellStorage_perc_0`
             public var parent: Self.Key<String> { .init(name: SemConv.hw.parent) }
-    
-            /// `hw.state`: The current state of the component 
-            /// 
+
+            /// `hw.state`: The current state of the component
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: enum
             ///     - `ok`: Ok
             ///     - `degraded`: Degraded
             ///     - `failed`: Failed
             public var state: Self.Key<StateEnum> { .init(name: SemConv.hw.state) }
-            
+
             public enum StateEnum: String, SpanAttributeConvertible {
                 /// `ok`: Ok
-                case ok = "ok"
+                case ok
                 /// `degraded`: Degraded
-                case degraded = "degraded"
+                case degraded
                 /// `failed`: Failed
-                case failed = "failed"
+                case failed
                 public func toSpanAttribute() -> Tracing.SpanAttribute {
-                    return .string(self.rawValue)
+                    return .string(rawValue)
                 }
             }
-    
-            /// `hw.type`: Type of the component 
-            /// 
+
+            /// `hw.type`: Type of the component
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: enum
             ///     - `battery`: Battery
             ///     - `cpu`: CPU
@@ -93,45 +93,43 @@ extension SpanAttributes {
             ///     - `tape_drive`: Tape drive
             ///     - `temperature`: Temperature
             ///     - `voltage`: Voltage
-            /// 
-            /// Describes the category of the hardware component for which `hw.state` is being reported. For example, `hw.type=temperature` along with `hw.state=degraded` would indicate that the temperature of the hardware component has been reported as `degraded`. 
+            ///
+            /// Describes the category of the hardware component for which `hw.state` is being reported. For example, `hw.type=temperature` along with `hw.state=degraded` would indicate that the temperature of the hardware component has been reported as `degraded`.
             public var type: Self.Key<TypeEnum> { .init(name: SemConv.hw.type) }
-            
+
             public enum TypeEnum: String, SpanAttributeConvertible {
                 /// `battery`: Battery
-                case battery = "battery"
+                case battery
                 /// `cpu`: CPU
-                case cpu = "cpu"
+                case cpu
                 /// `disk_controller`: Disk controller
-                case disk_controller = "disk_controller"
+                case disk_controller
                 /// `enclosure`: Enclosure
-                case enclosure = "enclosure"
+                case enclosure
                 /// `fan`: Fan
-                case fan = "fan"
+                case fan
                 /// `gpu`: GPU
-                case gpu = "gpu"
+                case gpu
                 /// `logical_disk`: Logical disk
-                case logical_disk = "logical_disk"
+                case logical_disk
                 /// `memory`: Memory
-                case memory = "memory"
+                case memory
                 /// `network`: Network
-                case network = "network"
+                case network
                 /// `physical_disk`: Physical disk
-                case physical_disk = "physical_disk"
+                case physical_disk
                 /// `power_supply`: Power supply
-                case power_supply = "power_supply"
+                case power_supply
                 /// `tape_drive`: Tape drive
-                case tape_drive = "tape_drive"
+                case tape_drive
                 /// `temperature`: Temperature
-                case temperature = "temperature"
+                case temperature
                 /// `voltage`: Voltage
-                case voltage = "voltage"
+                case voltage
                 public func toSpanAttribute() -> Tracing.SpanAttribute {
-                    return .string(self.rawValue)
+                    return .string(rawValue)
                 }
             }
         }
-    
-    
     }
 }

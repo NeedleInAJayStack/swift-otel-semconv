@@ -58,6 +58,14 @@ However, this package uses a Swift generator instead for the following reasons:
 - To support the desired API where Swift usage nests namespaces with the `.` notation just like the attributes, a namespace tree must be constructed and traversed. Doing this in the Weaver Jinja templating language is difficult.
 - Swift will be more familiar than Jinja templates to users of this package, leading to easier maintenance.
 
+### Formatting
+
+This package uses SwiftFormat to enforce a consistent code style. To format the code, run the following command:
+
+```sh
+docker run --rm -v ./:/repo ghcr.io/nicklockwood/swiftformat:latest /repo
+```
+
 ### Versioning
 
 This package is versioned independently from semantic conventions, but the supported semantic convention version will be documented clearly.

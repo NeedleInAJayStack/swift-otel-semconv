@@ -2,19 +2,17 @@
 
 // swiftlint:disable all
 
-extension SemConv {
+public extension SemConv {
     /// `pool` namespace
-    public enum pool {
+    enum pool {
         /// `pool.name`: Deprecated, use `db.client.connection.pool.name` instead.
-        /// 
+        ///
         /// - Stability: experimental
-        /// 
+        ///
         /// - Type: string
-        /// 
+        ///
         /// - Example: `myDataSource`
         @available(*, deprecated, message: "Replaced by `db.client.connection.pool.name`.")
         public static let name = "pool.name"
-    
-    
     }
 }

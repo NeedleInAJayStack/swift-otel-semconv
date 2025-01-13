@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `thread` namespace
-    public var thread: ThreadAttributes {
+    var thread: ThreadAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,36 +14,34 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct ThreadAttributes: SpanAttributeNamespace {
+    struct ThreadAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-            /// `thread.id`: Current "managed" thread ID (as opposed to OS thread ID). 
-            /// 
+            /// `thread.id`: Current "managed" thread ID (as opposed to OS thread ID).
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: int
-            /// 
+            ///
             /// - Example: `42`
             public var id: Self.Key<Int> { .init(name: SemConv.thread.id) }
-    
-            /// `thread.name`: Current thread name. 
-            /// 
+
+            /// `thread.name`: Current thread name.
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `main`
             public var name: Self.Key<String> { .init(name: SemConv.thread.name) }
         }
-    
-    
     }
 }

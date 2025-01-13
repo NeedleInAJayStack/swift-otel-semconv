@@ -5,9 +5,7 @@
 extension SemConv {
     /// `peer` namespace
     public enum peer {
-        /// `peer.service`
-        /// 
-        /// The [`service.name`](/docs/resource/README.md#service) of the remote service. SHOULD be equal to the actual `service.name` resource attribute of the remote service if any. 
+        /// `peer.service`: The [`service.name`](/docs/resource/README.md#service) of the remote service. SHOULD be equal to the actual `service.name` resource attribute of the remote service if any. 
         /// 
         /// - Stability: experimental
         /// 

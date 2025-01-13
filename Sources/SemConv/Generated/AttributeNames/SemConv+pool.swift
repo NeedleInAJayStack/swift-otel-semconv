@@ -5,9 +5,7 @@
 extension SemConv {
     /// `pool` namespace
     public enum pool {
-        /// `pool.name`
-        /// 
-        /// Deprecated, use `db.client.connection.pool.name` instead.
+        /// `pool.name`: Deprecated, use `db.client.connection.pool.name` instead.
         /// 
         /// - Stability: experimental
         /// 

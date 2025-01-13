@@ -5,9 +5,7 @@
 extension SemConv {
     /// `client` namespace
     public enum client {
-        /// `client.address`
-        /// 
-        /// Client address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
+        /// `client.address`: Client address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
         /// 
         /// - Stability: stable
         /// 
@@ -21,9 +19,7 @@ extension SemConv {
         ///     - `/tmp/my.sock`
         public static let address = "client.address"
     
-        /// `client.port`
-        /// 
-        /// Client port number.
+        /// `client.port`: Client port number.
         /// 
         /// - Stability: stable
         /// 

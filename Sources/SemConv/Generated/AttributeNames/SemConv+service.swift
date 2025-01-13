@@ -5,9 +5,7 @@
 extension SemConv {
     /// `service` namespace
     public enum service {
-        /// `service.name`
-        /// 
-        /// Logical name of the service. 
+        /// `service.name`: Logical name of the service. 
         /// 
         /// - Stability: stable
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
         /// - Example: `shoppingcart`
         public static let name = "service.name"
     
-        /// `service.namespace`
-        /// 
-        /// A namespace for `service.name`. 
+        /// `service.namespace`: A namespace for `service.name`. 
         /// 
         /// - Stability: experimental
         /// 
@@ -31,9 +27,7 @@ extension SemConv {
         /// - Example: `Shop`
         public static let namespace = "service.namespace"
     
-        /// `service.version`
-        /// 
-        /// The version string of the service API or implementation. The format is not defined by these conventions. 
+        /// `service.version`: The version string of the service API or implementation. The format is not defined by these conventions. 
         /// 
         /// - Stability: stable
         /// 
@@ -46,9 +40,7 @@ extension SemConv {
     
         /// `service.instance` namespace
         public enum instance {
-            /// `service.instance.id`
-            /// 
-            /// The string ID of the service instance. 
+            /// `service.instance.id`: The string ID of the service instance. 
             /// 
             /// - Stability: experimental
             /// 

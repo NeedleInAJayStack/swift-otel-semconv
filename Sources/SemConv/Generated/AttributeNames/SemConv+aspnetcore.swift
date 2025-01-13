@@ -13,9 +13,7 @@ extension SemConv {
         
             /// `aspnetcore.diagnostics.exception` namespace
             public enum exception {
-                /// `aspnetcore.diagnostics.exception.result`
-                /// 
-                /// ASP.NET Core exception middleware handling result
+                /// `aspnetcore.diagnostics.exception.result`: ASP.NET Core exception middleware handling result
                 /// 
                 /// - Stability: stable
                 /// 
@@ -35,9 +33,7 @@ extension SemConv {
         
             /// `aspnetcore.diagnostics.handler` namespace
             public enum handler {
-                /// `aspnetcore.diagnostics.handler.type`
-                /// 
-                /// Full type name of the [`IExceptionHandler`](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.diagnostics.iexceptionhandler) implementation that handled the exception.
+                /// `aspnetcore.diagnostics.handler.type`: Full type name of the [`IExceptionHandler`](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.diagnostics.iexceptionhandler) implementation that handled the exception.
                 /// 
                 /// - Stability: stable
                 /// 
@@ -52,9 +48,7 @@ extension SemConv {
     
         /// `aspnetcore.rate_limiting` namespace
         public enum rate_limiting {
-            /// `aspnetcore.rate_limiting.policy`
-            /// 
-            /// Rate limiting policy name.
+            /// `aspnetcore.rate_limiting.policy`: Rate limiting policy name.
             /// 
             /// - Stability: stable
             /// 
@@ -66,9 +60,7 @@ extension SemConv {
             ///     - `token`
             public static let policy = "aspnetcore.rate_limiting.policy"
         
-            /// `aspnetcore.rate_limiting.result`
-            /// 
-            /// Rate-limiting result, shows whether the lease was acquired or contains a rejection reason
+            /// `aspnetcore.rate_limiting.result`: Rate-limiting result, shows whether the lease was acquired or contains a rejection reason
             /// 
             /// - Stability: stable
             /// 
@@ -88,9 +80,7 @@ extension SemConv {
     
         /// `aspnetcore.request` namespace
         public enum request {
-            /// `aspnetcore.request.is_unhandled`
-            /// 
-            /// Flag indicating if request was handled by the application pipeline.
+            /// `aspnetcore.request.is_unhandled`: Flag indicating if request was handled by the application pipeline.
             /// 
             /// - Stability: stable
             /// 
@@ -104,9 +94,7 @@ extension SemConv {
     
         /// `aspnetcore.routing` namespace
         public enum routing {
-            /// `aspnetcore.routing.is_fallback`
-            /// 
-            /// A value that indicates whether the matched route is a fallback route.
+            /// `aspnetcore.routing.is_fallback`: A value that indicates whether the matched route is a fallback route.
             /// 
             /// - Stability: stable
             /// 
@@ -115,9 +103,7 @@ extension SemConv {
             /// - Example: `true`
             public static let is_fallback = "aspnetcore.routing.is_fallback"
         
-            /// `aspnetcore.routing.match_status`
-            /// 
-            /// Match result - success or failure
+            /// `aspnetcore.routing.match_status`: Match result - success or failure
             /// 
             /// - Stability: stable
             /// 

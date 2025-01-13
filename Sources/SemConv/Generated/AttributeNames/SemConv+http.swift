@@ -5,9 +5,7 @@
 extension SemConv {
     /// `http` namespace
     public enum http {
-        /// `http.client_ip`
-        /// 
-        /// Deprecated, use `client.address` instead.
+        /// `http.client_ip`: Deprecated, use `client.address` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -17,9 +15,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `client.address`.")
         public static let client_ip = "http.client_ip"
     
-        /// `http.flavor`
-        /// 
-        /// Deprecated, use `network.protocol.name` instead.
+        /// `http.flavor`: Deprecated, use `network.protocol.name` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -33,9 +29,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `network.protocol.name`.")
         public static let flavor = "http.flavor"
     
-        /// `http.host`
-        /// 
-        /// Deprecated, use one of `server.address`, `client.address` or `http.request.header.host` instead, depending on the usage.
+        /// `http.host`: Deprecated, use one of `server.address`, `client.address` or `http.request.header.host` instead, depending on the usage.
         /// 
         /// - Stability: experimental
         /// 
@@ -45,9 +39,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by one of `server.address`, `client.address` or `http.request.header.host`, depending on the usage.")
         public static let host = "http.host"
     
-        /// `http.method`
-        /// 
-        /// Deprecated, use `http.request.method` instead.
+        /// `http.method`: Deprecated, use `http.request.method` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -60,9 +52,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `http.request.method`.")
         public static let method = "http.method"
     
-        /// `http.request_content_length`
-        /// 
-        /// Deprecated, use `http.request.header.<key>` instead.
+        /// `http.request_content_length`: Deprecated, use `http.request.header.<key>` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -72,9 +62,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `http.request.header.<key>`.")
         public static let request_content_length = "http.request_content_length"
     
-        /// `http.request_content_length_uncompressed`
-        /// 
-        /// Deprecated, use `http.request.body.size` instead.
+        /// `http.request_content_length_uncompressed`: Deprecated, use `http.request.body.size` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -84,9 +72,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `http.request.body.size`.")
         public static let request_content_length_uncompressed = "http.request_content_length_uncompressed"
     
-        /// `http.response_content_length`
-        /// 
-        /// Deprecated, use `http.response.header.<key>` instead.
+        /// `http.response_content_length`: Deprecated, use `http.response.header.<key>` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -96,9 +82,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `http.response.header.<key>`.")
         public static let response_content_length = "http.response_content_length"
     
-        /// `http.response_content_length_uncompressed`
-        /// 
-        /// Deprecated, use `http.response.body.size` instead.
+        /// `http.response_content_length_uncompressed`: Deprecated, use `http.response.body.size` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -108,9 +92,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replace by `http.response.body.size`.")
         public static let response_content_length_uncompressed = "http.response_content_length_uncompressed"
     
-        /// `http.route`
-        /// 
-        /// The matched route, that is, the path template in the format used by the respective server framework. 
+        /// `http.route`: The matched route, that is, the path template in the format used by the respective server framework. 
         /// 
         /// - Stability: stable
         /// 
@@ -123,9 +105,7 @@ extension SemConv {
         ///     - `{controller}/{action}/{id?}`
         public static let route = "http.route"
     
-        /// `http.scheme`
-        /// 
-        /// Deprecated, use `url.scheme` instead.
+        /// `http.scheme`: Deprecated, use `url.scheme` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -137,9 +117,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `url.scheme` instead.")
         public static let scheme = "http.scheme"
     
-        /// `http.server_name`
-        /// 
-        /// Deprecated, use `server.address` instead.
+        /// `http.server_name`: Deprecated, use `server.address` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -149,9 +127,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `server.address`.")
         public static let server_name = "http.server_name"
     
-        /// `http.status_code`
-        /// 
-        /// Deprecated, use `http.response.status_code` instead.
+        /// `http.status_code`: Deprecated, use `http.response.status_code` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -161,9 +137,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `http.response.status_code`.")
         public static let status_code = "http.status_code"
     
-        /// `http.target`
-        /// 
-        /// Deprecated, use `url.path` and `url.query` instead.
+        /// `http.target`: Deprecated, use `url.path` and `url.query` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -173,9 +147,7 @@ extension SemConv {
         @available(*, deprecated, message: "Split to `url.path` and `url.query.")
         public static let target = "http.target"
     
-        /// `http.url`
-        /// 
-        /// Deprecated, use `url.full` instead.
+        /// `http.url`: Deprecated, use `url.full` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -185,9 +157,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `url.full`.")
         public static let url = "http.url"
     
-        /// `http.user_agent`
-        /// 
-        /// Deprecated, use `user_agent.original` instead.
+        /// `http.user_agent`: Deprecated, use `user_agent.original` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -201,9 +171,7 @@ extension SemConv {
     
         /// `http.connection` namespace
         public enum connection {
-            /// `http.connection.state`
-            /// 
-            /// State of the HTTP connection in the HTTP connection pool.
+            /// `http.connection.state`: State of the HTTP connection in the HTTP connection pool.
             /// 
             /// - Stability: experimental
             /// 
@@ -221,9 +189,7 @@ extension SemConv {
     
         /// `http.request` namespace
         public enum request {
-            /// `http.request.header`
-            /// 
-            /// HTTP request headers, `<key>` being the normalized HTTP Header name (lowercase), the value being the header values. 
+            /// `http.request.header`: HTTP request headers, `<key>` being the normalized HTTP Header name (lowercase), the value being the header values. 
             /// 
             /// - Stability: stable
             /// 
@@ -236,9 +202,7 @@ extension SemConv {
             ///     - `http.request.header.x-forwarded-for=["1.2.3.4", "1.2.3.5"]`
             public static let header = "http.request.header"
         
-            /// `http.request.method`
-            /// 
-            /// HTTP request method.
+            /// `http.request.method`: HTTP request method.
             /// 
             /// - Stability: stable
             /// 
@@ -262,9 +226,7 @@ extension SemConv {
             ///     - `HEAD`
             public static let method = "http.request.method"
         
-            /// `http.request.method_original`
-            /// 
-            /// Original HTTP method sent by the client in the request line.
+            /// `http.request.method_original`: Original HTTP method sent by the client in the request line.
             /// 
             /// - Stability: stable
             /// 
@@ -276,9 +238,7 @@ extension SemConv {
             ///     - `foo`
             public static let method_original = "http.request.method_original"
         
-            /// `http.request.resend_count`
-            /// 
-            /// The ordinal number of request resending attempt (for any reason, including redirects). 
+            /// `http.request.resend_count`: The ordinal number of request resending attempt (for any reason, including redirects). 
             /// 
             /// - Stability: stable
             /// 
@@ -289,9 +249,7 @@ extension SemConv {
             /// - Example: `3`
             public static let resend_count = "http.request.resend_count"
         
-            /// `http.request.size`
-            /// 
-            /// The total size of the request in bytes. This should be the total number of bytes sent over the wire, including the request line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and request body if any. 
+            /// `http.request.size`: The total size of the request in bytes. This should be the total number of bytes sent over the wire, including the request line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and request body if any. 
             /// 
             /// - Stability: experimental
             /// 
@@ -302,9 +260,7 @@ extension SemConv {
         
             /// `http.request.body` namespace
             public enum body {
-                /// `http.request.body.size`
-                /// 
-                /// The size of the request payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For requests using transport encoding, this should be the compressed size. 
+                /// `http.request.body.size`: The size of the request payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For requests using transport encoding, this should be the compressed size. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -319,9 +275,7 @@ extension SemConv {
     
         /// `http.response` namespace
         public enum response {
-            /// `http.response.header`
-            /// 
-            /// HTTP response headers, `<key>` being the normalized HTTP Header name (lowercase), the value being the header values. 
+            /// `http.response.header`: HTTP response headers, `<key>` being the normalized HTTP Header name (lowercase), the value being the header values. 
             /// 
             /// - Stability: stable
             /// 
@@ -334,9 +288,7 @@ extension SemConv {
             ///     - `http.response.header.my-custom-header=["abc", "def"]`
             public static let header = "http.response.header"
         
-            /// `http.response.size`
-            /// 
-            /// The total size of the response in bytes. This should be the total number of bytes sent over the wire, including the status line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and response body and trailers if any. 
+            /// `http.response.size`: The total size of the response in bytes. This should be the total number of bytes sent over the wire, including the status line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and response body and trailers if any. 
             /// 
             /// - Stability: experimental
             /// 
@@ -345,9 +297,7 @@ extension SemConv {
             /// - Example: `1437`
             public static let size = "http.response.size"
         
-            /// `http.response.status_code`
-            /// 
-            /// [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).
+            /// `http.response.status_code`: [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).
             /// 
             /// - Stability: stable
             /// 
@@ -358,9 +308,7 @@ extension SemConv {
         
             /// `http.response.body` namespace
             public enum body {
-                /// `http.response.body.size`
-                /// 
-                /// The size of the response payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For requests using transport encoding, this should be the compressed size. 
+                /// `http.response.body.size`: The size of the response payload body in bytes. This is the number of bytes transferred excluding headers and is often, but not always, present as the [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For requests using transport encoding, this should be the compressed size. 
                 /// 
                 /// - Stability: experimental
                 /// 

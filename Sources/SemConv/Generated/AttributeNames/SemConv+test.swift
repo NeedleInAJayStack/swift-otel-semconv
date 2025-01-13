@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `test.case` namespace
         public enum `case` {
-            /// `test.case.name`
-            /// 
-            /// The fully qualified human readable name of the [test case](https://en.wikipedia.org/wiki/Test_case). 
+            /// `test.case.name`: The fully qualified human readable name of the [test case](https://en.wikipedia.org/wiki/Test_case). 
             /// 
             /// - Stability: experimental
             /// 
@@ -25,9 +23,7 @@ extension SemConv {
         
             /// `test.case.result` namespace
             public enum result {
-                /// `test.case.result.status`
-                /// 
-                /// The status of the actual test case result from test execution. 
+                /// `test.case.result.status`: The status of the actual test case result from test execution. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -46,9 +42,7 @@ extension SemConv {
     
         /// `test.suite` namespace
         public enum suite {
-            /// `test.suite.name`
-            /// 
-            /// The human readable name of a [test suite](https://en.wikipedia.org/wiki/Test_suite). 
+            /// `test.suite.name`: The human readable name of a [test suite](https://en.wikipedia.org/wiki/Test_suite). 
             /// 
             /// - Stability: experimental
             /// 
@@ -59,9 +53,7 @@ extension SemConv {
         
             /// `test.suite.run` namespace
             public enum run {
-                /// `test.suite.run.status`
-                /// 
-                /// The status of the test suite run. 
+                /// `test.suite.run.status`: The status of the test suite run. 
                 /// 
                 /// - Stability: experimental
                 /// 

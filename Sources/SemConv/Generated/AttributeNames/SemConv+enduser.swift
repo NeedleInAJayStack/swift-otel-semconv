@@ -5,9 +5,7 @@
 extension SemConv {
     /// `enduser` namespace
     public enum enduser {
-        /// `enduser.id`
-        /// 
-        /// Deprecated, use `user.id` instead.
+        /// `enduser.id`: Deprecated, use `user.id` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -17,9 +15,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `user.id` attribute.")
         public static let id = "enduser.id"
     
-        /// `enduser.role`
-        /// 
-        /// Deprecated, use `user.roles` instead.
+        /// `enduser.role`: Deprecated, use `user.roles` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -29,9 +25,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `user.roles` attribute.")
         public static let role = "enduser.role"
     
-        /// `enduser.scope`
-        /// 
-        /// Deprecated, no replacement at this time.
+        /// `enduser.scope`: Deprecated, no replacement at this time.
         /// 
         /// - Stability: experimental
         /// 

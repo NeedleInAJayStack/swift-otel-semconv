@@ -5,9 +5,7 @@
 extension SemConv {
     /// `device` namespace
     public enum device {
-        /// `device.id`
-        /// 
-        /// A unique identifier representing the device 
+        /// `device.id`: A unique identifier representing the device 
         /// 
         /// - Stability: experimental
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
         /// - Example: `2ab2916d-a51f-4ac8-80ee-45ac31a28092`
         public static let id = "device.id"
     
-        /// `device.manufacturer`
-        /// 
-        /// The name of the device manufacturer 
+        /// `device.manufacturer`: The name of the device manufacturer 
         /// 
         /// - Stability: experimental
         /// 
@@ -35,9 +31,7 @@ extension SemConv {
     
         /// `device.model` namespace
         public enum model {
-            /// `device.model.identifier`
-            /// 
-            /// The model identifier for the device 
+            /// `device.model.identifier`: The model identifier for the device 
             /// 
             /// - Stability: experimental
             /// 
@@ -50,9 +44,7 @@ extension SemConv {
             ///     - `SM-G920F`
             public static let identifier = "device.model.identifier"
         
-            /// `device.model.name`
-            /// 
-            /// The marketing name for the device model 
+            /// `device.model.name`: The marketing name for the device model 
             /// 
             /// - Stability: experimental
             /// 

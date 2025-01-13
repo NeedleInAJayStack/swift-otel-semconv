@@ -13,9 +13,7 @@ extension SemConv {
         
             /// `dotnet.gc.heap` namespace
             public enum heap {
-                /// `dotnet.gc.heap.generation`
-                /// 
-                /// Name of the garbage collector managed heap generation.
+                /// `dotnet.gc.heap.generation`: Name of the garbage collector managed heap generation.
                 /// 
                 /// - Stability: experimental
                 /// 

@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `v8js.gc` namespace
         public enum gc {
-            /// `v8js.gc.type`
-            /// 
-            /// The type of garbage collection.
+            /// `v8js.gc.type`: The type of garbage collection.
             /// 
             /// - Stability: experimental
             /// 
@@ -31,9 +29,7 @@ extension SemConv {
         
             /// `v8js.heap.space` namespace
             public enum space {
-                /// `v8js.heap.space.name`
-                /// 
-                /// The name of the space type of heap memory.
+                /// `v8js.heap.space.name`: The name of the space type of heap memory.
                 /// 
                 /// - Stability: experimental
                 /// 

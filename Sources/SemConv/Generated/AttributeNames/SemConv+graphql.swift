@@ -5,9 +5,7 @@
 extension SemConv {
     /// `graphql` namespace
     public enum graphql {
-        /// `graphql.document`
-        /// 
-        /// The GraphQL document being executed.
+        /// `graphql.document`: The GraphQL document being executed.
         /// 
         /// - Stability: experimental
         /// 
@@ -20,9 +18,7 @@ extension SemConv {
     
         /// `graphql.operation` namespace
         public enum operation {
-            /// `graphql.operation.name`
-            /// 
-            /// The name of the operation being executed.
+            /// `graphql.operation.name`: The name of the operation being executed.
             /// 
             /// - Stability: experimental
             /// 
@@ -31,9 +27,7 @@ extension SemConv {
             /// - Example: `findBookById`
             public static let name = "graphql.operation.name"
         
-            /// `graphql.operation.type`
-            /// 
-            /// The type of the operation being executed.
+            /// `graphql.operation.type`: The type of the operation being executed.
             /// 
             /// - Stability: experimental
             /// 

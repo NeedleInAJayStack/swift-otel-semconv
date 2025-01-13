@@ -5,9 +5,7 @@
 extension SemConv {
     /// `code` namespace
     public enum code {
-        /// `code.column`
-        /// 
-        /// The column number in `code.filepath` best representing the operation. It SHOULD point within the code unit named in `code.function`. 
+        /// `code.column`: The column number in `code.filepath` best representing the operation. It SHOULD point within the code unit named in `code.function`. 
         /// 
         /// - Stability: experimental
         /// 
@@ -16,9 +14,7 @@ extension SemConv {
         /// - Example: `16`
         public static let column = "code.column"
     
-        /// `code.filepath`
-        /// 
-        /// The source code file name that identifies the code unit as uniquely as possible (preferably an absolute file path). 
+        /// `code.filepath`: The source code file name that identifies the code unit as uniquely as possible (preferably an absolute file path). 
         /// 
         /// - Stability: experimental
         /// 
@@ -27,9 +23,7 @@ extension SemConv {
         /// - Example: `/usr/local/MyApplication/content_root/app/index.php`
         public static let filepath = "code.filepath"
     
-        /// `code.function`
-        /// 
-        /// The method or function name, or equivalent (usually rightmost part of the code unit's name). 
+        /// `code.function`: The method or function name, or equivalent (usually rightmost part of the code unit's name). 
         /// 
         /// - Stability: experimental
         /// 
@@ -38,9 +32,7 @@ extension SemConv {
         /// - Example: `serveRequest`
         public static let function = "code.function"
     
-        /// `code.lineno`
-        /// 
-        /// The line number in `code.filepath` best representing the operation. It SHOULD point within the code unit named in `code.function`. 
+        /// `code.lineno`: The line number in `code.filepath` best representing the operation. It SHOULD point within the code unit named in `code.function`. 
         /// 
         /// - Stability: experimental
         /// 
@@ -49,9 +41,7 @@ extension SemConv {
         /// - Example: `42`
         public static let lineno = "code.lineno"
     
-        /// `code.namespace`
-        /// 
-        /// The "namespace" within which `code.function` is defined. Usually the qualified class or module name, such that `code.namespace` + some separator + `code.function` form a unique identifier for the code unit. 
+        /// `code.namespace`: The "namespace" within which `code.function` is defined. Usually the qualified class or module name, such that `code.namespace` + some separator + `code.function` form a unique identifier for the code unit. 
         /// 
         /// - Stability: experimental
         /// 
@@ -60,9 +50,7 @@ extension SemConv {
         /// - Example: `com.example.MyHttpService`
         public static let namespace = "code.namespace"
     
-        /// `code.stacktrace`
-        /// 
-        /// A stacktrace as a string in the natural representation for the language runtime. The representation is to be determined and documented by each language SIG. 
+        /// `code.stacktrace`: A stacktrace as a string in the natural representation for the language runtime. The representation is to be determined and documented by each language SIG. 
         /// 
         /// - Stability: experimental
         /// 

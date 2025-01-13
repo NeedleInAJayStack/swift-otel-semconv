@@ -5,9 +5,7 @@
 extension SemConv {
     /// `cloud` namespace
     public enum cloud {
-        /// `cloud.availability_zone`
-        /// 
-        /// Cloud regions often have multiple, isolated locations known as zones to increase availability. Availability zone represents the zone where the resource is running. 
+        /// `cloud.availability_zone`: Cloud regions often have multiple, isolated locations known as zones to increase availability. Availability zone represents the zone where the resource is running. 
         /// 
         /// - Stability: experimental
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
         /// - Example: `us-east-1c`
         public static let availability_zone = "cloud.availability_zone"
     
-        /// `cloud.platform`
-        /// 
-        /// The cloud platform in use. 
+        /// `cloud.platform`: The cloud platform in use. 
         /// 
         /// - Stability: experimental
         /// 
@@ -57,9 +53,7 @@ extension SemConv {
         /// The prefix of the service SHOULD match the one specified in `cloud.provider`. 
         public static let platform = "cloud.platform"
     
-        /// `cloud.provider`
-        /// 
-        /// Name of the cloud provider. 
+        /// `cloud.provider`: Name of the cloud provider. 
         /// 
         /// - Stability: experimental
         /// 
@@ -73,9 +67,7 @@ extension SemConv {
         ///     - `tencent_cloud`: Tencent Cloud
         public static let provider = "cloud.provider"
     
-        /// `cloud.region`
-        /// 
-        /// The geographical region the resource is running. 
+        /// `cloud.region`: The geographical region the resource is running. 
         /// 
         /// - Stability: experimental
         /// 
@@ -88,9 +80,7 @@ extension SemConv {
         ///     - `us-east-1`
         public static let region = "cloud.region"
     
-        /// `cloud.resource_id`
-        /// 
-        /// Cloud provider-specific native identifier of the monitored cloud resource (e.g. an [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) on AWS, a [fully qualified resource ID](https://learn.microsoft.com/rest/api/resources/resources/get-by-id) on Azure, a [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name) on GCP) 
+        /// `cloud.resource_id`: Cloud provider-specific native identifier of the monitored cloud resource (e.g. an [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) on AWS, a [fully qualified resource ID](https://learn.microsoft.com/rest/api/resources/resources/get-by-id) on Azure, a [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name) on GCP) 
         /// 
         /// - Stability: experimental
         /// 
@@ -106,9 +96,7 @@ extension SemConv {
     
         /// `cloud.account` namespace
         public enum account {
-            /// `cloud.account.id`
-            /// 
-            /// The cloud account ID the resource is assigned to. 
+            /// `cloud.account.id`: The cloud account ID the resource is assigned to. 
             /// 
             /// - Stability: experimental
             /// 

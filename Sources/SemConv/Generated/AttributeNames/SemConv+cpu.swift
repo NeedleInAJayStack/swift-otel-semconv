@@ -5,9 +5,7 @@
 extension SemConv {
     /// `cpu` namespace
     public enum cpu {
-        /// `cpu.mode`
-        /// 
-        /// The mode of the CPU
+        /// `cpu.mode`: The mode of the CPU
         /// 
         /// - Stability: experimental
         /// 

@@ -2,7 +2,7 @@
 
 [![SemConv][semconv-badge]][semconv-url]
 
-This repo contains Swift support for the [OpenTelemetry Semantic Convention Attribute Registry](https://opentelemetry.io/docs/specs/semconv/attributes-registry/). Currently only static string attribute names are provided.
+This repo contains Swift support for the [OpenTelemetry Semantic Convention Attribute Registry](https://opentelemetry.io/docs/specs/semconv/attributes-registry/).
 
 Using this repo has the following benefits:
 
@@ -12,20 +12,36 @@ Using this repo has the following benefits:
 
 ## Usage
 
-To use this package, simply reference the static properties from the package when creating span attributes ore log metadata instead of string literals:
-
 ### Span Attributes
 
+This package vends type-aware extensions on `SpanAttributes` for each OTEL attribute:
+
 ```swift
+withSpan("showAttributes") { span in
+    // Primitive and array types use Swift primitives
+    span.attributes.http.response.status_code = 200
+    span.attributes.host.ip = ["192.168.1.140", "fe80::abc2:4a28:737a:609e"]
+    
+    // Enum types are presented as Swift enums
+    span.attributes.http.request.method = .post
+    
+    // Template types can be set dynamically
+    span.attributes.http.request.header.set("X-Foo", to: ["bar", "baz"])
+}
+```
+
+### Attribute Names
+
+This package vends each OTEL attribute name as a static string property on the `SemConv` type. To use them, simply reference the static properties when creating span attributes or log metadata instead of string literals:
+
+```swift
+// Span Attributes
 withSpan("showAttributes") { span in
   span.attributes[SemConv.http.request.method] = "POST"
   span.attributes[SemConv.http.response.status_code] = 200
 }
-```
 
-### Logging Metadata
-
-```swift
+// Logging Metadata
 logger[metadataKey: .init(name: SemConv.http.request.method)] = "POST"
 logger[metadataKey: .init(name: SemConv.http.response.status_code)] = "200"
 ```

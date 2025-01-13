@@ -5,9 +5,7 @@
 extension SemConv {
     /// `source` namespace
     public enum source {
-        /// `source.address`
-        /// 
-        /// Source address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
+        /// `source.address`: Source address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
         /// 
         /// - Stability: experimental
         /// 
@@ -21,9 +19,7 @@ extension SemConv {
         ///     - `/tmp/my.sock`
         public static let address = "source.address"
     
-        /// `source.port`
-        /// 
-        /// Source port number
+        /// `source.port`: Source port number
         /// 
         /// - Stability: experimental
         /// 

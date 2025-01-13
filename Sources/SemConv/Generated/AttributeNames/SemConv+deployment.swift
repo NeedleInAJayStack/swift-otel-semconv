@@ -5,9 +5,7 @@
 extension SemConv {
     /// `deployment` namespace
     public enum deployment {
-        /// `deployment.environment`
-        /// 
-        /// 'Deprecated, use `deployment.environment.name` instead.' 
+        /// `deployment.environment`: 'Deprecated, use `deployment.environment.name` instead.' 
         /// 
         /// - Stability: experimental
         /// 
@@ -19,9 +17,7 @@ extension SemConv {
         @available(*, deprecated, message: "Deprecated, use `deployment.environment.name` instead.")
         public static let _environment = "deployment.environment"
     
-        /// `deployment.id`
-        /// 
-        /// The id of the deployment. 
+        /// `deployment.id`: The id of the deployment. 
         /// 
         /// - Stability: experimental
         /// 
@@ -30,9 +26,7 @@ extension SemConv {
         /// - Example: `1208`
         public static let id = "deployment.id"
     
-        /// `deployment.name`
-        /// 
-        /// The name of the deployment. 
+        /// `deployment.name`: The name of the deployment. 
         /// 
         /// - Stability: experimental
         /// 
@@ -43,9 +37,7 @@ extension SemConv {
         ///     - `deploy-frontend`
         public static let name = "deployment.name"
     
-        /// `deployment.status`
-        /// 
-        /// The status of the deployment. 
+        /// `deployment.status`: The status of the deployment. 
         /// 
         /// - Stability: experimental
         /// 
@@ -56,9 +48,7 @@ extension SemConv {
     
         /// `deployment.environment` namespace
         public enum environment {
-            /// `deployment.environment.name`
-            /// 
-            /// Name of the [deployment environment](https://wikipedia.org/wiki/Deployment_environment) (aka deployment tier). 
+            /// `deployment.environment.name`: Name of the [deployment environment](https://wikipedia.org/wiki/Deployment_environment) (aka deployment tier). 
             /// 
             /// - Stability: experimental
             /// 

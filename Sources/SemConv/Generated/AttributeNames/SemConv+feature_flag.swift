@@ -5,9 +5,7 @@
 extension SemConv {
     /// `feature_flag` namespace
     public enum feature_flag {
-        /// `feature_flag.key`
-        /// 
-        /// The unique identifier of the feature flag.
+        /// `feature_flag.key`: The unique identifier of the feature flag.
         /// 
         /// - Stability: experimental
         /// 
@@ -16,9 +14,7 @@ extension SemConv {
         /// - Example: `logo-color`
         public static let key = "feature_flag.key"
     
-        /// `feature_flag.provider_name`
-        /// 
-        /// The name of the service provider that performs the flag evaluation.
+        /// `feature_flag.provider_name`: The name of the service provider that performs the flag evaluation.
         /// 
         /// - Stability: experimental
         /// 
@@ -27,9 +23,7 @@ extension SemConv {
         /// - Example: `Flag Manager`
         public static let provider_name = "feature_flag.provider_name"
     
-        /// `feature_flag.variant`
-        /// 
-        /// SHOULD be a semantic identifier for a value. If one is unavailable, a stringified version of the value can be used. 
+        /// `feature_flag.variant`: SHOULD be a semantic identifier for a value. If one is unavailable, a stringified version of the value can be used. 
         /// 
         /// - Stability: experimental
         /// 

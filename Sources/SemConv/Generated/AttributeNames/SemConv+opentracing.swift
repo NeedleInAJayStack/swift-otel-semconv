@@ -5,9 +5,7 @@
 extension SemConv {
     /// `opentracing` namespace
     public enum opentracing {
-        /// `opentracing.ref_type`
-        /// 
-        /// Parent-child Reference type
+        /// `opentracing.ref_type`: Parent-child Reference type
         /// 
         /// - Stability: experimental
         /// 

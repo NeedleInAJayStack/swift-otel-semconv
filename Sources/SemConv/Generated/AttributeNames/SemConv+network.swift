@@ -5,9 +5,7 @@
 extension SemConv {
     /// `network` namespace
     public enum network {
-        /// `network.transport`
-        /// 
-        /// [OSI transport layer](https://osi-model.com/transport-layer/) or [inter-process communication method](https://wikipedia.org/wiki/Inter-process_communication). 
+        /// `network.transport`: [OSI transport layer](https://osi-model.com/transport-layer/) or [inter-process communication method](https://wikipedia.org/wiki/Inter-process_communication). 
         /// 
         /// - Stability: stable
         /// 
@@ -25,9 +23,7 @@ extension SemConv {
         ///     - `udp`
         public static let transport = "network.transport"
     
-        /// `network.type`
-        /// 
-        /// [OSI network layer](https://osi-model.com/network-layer/) or non-OSI equivalent.
+        /// `network.type`: [OSI network layer](https://osi-model.com/network-layer/) or non-OSI equivalent.
         /// 
         /// - Stability: stable
         /// 
@@ -44,9 +40,7 @@ extension SemConv {
     
         /// `network.carrier` namespace
         public enum carrier {
-            /// `network.carrier.icc`
-            /// 
-            /// The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network.
+            /// `network.carrier.icc`: The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network.
             /// 
             /// - Stability: experimental
             /// 
@@ -55,9 +49,7 @@ extension SemConv {
             /// - Example: `DE`
             public static let icc = "network.carrier.icc"
         
-            /// `network.carrier.mcc`
-            /// 
-            /// The mobile carrier country code.
+            /// `network.carrier.mcc`: The mobile carrier country code.
             /// 
             /// - Stability: experimental
             /// 
@@ -66,9 +58,7 @@ extension SemConv {
             /// - Example: `310`
             public static let mcc = "network.carrier.mcc"
         
-            /// `network.carrier.mnc`
-            /// 
-            /// The mobile carrier network code.
+            /// `network.carrier.mnc`: The mobile carrier network code.
             /// 
             /// - Stability: experimental
             /// 
@@ -77,9 +67,7 @@ extension SemConv {
             /// - Example: `001`
             public static let mnc = "network.carrier.mnc"
         
-            /// `network.carrier.name`
-            /// 
-            /// The name of the mobile carrier.
+            /// `network.carrier.name`: The name of the mobile carrier.
             /// 
             /// - Stability: experimental
             /// 
@@ -93,9 +81,7 @@ extension SemConv {
     
         /// `network.connection` namespace
         public enum connection {
-            /// `network.connection.subtype`
-            /// 
-            /// This describes more details regarding the connection.type. It may be the type of cell technology connection, but it could be used for describing details about a wifi connection.
+            /// `network.connection.subtype`: This describes more details regarding the connection.type. It may be the type of cell technology connection, but it could be used for describing details about a wifi connection.
             /// 
             /// - Stability: experimental
             /// 
@@ -125,9 +111,7 @@ extension SemConv {
             /// - Example: `LTE`
             public static let subtype = "network.connection.subtype"
         
-            /// `network.connection.type`
-            /// 
-            /// The internet connection type.
+            /// `network.connection.type`: The internet connection type.
             /// 
             /// - Stability: experimental
             /// 
@@ -146,9 +130,7 @@ extension SemConv {
     
         /// `network.io` namespace
         public enum io {
-            /// `network.io.direction`
-            /// 
-            /// The network IO operation direction.
+            /// `network.io.direction`: The network IO operation direction.
             /// 
             /// - Stability: experimental
             /// 
@@ -164,9 +146,7 @@ extension SemConv {
     
         /// `network.local` namespace
         public enum local {
-            /// `network.local.address`
-            /// 
-            /// Local address of the network connection - IP address or Unix domain socket name.
+            /// `network.local.address`: Local address of the network connection - IP address or Unix domain socket name.
             /// 
             /// - Stability: stable
             /// 
@@ -177,9 +157,7 @@ extension SemConv {
             ///     - `/tmp/my.sock`
             public static let address = "network.local.address"
         
-            /// `network.local.port`
-            /// 
-            /// Local port number of the network connection.
+            /// `network.local.port`: Local port number of the network connection.
             /// 
             /// - Stability: stable
             /// 
@@ -193,9 +171,7 @@ extension SemConv {
     
         /// `network.peer` namespace
         public enum peer {
-            /// `network.peer.address`
-            /// 
-            /// Peer address of the network connection - IP address or Unix domain socket name.
+            /// `network.peer.address`: Peer address of the network connection - IP address or Unix domain socket name.
             /// 
             /// - Stability: stable
             /// 
@@ -206,9 +182,7 @@ extension SemConv {
             ///     - `/tmp/my.sock`
             public static let address = "network.peer.address"
         
-            /// `network.peer.port`
-            /// 
-            /// Peer port number of the network connection.
+            /// `network.peer.port`: Peer port number of the network connection.
             /// 
             /// - Stability: stable
             /// 
@@ -222,9 +196,7 @@ extension SemConv {
     
         /// `network.protocol` namespace
         public enum `protocol` {
-            /// `network.protocol.name`
-            /// 
-            /// [OSI application layer](https://osi-model.com/application-layer/) or non-OSI equivalent.
+            /// `network.protocol.name`: [OSI application layer](https://osi-model.com/application-layer/) or non-OSI equivalent.
             /// 
             /// - Stability: stable
             /// 
@@ -238,9 +210,7 @@ extension SemConv {
             ///     - `mqtt`
             public static let name = "network.protocol.name"
         
-            /// `network.protocol.version`
-            /// 
-            /// The actual version of the protocol used for network communication.
+            /// `network.protocol.version`: The actual version of the protocol used for network communication.
             /// 
             /// - Stability: stable
             /// 

@@ -9,9 +9,7 @@ extension SemConv {
     
         /// `go.memory` namespace
         public enum memory {
-            /// `go.memory.type`
-            /// 
-            /// The type of memory.
+            /// `go.memory.type`: The type of memory.
             /// 
             /// - Stability: experimental
             /// 

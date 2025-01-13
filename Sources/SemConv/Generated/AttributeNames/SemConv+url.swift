@@ -5,9 +5,7 @@
 extension SemConv {
     /// `url` namespace
     public enum url {
-        /// `url.domain`
-        /// 
-        /// Domain extracted from the `url.full`, such as "opentelemetry.io". 
+        /// `url.domain`: Domain extracted from the `url.full`, such as "opentelemetry.io". 
         /// 
         /// - Stability: experimental
         /// 
@@ -22,9 +20,7 @@ extension SemConv {
         ///     - `[1080:0:0:0:8:800:200C:417A]`
         public static let domain = "url.domain"
     
-        /// `url.extension`
-        /// 
-        /// The file extension extracted from the `url.full`, excluding the leading dot. 
+        /// `url.extension`: The file extension extracted from the `url.full`, excluding the leading dot. 
         /// 
         /// - Stability: experimental
         /// 
@@ -37,9 +33,7 @@ extension SemConv {
         ///     - `gz`
         public static let `extension` = "url.extension"
     
-        /// `url.fragment`
-        /// 
-        /// The [URI fragment](https://www.rfc-editor.org/rfc/rfc3986#section-3.5) component 
+        /// `url.fragment`: The [URI fragment](https://www.rfc-editor.org/rfc/rfc3986#section-3.5) component 
         /// 
         /// - Stability: stable
         /// 
@@ -48,9 +42,7 @@ extension SemConv {
         /// - Example: `SemConv`
         public static let fragment = "url.fragment"
     
-        /// `url.full`
-        /// 
-        /// Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986)
+        /// `url.full`: Absolute URL describing a network resource according to [RFC3986](https://www.rfc-editor.org/rfc/rfc3986)
         /// 
         /// - Stability: stable
         /// 
@@ -63,9 +55,7 @@ extension SemConv {
         ///     - `//localhost`
         public static let full = "url.full"
     
-        /// `url.original`
-        /// 
-        /// Unmodified original URL as seen in the event source. 
+        /// `url.original`: Unmodified original URL as seen in the event source. 
         /// 
         /// - Stability: experimental
         /// 
@@ -78,9 +68,7 @@ extension SemConv {
         ///     - `search?q=OpenTelemetry`
         public static let original = "url.original"
     
-        /// `url.path`
-        /// 
-        /// The [URI path](https://www.rfc-editor.org/rfc/rfc3986#section-3.3) component 
+        /// `url.path`: The [URI path](https://www.rfc-editor.org/rfc/rfc3986#section-3.3) component 
         /// 
         /// - Stability: stable
         /// 
@@ -91,9 +79,7 @@ extension SemConv {
         /// - Example: `/search`
         public static let path = "url.path"
     
-        /// `url.port`
-        /// 
-        /// Port extracted from the `url.full` 
+        /// `url.port`: Port extracted from the `url.full` 
         /// 
         /// - Stability: experimental
         /// 
@@ -102,9 +88,7 @@ extension SemConv {
         /// - Example: `443`
         public static let port = "url.port"
     
-        /// `url.query`
-        /// 
-        /// The [URI query](https://www.rfc-editor.org/rfc/rfc3986#section-3.4) component 
+        /// `url.query`: The [URI query](https://www.rfc-editor.org/rfc/rfc3986#section-3.4) component 
         /// 
         /// - Stability: stable
         /// 
@@ -115,9 +99,7 @@ extension SemConv {
         /// - Example: `q=OpenTelemetry`
         public static let query = "url.query"
     
-        /// `url.registered_domain`
-        /// 
-        /// The highest registered url domain, stripped of the subdomain. 
+        /// `url.registered_domain`: The highest registered url domain, stripped of the subdomain. 
         /// 
         /// - Stability: experimental
         /// 
@@ -130,9 +112,7 @@ extension SemConv {
         ///     - `foo.co.uk`
         public static let registered_domain = "url.registered_domain"
     
-        /// `url.scheme`
-        /// 
-        /// The [URI scheme](https://www.rfc-editor.org/rfc/rfc3986#section-3.1) component identifying the used protocol. 
+        /// `url.scheme`: The [URI scheme](https://www.rfc-editor.org/rfc/rfc3986#section-3.1) component identifying the used protocol. 
         /// 
         /// - Stability: stable
         /// 
@@ -144,9 +124,7 @@ extension SemConv {
         ///     - `telnet`
         public static let scheme = "url.scheme"
     
-        /// `url.subdomain`
-        /// 
-        /// The subdomain portion of a fully qualified domain name includes all of the names except the host name under the registered_domain. In a partially qualified domain, or if the qualification level of the full name cannot be determined, subdomain contains all of the names below the registered domain. 
+        /// `url.subdomain`: The subdomain portion of a fully qualified domain name includes all of the names except the host name under the registered_domain. In a partially qualified domain, or if the qualification level of the full name cannot be determined, subdomain contains all of the names below the registered domain. 
         /// 
         /// - Stability: experimental
         /// 
@@ -159,9 +137,7 @@ extension SemConv {
         ///     - `sub2.sub1`
         public static let subdomain = "url.subdomain"
     
-        /// `url.template`
-        /// 
-        /// The low-cardinality template of an [absolute path reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.2). 
+        /// `url.template`: The low-cardinality template of an [absolute path reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.2). 
         /// 
         /// - Stability: experimental
         /// 
@@ -173,9 +149,7 @@ extension SemConv {
         ///     - `/users?id={id}`
         public static let template = "url.template"
     
-        /// `url.top_level_domain`
-        /// 
-        /// The effective top level domain (eTLD), also known as the domain suffix, is the last part of the domain name. For example, the top level domain for example.com is `com`. 
+        /// `url.top_level_domain`: The effective top level domain (eTLD), also known as the domain suffix, is the last part of the domain name. For example, the top level domain for example.com is `com`. 
         /// 
         /// - Stability: experimental
         /// 

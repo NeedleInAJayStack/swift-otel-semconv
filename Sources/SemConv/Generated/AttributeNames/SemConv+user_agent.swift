@@ -5,9 +5,7 @@
 extension SemConv {
     /// `user_agent` namespace
     public enum user_agent {
-        /// `user_agent.name`
-        /// 
-        /// Name of the user-agent extracted from original. Usually refers to the browser's name. 
+        /// `user_agent.name`: Name of the user-agent extracted from original. Usually refers to the browser's name. 
         /// 
         /// - Stability: experimental
         /// 
@@ -20,9 +18,7 @@ extension SemConv {
         ///     - `YourApp`
         public static let name = "user_agent.name"
     
-        /// `user_agent.original`
-        /// 
-        /// Value of the [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc9110.html#field.user-agent) header sent by the client. 
+        /// `user_agent.original`: Value of the [HTTP User-Agent](https://www.rfc-editor.org/rfc/rfc9110.html#field.user-agent) header sent by the client. 
         /// 
         /// - Stability: stable
         /// 
@@ -34,9 +30,7 @@ extension SemConv {
         ///     - `YourApp/1.0.0 grpc-java-okhttp/1.27.2`
         public static let original = "user_agent.original"
     
-        /// `user_agent.version`
-        /// 
-        /// Version of the user-agent extracted from original. Usually refers to the browser's version 
+        /// `user_agent.version`: Version of the user-agent extracted from original. Usually refers to the browser's version 
         /// 
         /// - Stability: experimental
         /// 

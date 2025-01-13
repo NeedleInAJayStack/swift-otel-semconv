@@ -5,9 +5,7 @@
 extension SemConv {
     /// `container` namespace
     public enum container {
-        /// `container.command`
-        /// 
-        /// The command used to run the container (i.e. the command name). 
+        /// `container.command`: The command used to run the container (i.e. the command name). 
         /// 
         /// - Stability: experimental
         /// 
@@ -18,18 +16,14 @@ extension SemConv {
         /// - Example: `otelcontribcol`
         public static let command = "container.command"
     
-        /// `container.command_args`
-        /// 
-        /// All the command arguments (including the command/executable itself) run by the container. 
+        /// `container.command_args`: All the command arguments (including the command/executable itself) run by the container. 
         /// 
         /// - Stability: experimental
         /// 
         /// - Type: stringArray
         public static let command_args = "container.command_args"
     
-        /// `container.command_line`
-        /// 
-        /// The full command run by the container as a single string representing the full command. 
+        /// `container.command_line`: The full command run by the container as a single string representing the full command. 
         /// 
         /// - Stability: experimental
         /// 
@@ -38,9 +32,7 @@ extension SemConv {
         /// - Example: `otelcontribcol --config config.yaml`
         public static let command_line = "container.command_line"
     
-        /// `container.id`
-        /// 
-        /// Container ID. Usually a UUID, as for example used to [identify Docker containers](https://docs.docker.com/engine/containers/run/#container-identification). The UUID might be abbreviated. 
+        /// `container.id`: Container ID. Usually a UUID, as for example used to [identify Docker containers](https://docs.docker.com/engine/containers/run/#container-identification). The UUID might be abbreviated. 
         /// 
         /// - Stability: experimental
         /// 
@@ -49,9 +41,7 @@ extension SemConv {
         /// - Example: `a3bf90e006b2`
         public static let id = "container.id"
     
-        /// `container.label`
-        /// 
-        /// Container labels, `<key>` being the label name, the value being the label value. 
+        /// `container.label`: Container labels, `<key>` being the label name, the value being the label value. 
         /// 
         /// - Stability: experimental
         /// 
@@ -60,9 +50,7 @@ extension SemConv {
         /// - Example: `container.label.app=nginx`
         public static let label = "container.label"
     
-        /// `container.labels`
-        /// 
-        /// Deprecated, use `container.label` instead.
+        /// `container.labels`: Deprecated, use `container.label` instead.
         /// 
         /// - Stability: experimental
         /// 
@@ -72,9 +60,7 @@ extension SemConv {
         @available(*, deprecated, message: "Replaced by `container.label`.")
         public static let labels = "container.labels"
     
-        /// `container.name`
-        /// 
-        /// Container name used by container runtime. 
+        /// `container.name`: Container name used by container runtime. 
         /// 
         /// - Stability: experimental
         /// 
@@ -83,9 +69,7 @@ extension SemConv {
         /// - Example: `opentelemetry-autoconf`
         public static let name = "container.name"
     
-        /// `container.runtime`
-        /// 
-        /// The container runtime managing this container. 
+        /// `container.runtime`: The container runtime managing this container. 
         /// 
         /// - Stability: experimental
         /// 
@@ -99,9 +83,7 @@ extension SemConv {
     
         /// `container.cpu` namespace
         public enum cpu {
-            /// `container.cpu.state`
-            /// 
-            /// Deprecated, use `cpu.mode` instead.
+            /// `container.cpu.state`: Deprecated, use `cpu.mode` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -125,9 +107,7 @@ extension SemConv {
         
             /// `container.csi.plugin` namespace
             public enum plugin {
-                /// `container.csi.plugin.name`
-                /// 
-                /// The name of the CSI ([Container Storage Interface](https://github.com/container-storage-interface/spec)) plugin used by the volume. 
+                /// `container.csi.plugin.name`: The name of the CSI ([Container Storage Interface](https://github.com/container-storage-interface/spec)) plugin used by the volume. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -143,9 +123,7 @@ extension SemConv {
         
             /// `container.csi.volume` namespace
             public enum volume {
-                /// `container.csi.volume.id`
-                /// 
-                /// The unique volume ID returned by the CSI ([Container Storage Interface](https://github.com/container-storage-interface/spec)) plugin. 
+                /// `container.csi.volume.id`: The unique volume ID returned by the CSI ([Container Storage Interface](https://github.com/container-storage-interface/spec)) plugin. 
                 /// 
                 /// - Stability: experimental
                 /// 
@@ -162,9 +140,7 @@ extension SemConv {
     
         /// `container.image` namespace
         public enum image {
-            /// `container.image.id`
-            /// 
-            /// Runtime specific image identifier. Usually a hash algorithm followed by a UUID. 
+            /// `container.image.id`: Runtime specific image identifier. Usually a hash algorithm followed by a UUID. 
             /// 
             /// - Stability: experimental
             /// 
@@ -175,9 +151,7 @@ extension SemConv {
             /// - Example: `sha256:19c92d0a00d1b66d897bceaa7319bee0dd38a10a851c60bcec9474aa3f01e50f`
             public static let id = "container.image.id"
         
-            /// `container.image.name`
-            /// 
-            /// Name of the image the container was built on. 
+            /// `container.image.name`: Name of the image the container was built on. 
             /// 
             /// - Stability: experimental
             /// 
@@ -186,9 +160,7 @@ extension SemConv {
             /// - Example: `gcr.io/opentelemetry/operator`
             public static let name = "container.image.name"
         
-            /// `container.image.repo_digests`
-            /// 
-            /// Repo digests of the container image as provided by the container runtime. 
+            /// `container.image.repo_digests`: Repo digests of the container image as provided by the container runtime. 
             /// 
             /// - Stability: experimental
             /// 
@@ -197,9 +169,7 @@ extension SemConv {
             /// [Docker](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect) and [CRI](https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238) report those under the `RepoDigests` field. 
             public static let repo_digests = "container.image.repo_digests"
         
-            /// `container.image.tags`
-            /// 
-            /// Container image tags. An example can be found in [Docker Image Inspect](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect). Should be only the `<tag>` section of the full name for example from `registry.example.com/my-org/my-image:<tag>`. 
+            /// `container.image.tags`: Container image tags. An example can be found in [Docker Image Inspect](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect). Should be only the `<tag>` section of the full name for example from `registry.example.com/my-org/my-image:<tag>`. 
             /// 
             /// - Stability: experimental
             /// 

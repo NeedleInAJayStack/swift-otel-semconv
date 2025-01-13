@@ -117,6 +117,7 @@ struct Attribute: Codable {
         struct EnumMember: Codable {
             let id: String
             let value: String
+            let deprecated: String?
             let brief: String?
             let stability: Stability?
         }

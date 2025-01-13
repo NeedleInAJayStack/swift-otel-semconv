@@ -5,9 +5,7 @@
 extension SemConv {
     /// `system` namespace
     public enum system {
-        /// `system.device`
-        /// 
-        /// The device identifier
+        /// `system.device`: The device identifier
         /// 
         /// - Stability: experimental
         /// 
@@ -18,9 +16,7 @@ extension SemConv {
     
         /// `system.cpu` namespace
         public enum cpu {
-            /// `system.cpu.logical_number`
-            /// 
-            /// The logical CPU number [0..n-1]
+            /// `system.cpu.logical_number`: The logical CPU number [0..n-1]
             /// 
             /// - Stability: experimental
             /// 
@@ -29,9 +25,7 @@ extension SemConv {
             /// - Example: `1`
             public static let logical_number = "system.cpu.logical_number"
         
-            /// `system.cpu.state`
-            /// 
-            /// Deprecated, use `cpu.mode` instead.
+            /// `system.cpu.state`: Deprecated, use `cpu.mode` instead.
             /// 
             /// - Stability: experimental
             /// 
@@ -55,9 +49,7 @@ extension SemConv {
     
         /// `system.filesystem` namespace
         public enum filesystem {
-            /// `system.filesystem.mode`
-            /// 
-            /// The filesystem mode
+            /// `system.filesystem.mode`: The filesystem mode
             /// 
             /// - Stability: experimental
             /// 
@@ -66,9 +58,7 @@ extension SemConv {
             /// - Example: `rw, ro`
             public static let mode = "system.filesystem.mode"
         
-            /// `system.filesystem.mountpoint`
-            /// 
-            /// The filesystem mount path
+            /// `system.filesystem.mountpoint`: The filesystem mount path
             /// 
             /// - Stability: experimental
             /// 
@@ -77,9 +67,7 @@ extension SemConv {
             /// - Example: `/mnt/data`
             public static let mountpoint = "system.filesystem.mountpoint"
         
-            /// `system.filesystem.state`
-            /// 
-            /// The filesystem state
+            /// `system.filesystem.state`: The filesystem state
             /// 
             /// - Stability: experimental
             /// 
@@ -91,9 +79,7 @@ extension SemConv {
             /// - Example: `used`
             public static let state = "system.filesystem.state"
         
-            /// `system.filesystem.type`
-            /// 
-            /// The filesystem type
+            /// `system.filesystem.type`: The filesystem type
             /// 
             /// - Stability: experimental
             /// 
@@ -113,9 +99,7 @@ extension SemConv {
     
         /// `system.memory` namespace
         public enum memory {
-            /// `system.memory.state`
-            /// 
-            /// The memory state
+            /// `system.memory.state`: The memory state
             /// 
             /// - Stability: experimental
             /// 
@@ -136,9 +120,7 @@ extension SemConv {
     
         /// `system.network` namespace
         public enum network {
-            /// `system.network.state`
-            /// 
-            /// A stateless protocol MUST NOT set this attribute
+            /// `system.network.state`: A stateless protocol MUST NOT set this attribute
             /// 
             /// - Stability: experimental
             /// 
@@ -164,9 +146,7 @@ extension SemConv {
     
         /// `system.paging` namespace
         public enum paging {
-            /// `system.paging.direction`
-            /// 
-            /// The paging access direction
+            /// `system.paging.direction`: The paging access direction
             /// 
             /// - Stability: experimental
             /// 
@@ -177,9 +157,7 @@ extension SemConv {
             /// - Example: `in`
             public static let direction = "system.paging.direction"
         
-            /// `system.paging.state`
-            /// 
-            /// The memory paging state
+            /// `system.paging.state`: The memory paging state
             /// 
             /// - Stability: experimental
             /// 
@@ -190,9 +168,7 @@ extension SemConv {
             /// - Example: `free`
             public static let state = "system.paging.state"
         
-            /// `system.paging.type`
-            /// 
-            /// The memory paging type
+            /// `system.paging.type`: The memory paging type
             /// 
             /// - Stability: experimental
             /// 
@@ -208,9 +184,7 @@ extension SemConv {
     
         /// `system.process` namespace
         public enum process {
-            /// `system.process.status`
-            /// 
-            /// The process state, e.g., [Linux Process State Codes](https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES) 
+            /// `system.process.status`: The process state, e.g., [Linux Process State Codes](https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES) 
             /// 
             /// - Stability: experimental
             /// 
@@ -228,9 +202,7 @@ extension SemConv {
     
         /// `system.processes` namespace
         public enum processes {
-            /// `system.processes.status`
-            /// 
-            /// Deprecated, use `system.process.status` instead.
+            /// `system.processes.status`: Deprecated, use `system.process.status` instead.
             /// 
             /// - Stability: experimental
             /// 

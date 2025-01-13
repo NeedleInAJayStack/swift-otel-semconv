@@ -1,30 +1,30 @@
 struct SpanAttributeRenderer: FileRenderer {
     let directory = "SpanAttributes"
     let fileNamePrefix = "SpanAttributes+"
-    
+
     func renderFile(_ namespace: Namespace) throws -> String {
-        return """
+        return try """
         import Tracing
 
         extension SpanAttributes {
-        \(try renderNamespace(namespace, indent: 4))
+        \(renderNamespace(namespace, indent: 4))
         }
         """
     }
-    
+
     private func renderNamespace(_ namespace: Namespace, inSpanNamespace: Bool = false, indent: Int) throws -> String {
         guard let namespaceName = namespace.id.split(separator: ".").last else {
             throw GeneratorError.namespaceNameNotFound(namespace.id)
         }
         let varName = swiftName(String(namespaceName))
         let structName = "\(namespaceName.capitalized.replacingOccurrences(of: "_", with: ""))Attributes"
-        
+
         let standardAttributes = namespace.attributes.values.filter { !isTemplateType($0.type) }
         let templateAttributes = namespace.attributes.values.filter { isTemplateType($0.type) }
-        
+
         var result = "/// `\(namespace.id)` namespace"
         result.append("""
-        
+
         public var \(varName): \(structName) {
             get {
                 .init(attributes: \(inSpanNamespace ? "self.attributes" : "self"))
@@ -33,7 +33,7 @@ struct SpanAttributeRenderer: FileRenderer {
                 \(inSpanNamespace ? "self.attributes" : "self") = newValue.attributes
             }
         }
-        
+
         @dynamicMemberLookup
         public struct \(structName): SpanAttributeNamespace {
             public var attributes: SpanAttributes
@@ -44,9 +44,9 @@ struct SpanAttributeRenderer: FileRenderer {
         """)
         try result.append(
             "\n" +
-            templateAttributes.sorted { $0.id < $1.id }.map { attribute in
-                try renderTemplateAttribute(attribute, indent: 4)
-            }.joined(separator: "\n\n")
+                templateAttributes.sorted { $0.id < $1.id }.map { attribute in
+                    try renderTemplateAttribute(attribute, indent: 4)
+                }.joined(separator: "\n\n")
         )
         result.append("""
 
@@ -55,22 +55,22 @@ struct SpanAttributeRenderer: FileRenderer {
         """)
         try result.append(
             "\n" +
-            standardAttributes.sorted { $0.id < $1.id }.map { attribute in
-                try renderStandardAttribute(attribute, namespace, indent: 8)
-            }.joined(separator: "\n\n")
+                standardAttributes.sorted { $0.id < $1.id }.map { attribute in
+                    try renderStandardAttribute(attribute, namespace, indent: 8)
+                }.joined(separator: "\n\n")
         )
-        
+
         result.append("\n    }")
         try result.append(
             "\n\n" +
-            namespace.subNamespaces.values.sorted { $0.id < $1.id }.map { child in
-                try renderNamespace(child, inSpanNamespace: true, indent: 4)
-            }.joined(separator: "\n\n")
+                namespace.subNamespaces.values.sorted { $0.id < $1.id }.map { child in
+                    try renderNamespace(child, inSpanNamespace: true, indent: 4)
+                }.joined(separator: "\n\n")
         )
         result.append("\n}")
         return result
             .split(separator: "\n", omittingEmptySubsequences: false)
-            .map { String.init(repeating: " ", count: indent) + $0 }
+            .map { String(repeating: " ", count: indent) + $0 }
             .joined(separator: "\n")
     }
 
@@ -84,12 +84,12 @@ struct SpanAttributeRenderer: FileRenderer {
             propertyName = "_\(propertyName)"
         }
         propertyName = swiftName(propertyName)
-        
+
         var result = renderDocs(attribute)
         if let deprecatedMessage = attribute.deprecated {
             result.append("\n@available(*, deprecated, message: \"\(deprecatedMessage)\")")
         }
-        
+
         let swiftType: String
         if let type = attribute.type as? Attribute.StandardType {
             switch type {
@@ -108,7 +108,7 @@ struct SpanAttributeRenderer: FileRenderer {
         } else if let type = attribute.type as? Attribute.EnumType {
             let enumTypeName = "\(attributeName.capitalized)Enum"
             result.append("\npublic var \(propertyName): Self.Key<\(enumTypeName)> { .init(name: SemConv.\(namespace.id).\(propertyName)) }")
-            
+
             result.append("\n\npublic enum \(enumTypeName): String, SpanAttributeConvertible {")
             for member in type.members {
                 let caseName = swiftName(member.id)
@@ -121,9 +121,9 @@ struct SpanAttributeRenderer: FileRenderer {
                 }
                 result.append("\n    case \(caseName) = \"\(member.value)\"")
             }
-            
+
             result.append("""
-            
+
                 public func toSpanAttribute() -> Tracing.SpanAttribute {
                     return .string(self.rawValue)
                 }
@@ -132,21 +132,19 @@ struct SpanAttributeRenderer: FileRenderer {
         } else {
             throw SpanAttributeRendererError.invalidStandardAttributeType(attribute.type)
         }
-        
-
 
         return result.split(separator: "\n", omittingEmptySubsequences: false)
-            .map { String.init(repeating: " ", count: indent) + $0 }
+            .map { String(repeating: " ", count: indent) + $0 }
             .joined(separator: "\n")
     }
-    
+
     private func renderTemplateAttribute(_ attribute: Attribute, indent: Int) throws -> String {
         guard let attributeName = attribute.id.split(separator: ".").last else {
             throw GeneratorError.attributeNameNotFound(attribute.id)
         }
         let swiftName = swiftName(String(attributeName))
         let structName = "\(attributeName.capitalized.replacingOccurrences(of: "_", with: ""))Attributes"
-        
+
         let valueType: String
         guard let type = attribute.type as? Attribute.StandardType else {
             throw SpanAttributeRendererError.invalidTemplateAttributeType(attribute.type)
@@ -163,12 +161,12 @@ struct SpanAttributeRenderer: FileRenderer {
         default:
             throw SpanAttributeRendererError.invalidTemplateAttributeType(attribute.type)
         }
-        
+
         // getTemplateType
-        
+
         var result = renderDocs(attribute)
         result.append("""
-        
+
         public var \(swiftName): \(structName) {
             get {
                 .init(attributes: self.attributes)
@@ -177,14 +175,14 @@ struct SpanAttributeRenderer: FileRenderer {
                 self.attributes = newValue.attributes
             }
         }
-        
+
         public struct \(structName) {
             public var attributes: SpanAttributes
 
             public init(attributes: SpanAttributes) {
                 self.attributes = attributes
             }
-        
+
             public mutating func set(_ key: String, to value: \(valueType)) {
                 let attributeId = self.attributeId(forKey: key)
                 self.attributes[attributeId] = value
@@ -208,10 +206,10 @@ struct SpanAttributeRenderer: FileRenderer {
         }
         """)
         return result.split(separator: "\n", omittingEmptySubsequences: false)
-            .map { String.init(repeating: " ", count: indent) + $0 }
+            .map { String(repeating: " ", count: indent) + $0 }
             .joined(separator: "\n")
     }
-    
+
     private func isTemplateType(_ type: Attribute.AttributeType) -> Bool {
         if let standardType = type as? Attribute.StandardType {
             switch standardType {

@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `android` namespace
-    public var android: AndroidAttributes {
+    var android: AndroidAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,43 +14,43 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct AndroidAttributes: SpanAttributeNamespace {
+    struct AndroidAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-            /// `android.state`: Deprecated use the `device.app.lifecycle` event definition including `android.state` as a payload field instead. 
-            /// 
+            /// `android.state`: Deprecated use the `device.app.lifecycle` event definition including `android.state` as a payload field instead.
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: enum
             ///     - `created`: Any time before Activity.onResume() or, if the app has no Activity, Context.startService() has been called in the app for the first time.
             ///     - `background`: Any time after Activity.onPause() or, if the app has no Activity, Context.stopService() has been called when the app was in the foreground state.
             ///     - `foreground`: Any time after Activity.onResume() or, if the app has no Activity, Context.startService() has been called when the app was in either the created or background states.
-            /// 
-            /// The Android lifecycle states are defined in [Activity lifecycle callbacks](https://developer.android.com/guide/components/activities/activity-lifecycle#lc), and from which the `OS identifiers` are derived. 
+            ///
+            /// The Android lifecycle states are defined in [Activity lifecycle callbacks](https://developer.android.com/guide/components/activities/activity-lifecycle#lc), and from which the `OS identifiers` are derived.
             @available(*, deprecated, message: "Replaced by `device.app.lifecycle`.")
             public var state: Self.Key<StateEnum> { .init(name: SemConv.android.state) }
-            
+
             public enum StateEnum: String, SpanAttributeConvertible {
                 /// `created`: Any time before Activity.onResume() or, if the app has no Activity, Context.startService() has been called in the app for the first time.
-                case created = "created"
+                case created
                 /// `background`: Any time after Activity.onPause() or, if the app has no Activity, Context.stopService() has been called when the app was in the foreground state.
-                case background = "background"
+                case background
                 /// `foreground`: Any time after Activity.onResume() or, if the app has no Activity, Context.startService() has been called when the app was in either the created or background states.
-                case foreground = "foreground"
+                case foreground
                 public func toSpanAttribute() -> Tracing.SpanAttribute {
-                    return .string(self.rawValue)
+                    return .string(rawValue)
                 }
             }
         }
-    
+
         /// `android.os` namespace
         public var os: OsAttributes {
             get {
@@ -60,30 +60,28 @@ extension SpanAttributes {
                 self.attributes = newValue.attributes
             }
         }
-        
+
         @dynamicMemberLookup
         public struct OsAttributes: SpanAttributeNamespace {
             public var attributes: SpanAttributes
-        
+
             public init(attributes: SpanAttributes) {
                 self.attributes = attributes
             }
-        
+
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
-                /// `android.os.api_level`: Uniquely identifies the framework API revision offered by a version (`os.version`) of the android operating system. More information can be found [here](https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels). 
-                /// 
+                /// `android.os.api_level`: Uniquely identifies the framework API revision offered by a version (`os.version`) of the android operating system. More information can be found [here](https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels).
+                ///
                 /// - Stability: experimental
-                /// 
+                ///
                 /// - Type: string
-                /// 
+                ///
                 /// - Examples:
                 ///     - `33`
                 ///     - `32`
                 public var api_level: Self.Key<String> { .init(name: SemConv.android.os.api_level) }
             }
-        
-        
         }
     }
 }

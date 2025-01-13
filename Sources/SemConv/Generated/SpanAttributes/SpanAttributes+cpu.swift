@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `cpu` namespace
-    public var cpu: CpuAttributes {
+    var cpu: CpuAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,21 +14,21 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct CpuAttributes: SpanAttributeNamespace {
+    struct CpuAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
             /// `cpu.mode`: The mode of the CPU
-            /// 
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: enum
             ///     - `user`
             ///     - `system`
@@ -38,35 +38,33 @@ extension SpanAttributes {
             ///     - `interrupt`
             ///     - `steal`
             ///     - `kernel`
-            /// 
+            ///
             /// - Examples:
             ///     - `user`
             ///     - `system`
             public var mode: Self.Key<ModeEnum> { .init(name: SemConv.cpu.mode) }
-            
+
             public enum ModeEnum: String, SpanAttributeConvertible {
                 /// `user`
-                case user = "user"
+                case user
                 /// `system`
-                case system = "system"
+                case system
                 /// `nice`
-                case nice = "nice"
+                case nice
                 /// `idle`
-                case idle = "idle"
+                case idle
                 /// `iowait`
-                case iowait = "iowait"
+                case iowait
                 /// `interrupt`
-                case interrupt = "interrupt"
+                case interrupt
                 /// `steal`
-                case steal = "steal"
+                case steal
                 /// `kernel`
-                case kernel = "kernel"
+                case kernel
                 public func toSpanAttribute() -> Tracing.SpanAttribute {
-                    return .string(self.rawValue)
+                    return .string(rawValue)
                 }
             }
         }
-    
-    
     }
 }

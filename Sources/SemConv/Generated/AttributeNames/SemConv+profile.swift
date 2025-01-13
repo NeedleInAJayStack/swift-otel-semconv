@@ -2,17 +2,15 @@
 
 // swiftlint:disable all
 
-extension SemConv {
+public extension SemConv {
     /// `profile` namespace
-    public enum profile {
-    
-    
+    enum profile {
         /// `profile.frame` namespace
         public enum frame {
-            /// `profile.frame.type`: Describes the interpreter or compiler of a single frame. 
-            /// 
+            /// `profile.frame.type`: Describes the interpreter or compiler of a single frame.
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: enum
             ///     - `dotnet`: [.NET](https://wikipedia.org/wiki/.NET)
             ///     - `jvm`: [JVM](https://wikipedia.org/wiki/Java_virtual_machine)
@@ -23,11 +21,9 @@ extension SemConv {
             ///     - `cpython`: [Python](https://wikipedia.org/wiki/Python_(programming_language))
             ///     - `ruby`: [Ruby](https://wikipedia.org/wiki/Ruby_(programming_language))
             ///     - `v8js`: [V8JS](https://wikipedia.org/wiki/V8_(JavaScript_engine))
-            /// 
+            ///
             /// - Example: `cpython`
             public static let type = "profile.frame.type"
-        
-        
         }
     }
 }

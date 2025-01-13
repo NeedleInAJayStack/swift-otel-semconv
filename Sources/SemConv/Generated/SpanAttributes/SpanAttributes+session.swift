@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `session` namespace
-    public var session: SessionAttributes {
+    var session: SessionAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,36 +14,34 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct SessionAttributes: SpanAttributeNamespace {
+    struct SessionAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
             /// `session.id`: A unique id to identify a session.
-            /// 
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `00112233-4455-6677-8899-aabbccddeeff`
             public var id: Self.Key<String> { .init(name: SemConv.session.id) }
-    
+
             /// `session.previous_id`: The previous `session.id` for this user, when known.
-            /// 
+            ///
             /// - Stability: experimental
-            /// 
+            ///
             /// - Type: string
-            /// 
+            ///
             /// - Example: `00112233-4455-6677-8899-aabbccddeeff`
             public var previous_id: Self.Key<String> { .init(name: SemConv.session.previous_id) }
         }
-    
-    
     }
 }

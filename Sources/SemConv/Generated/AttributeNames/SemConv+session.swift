@@ -2,27 +2,25 @@
 
 // swiftlint:disable all
 
-extension SemConv {
+public extension SemConv {
     /// `session` namespace
-    public enum session {
+    enum session {
         /// `session.id`: A unique id to identify a session.
-        /// 
+        ///
         /// - Stability: experimental
-        /// 
+        ///
         /// - Type: string
-        /// 
+        ///
         /// - Example: `00112233-4455-6677-8899-aabbccddeeff`
         public static let id = "session.id"
-    
+
         /// `session.previous_id`: The previous `session.id` for this user, when known.
-        /// 
+        ///
         /// - Stability: experimental
-        /// 
+        ///
         /// - Type: string
-        /// 
+        ///
         /// - Example: `00112233-4455-6677-8899-aabbccddeeff`
         public static let previous_id = "session.previous_id"
-    
-    
     }
 }

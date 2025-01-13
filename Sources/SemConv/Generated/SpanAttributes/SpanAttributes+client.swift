@@ -4,9 +4,9 @@
 
 import Tracing
 
-extension SpanAttributes {
+public extension SpanAttributes {
     /// `client` namespace
-    public var client: ClientAttributes {
+    var client: ClientAttributes {
         get {
             .init(attributes: self)
         }
@@ -14,43 +14,41 @@ extension SpanAttributes {
             self = newValue.attributes
         }
     }
-    
+
     @dynamicMemberLookup
-    public struct ClientAttributes: SpanAttributeNamespace {
+    struct ClientAttributes: SpanAttributeNamespace {
         public var attributes: SpanAttributes
-    
+
         public init(attributes: SpanAttributes) {
             self.attributes = attributes
         }
-    
+
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
             /// `client.address`: Client address - domain name if available without reverse DNS lookup; otherwise, IP address or Unix domain socket name.
-            /// 
+            ///
             /// - Stability: stable
-            /// 
+            ///
             /// - Type: string
-            /// 
-            /// When observed from the server side, and when communicating through an intermediary, `client.address` SHOULD represent the client address behind any intermediaries,  for example proxies, if it's available. 
-            /// 
+            ///
+            /// When observed from the server side, and when communicating through an intermediary, `client.address` SHOULD represent the client address behind any intermediaries,  for example proxies, if it's available.
+            ///
             /// - Examples:
             ///     - `client.example.com`
             ///     - `10.1.2.80`
             ///     - `/tmp/my.sock`
             public var address: Self.Key<String> { .init(name: SemConv.client.address) }
-    
+
             /// `client.port`: Client port number.
-            /// 
+            ///
             /// - Stability: stable
-            /// 
+            ///
             /// - Type: int
-            /// 
-            /// When observed from the server side, and when communicating through an intermediary, `client.port` SHOULD represent the client port behind any intermediaries,  for example proxies, if it's available. 
-            /// 
+            ///
+            /// When observed from the server side, and when communicating through an intermediary, `client.port` SHOULD represent the client port behind any intermediaries,  for example proxies, if it's available.
+            ///
             /// - Example: `65123`
             public var port: Self.Key<Int> { .init(name: SemConv.client.port) }
         }
-    
-    
     }
 }

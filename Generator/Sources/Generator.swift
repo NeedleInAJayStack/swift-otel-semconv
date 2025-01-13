@@ -7,39 +7,38 @@ import ZIPFoundation
 @available(macOS 10.15.4, *)
 @main
 struct Generator: AsyncParsableCommand {
-    
     @Option(name: .shortAndLong, help: "The version of semantic conventions to generate from.")
     var version: String
-    
+
     @Option(name: .shortAndLong, help: "The root of the swift-otel-semconv directory in which the generated files should be saved.")
     var repoDirectory: String = "../"
-    
+
     @Option(name: .shortAndLong, help: "The directory in which to cache the semantic conventions source files.")
     var cacheDirectory: String = "/tmp/swift-otel-semconv/"
-    
+
     mutating func run() async throws {
         assert(version.starts(with: "v"), "Version must start with 'v'")
-        if !repoDirectory.hasSuffix( "/") {
+        if !repoDirectory.hasSuffix("/") {
             repoDirectory += "/"
         }
-        if !cacheDirectory.hasSuffix( "/") {
+        if !cacheDirectory.hasSuffix("/") {
             cacheDirectory += "/"
         }
-        
+
         let semConvRepoDirectory = cacheDirectory + "semantic-conventions-\(version.dropFirst())/"
-        
+
         // Get semconv & cache locally
         let fileManager = FileManager()
         if !fileManager.fileExists(atPath: semConvRepoDirectory) {
             try fileManager.createDirectory(at: URL(fileURLWithPath: cacheDirectory), withIntermediateDirectories: true)
-            
+
             // Download
             let semConvArchive = cacheDirectory + "\(version).zip"
             let request = try HTTPClient.Request(url: "https://github.com/open-telemetry/semantic-conventions/archive/refs/tags/\(version).zip")
-            let fileDownloadDelegate = try FileDownloadDelegate.init(path: semConvArchive)
+            let fileDownloadDelegate = try FileDownloadDelegate(path: semConvArchive)
             let _ = try await HTTPClient.shared.execute(request: request, delegate: fileDownloadDelegate).get()
             print("Downloded version \(version) to \(semConvArchive)")
-            
+
             // Unzip
             let sourceURL = URL(fileURLWithPath: semConvArchive)
             let destinationURL = URL(fileURLWithPath: cacheDirectory)
@@ -47,7 +46,7 @@ struct Generator: AsyncParsableCommand {
             assert(fileManager.fileExists(atPath: semConvRepoDirectory), "Expected \(semConvRepoDirectory) to exist. Check zip file structure.")
             print("Unzipped to \(semConvRepoDirectory).")
         }
-        
+
         // Parse semconv registry files
         let semConvModelsDirectory = semConvRepoDirectory + "model/"
         var parsedAttributes = [Attribute]()
@@ -72,24 +71,24 @@ struct Generator: AsyncParsableCommand {
                 print("Error decoding \(filePath)")
                 throw error
             }
-            
+
             for group in file.groups {
                 for groupAttribute in group.attributes {
                     parsedAttributes.append(groupAttribute)
                 }
             }
         }
-        
+
         // Create semconv namespace tree
         let namespaceTree = Namespace(id: "")
         for attribute in parsedAttributes {
             let path = attribute.id.split(separator: ".")
             var namespace = namespaceTree
             var walkedPath = [String]()
-            for pathElement in path[0..<(path.count - 1)] {
+            for pathElement in path[0 ..< (path.count - 1)] {
                 let pathElement = String(pathElement)
                 walkedPath.append(pathElement)
-                
+
                 let nextNamespace = namespace.subNamespaces[pathElement] ?? {
                     let newNamespace = Namespace(id: walkedPath.joined(separator: "."))
                     namespace.subNamespaces[pathElement] = newNamespace
@@ -102,7 +101,7 @@ struct Generator: AsyncParsableCommand {
             }
             namespace.attributes[attributeName] = attribute
         }
-        
+
         // Generate files
         let writeTo = repoDirectory + "Sources/SemConv/Generated/"
         let renderers: [FileRenderer] = [
@@ -119,7 +118,7 @@ struct Generator: AsyncParsableCommand {
                 let filePath = "\(writeTo)\(renderer.directory)/\(renderer.fileNamePrefix)\(namespace.id).swift"
                 var fileContents = generatedFileHeader
                 fileContents += try renderer.renderFile(namespace)
-                
+
                 try? fileManager.removeItem(atPath: filePath)
                 guard let fileData = fileContents.data(using: .utf8) else {
                     print("File data for \(filePath) could not be encoded as UTF8")
@@ -138,7 +137,7 @@ class Namespace {
     let id: String
     var attributes: [String: Attribute]
     var subNamespaces: [String: Namespace]
-    
+
     init(id: String, attributes: [String: Attribute] = [:], subNamespaces: [String: Namespace] = [:]) {
         self.id = id
         self.attributes = attributes

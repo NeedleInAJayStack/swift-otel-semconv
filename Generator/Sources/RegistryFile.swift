@@ -48,7 +48,7 @@ struct Attribute: Codable {
         } else {
             throw DecodingError.dataCorrupted(.init(codingPath: container.codingPath, debugDescription: "Unexpected `type` value"))
         }
-        stability = try container.decode(Stability.self, forKey: .stability)
+        stability = try container.decodeIfPresent(Stability.self, forKey: .stability) ?? .experimental
         brief = try container.decodeIfPresent(String.self, forKey: .brief)
         note = try container.decodeIfPresent(String.self, forKey: .note)
         deprecated = try container.decodeIfPresent(String.self, forKey: .deprecated)

@@ -184,13 +184,23 @@ public extension SemConv {
                 /// - Example: `foh3mEXu7BLZjsN9pOwG/kATcXlYVCDEFouRMQed_/WwRFB1hPo9LBkekthSPG/x8hMC8emW2cCjXD0_1aY`
                 public static let go = "process.executable.build_id.go"
 
-                /// `process.executable.build_id.profiling`: Profiling specific build ID for executables. See the OTel specification for Profiles for more information.
+                /// `process.executable.build_id.htlhash`: Profiling specific build ID for executables. See the OTel specification for Profiles for more information.
                 ///
                 /// - Stability: experimental
                 ///
                 /// - Type: string
                 ///
                 /// - Example: `600DCAFE4A110000F2BF38C493F5FB92`
+                public static let htlhash = "process.executable.build_id.htlhash"
+
+                /// `process.executable.build_id.profiling`: "Deprecated, use `process.executable.build_id.htlhash` instead."
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: string
+                ///
+                /// - Example: `600DCAFE4A110000F2BF38C493F5FB92`
+                @available(*, deprecated, message: "Replaced by `process.executable.build_id.htlhash`")
                 public static let profiling = "process.executable.build_id.profiling"
             }
         }
@@ -226,6 +236,22 @@ public extension SemConv {
             ///
             /// - Example: `23`
             public static let pid = "process.group_leader.pid"
+        }
+
+        /// `process.linux` namespace
+        public enum linux {
+            /// `process.linux.cgroup`: The control group associated with the process.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: string
+            ///
+            /// Control groups (cgroups) are a kernel feature used to organize and manage process resources. This attribute provides the path(s) to the cgroup(s) associated with the process, which should match the contents of the [/proc/<PID>/cgroup](https://man7.org/linux/man-pages/man7/cgroups.7.html) file.
+            ///
+            /// - Examples:
+            ///     - `1:name=systemd:/user.slice/user-1000.slice/session-3.scope`
+            ///     - `0::/user.slice/user-1000.slice/user@1000.service/tmux-spawn-0267755b-4639-4a27-90ed-f19f88e53748.scope`
+            public static let cgroup = "process.linux.cgroup"
         }
 
         /// `process.paging` namespace

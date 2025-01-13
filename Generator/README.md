@@ -3,7 +3,7 @@ This is a utility package to generate swift-otel-semconv files. It is implemente
 To use it, enter this directory in a terminal and run:
 
 ```
-swift run Generator --version v1.28.0
+swift run Generator --version v1.29.0
 ```
 
 The version can be varied to generate for different versions of the otel semantic conventions.

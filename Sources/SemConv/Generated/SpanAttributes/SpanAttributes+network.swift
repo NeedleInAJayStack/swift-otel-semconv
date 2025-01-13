@@ -25,7 +25,7 @@ public extension SpanAttributes {
 
         public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
             public init() {}
-            /// `network.transport`: [OSI transport layer](https://osi-model.com/transport-layer/) or [inter-process communication method](https://wikipedia.org/wiki/Inter-process_communication).
+            /// `network.transport`: [OSI transport layer](https://wikipedia.org/wiki/Transport_layer) or [inter-process communication method](https://wikipedia.org/wiki/Inter-process_communication).
             ///
             /// - Stability: stable
             ///
@@ -59,7 +59,7 @@ public extension SpanAttributes {
                 }
             }
 
-            /// `network.type`: [OSI network layer](https://osi-model.com/network-layer/) or non-OSI equivalent.
+            /// `network.type`: [OSI network layer](https://wikipedia.org/wiki/Network_layer) or non-OSI equivalent.
             ///
             /// - Stability: stable
             ///
@@ -273,6 +273,39 @@ public extension SpanAttributes {
             }
         }
 
+        /// `network.interface` namespace
+        public var interface: InterfaceAttributes {
+            get {
+                .init(attributes: self.attributes)
+            }
+            set {
+                self.attributes = newValue.attributes
+            }
+        }
+
+        @dynamicMemberLookup
+        public struct InterfaceAttributes: SpanAttributeNamespace {
+            public var attributes: SpanAttributes
+
+            public init(attributes: SpanAttributes) {
+                self.attributes = attributes
+            }
+
+            public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
+                public init() {}
+                /// `network.interface.name`: The network interface name.
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: string
+                ///
+                /// - Examples:
+                ///     - `lo`
+                ///     - `eth0`
+                public var name: Self.Key<String> { .init(name: SemConv.network.interface.name) }
+            }
+        }
+
         /// `network.io` namespace
         public var io: IoAttributes {
             get {
@@ -420,7 +453,7 @@ public extension SpanAttributes {
 
             public struct NestedSpanAttributes: NestedSpanAttributesProtocol {
                 public init() {}
-                /// `network.protocol.name`: [OSI application layer](https://osi-model.com/application-layer/) or non-OSI equivalent.
+                /// `network.protocol.name`: [OSI application layer](https://wikipedia.org/wiki/Application_layer) or non-OSI equivalent.
                 ///
                 /// - Stability: stable
                 ///

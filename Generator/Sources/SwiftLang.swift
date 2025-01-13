@@ -3,7 +3,7 @@ func swiftName(_ name: String) -> String {
     if swiftKeywords.contains(name) {
         return "`\(name)`"
     }
-    return name
+    return name.replacingOccurrences(of: ".", with: "_")
 }
 
 /// Keywords in the swift language.

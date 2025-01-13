@@ -7,7 +7,7 @@ public extension SemConv {
     enum test {
         /// `test.case` namespace
         public enum `case` {
-            /// `test.case.name`: The fully qualified human readable name of the [test case](https://en.wikipedia.org/wiki/Test_case).
+            /// `test.case.name`: The fully qualified human readable name of the [test case](https://wikipedia.org/wiki/Test_case).
             ///
             /// - Stability: experimental
             ///
@@ -38,7 +38,7 @@ public extension SemConv {
 
         /// `test.suite` namespace
         public enum suite {
-            /// `test.suite.name`: The human readable name of a [test suite](https://en.wikipedia.org/wiki/Test_suite).
+            /// `test.suite.name`: The human readable name of a [test suite](https://wikipedia.org/wiki/Test_suite).
             ///
             /// - Stability: experimental
             ///

@@ -284,7 +284,7 @@ public extension SemConv {
             ///
             /// - Type: string
             ///
-            /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization. If the collection name is parsed from the query text, it SHOULD be the first collection name found in the query and it SHOULD match the value provided in the query text including any schema and database name prefix. For batch operations, if the individual operations are known to have the same collection name then that collection name SHOULD be used, otherwise `db.collection.name` SHOULD NOT be captured. This attribute has stability level RELEASE CANDIDATE.
+            /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization.  The collection name SHOULD NOT be extracted from `db.query.text`, unless the query format is known to only ever have a single collection name present.  For batch operations, if the individual operations are known to have the same collection name then that collection name SHOULD be used.  This attribute has stability level RELEASE CANDIDATE.
             ///
             /// - Examples:
             ///     - `public.users`
@@ -308,9 +308,28 @@ public extension SemConv {
             /// - Stability: experimental
             ///
             /// - Type: enum
-            ///     - `gateway`: Gateway (HTTP) connections mode
+            ///     - `gateway`: Gateway (HTTP) connection.
             ///     - `direct`: Direct connection.
             public static let connection_mode = "db.cosmosdb.connection_mode"
+
+            /// `db.cosmosdb.consistency_level`: Account or request [consistency level](https://learn.microsoft.com/azure/cosmos-db/consistency-levels).
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: enum
+            ///     - `Strong`
+            ///     - `BoundedStaleness`
+            ///     - `Session`
+            ///     - `Eventual`
+            ///     - `ConsistentPrefix`
+            ///
+            /// - Examples:
+            ///     - `Eventual`
+            ///     - `ConsistentPrefix`
+            ///     - `BoundedStaleness`
+            ///     - `Strong`
+            ///     - `Session`
+            public static let consistency_level = "db.cosmosdb.consistency_level"
 
             /// `db.cosmosdb.container`: Deprecated, use `db.collection.name` instead.
             ///
@@ -322,7 +341,7 @@ public extension SemConv {
             @available(*, deprecated, message: "Replaced by `db.collection.name`.")
             public static let container = "db.cosmosdb.container"
 
-            /// `db.cosmosdb.operation_type`: Cosmos DB Operation Type.
+            /// `db.cosmosdb.operation_type`: Deprecated, no replacement at this time.
             ///
             /// - Stability: experimental
             ///
@@ -342,9 +361,19 @@ public extension SemConv {
             ///     - `read_feed`
             ///     - `replace`
             ///     - `upsert`
+            @available(*, deprecated, message: "No replacement at this time.")
             public static let operation_type = "db.cosmosdb.operation_type"
 
-            /// `db.cosmosdb.request_charge`: RU consumed for that operation
+            /// `db.cosmosdb.regions_contacted`: List of regions contacted during operation in the order that they were contacted. If there is more than one region listed, it indicates that the operation was performed on multiple regions i.e. cross-regional call.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: stringArray
+            ///
+            /// Region name matches the format of `displayName` in [Azure Location API](https://learn.microsoft.com/rest/api/subscription/subscriptions/list-locations?view=rest-subscription-2021-10-01&tabs=HTTP#location)
+            public static let regions_contacted = "db.cosmosdb.regions_contacted"
+
+            /// `db.cosmosdb.request_charge`: Request units consumed for the operation.
             ///
             /// - Stability: experimental
             ///
@@ -355,7 +384,7 @@ public extension SemConv {
             ///     - `1.0`
             public static let request_charge = "db.cosmosdb.request_charge"
 
-            /// `db.cosmosdb.request_content_length`: Request payload size in bytes
+            /// `db.cosmosdb.request_content_length`: Request payload size in bytes.
             ///
             /// - Stability: experimental
             ///
@@ -489,13 +518,26 @@ public extension SemConv {
             ///
             /// - Type: string
             ///
-            /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization. If the operation name is parsed from the query text, it SHOULD be the first operation name found in the query. For batch operations, if the individual operations are known to have the same operation name then that operation name SHOULD be used prepended by `BATCH `, otherwise `db.operation.name` SHOULD be `BATCH` or some other database system specific term if more applicable. This attribute has stability level RELEASE CANDIDATE.
+            /// It is RECOMMENDED to capture the value as provided by the application without attempting to do any case normalization.  The operation name SHOULD NOT be extracted from `db.query.text`, unless the query format is known to only ever have a single operation name present.  For batch operations, if the individual operations are known to have the same operation name then that operation name SHOULD be used prepended by `BATCH `, otherwise `db.operation.name` SHOULD be `BATCH` or some other database system specific term if more applicable.  This attribute has stability level RELEASE CANDIDATE.
             ///
             /// - Examples:
             ///     - `findAndModify`
             ///     - `HMSET`
             ///     - `SELECT`
             public static let name = "db.operation.name"
+
+            /// `db.operation.parameter`: A database operation parameter, with `<key>` being the parameter name, and the attribute value being a string representation of the parameter value.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: templateString
+            ///
+            /// If a parameter has no name and instead is referenced only by index, then `<key>` SHOULD be the 0-based index. If `db.query.text` is also captured, then `db.operation.parameter.<key>` SHOULD match up with the parameterized placeholders present in `db.query.text`. This attribute has stability level RELEASE CANDIDATE.
+            ///
+            /// - Examples:
+            ///     - `someval`
+            ///     - `55`
+            public static let parameter = "db.operation.parameter"
 
             /// `db.operation.batch` namespace
             public enum batch {
@@ -523,12 +565,25 @@ public extension SemConv {
             ///
             /// - Type: templateString
             ///
-            /// Query parameters should only be captured when `db.query.text` is parameterized with placeholders. If a parameter has no name and instead is referenced only by index, then `<key>` SHOULD be the 0-based index. This attribute has stability level RELEASE CANDIDATE.
-            ///
             /// - Examples:
             ///     - `someval`
             ///     - `55`
+            @available(*, deprecated, message: "Replaced by `db.operation.parameter`.")
             public static let parameter = "db.query.parameter"
+
+            /// `db.query.summary`: Low cardinality representation of a database query text.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: string
+            ///
+            /// `db.query.summary` provides static summary of the query text. It describes a class of database queries and is useful as a grouping key, especially when analyzing telemetry for database calls involving complex queries. Summary may be available to the instrumentation through instrumentation hooks or other means. If it is not available, instrumentations that support query parsing SHOULD generate a summary following [Generating query summary](../../docs/database/database-spans.md#generating-a-summary-of-the-query-text) section. This attribute has stability level RELEASE CANDIDATE.
+            ///
+            /// - Examples:
+            ///     - `SELECT wuser_table`
+            ///     - `INSERT shipping_details SELECT orders`
+            ///     - `get user by id`
+            public static let summary = "db.query.summary"
 
             /// `db.query.text`: The database query being executed.
             ///
@@ -540,7 +595,7 @@ public extension SemConv {
             ///
             /// - Examples:
             ///     - `SELECT * FROM wuser_table where username = ?`
-            ///     - `SET mykey "WuValue"`
+            ///     - `SET mykey ?`
             public static let text = "db.query.text"
         }
 
@@ -562,6 +617,18 @@ public extension SemConv {
 
         /// `db.response` namespace
         public enum response {
+            /// `db.response.returned_rows`: Number of rows returned by the operation.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: int
+            ///
+            /// - Examples:
+            ///     - `10`
+            ///     - `30`
+            ///     - `1000`
+            public static let returned_rows = "db.response.returned_rows"
+
             /// `db.response.status_code`: Database response status code.
             ///
             /// - Stability: experimental

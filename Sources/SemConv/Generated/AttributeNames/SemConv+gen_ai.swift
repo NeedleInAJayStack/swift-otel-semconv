@@ -34,6 +34,9 @@ public extension SemConv {
         ///     - `vertex_ai`: Vertex AI
         ///     - `anthropic`: Anthropic
         ///     - `cohere`: Cohere
+        ///     - `az.ai.inference`: Azure AI Inference
+        ///     - `ibm.watsonx.ai`: IBM Watsonx AI
+        ///     - `aws.bedrock`: AWS Bedrock
         ///
         /// The `gen_ai.system` describes a family of GenAI models with specific model identified by `gen_ai.request.model` and `gen_ai.response.model` attributes.  The actual GenAI product may differ from the one identified by the client. For example, when using OpenAI client libraries to communicate with Mistral, the `gen_ai.system` is set to `openai` based on the instrumentation's best knowledge.  For custom model, a custom friendly name SHOULD be used. If none of these options apply, the `gen_ai.system` SHOULD be set to `_OTHER`.
         ///
@@ -65,7 +68,7 @@ public extension SemConv {
                 /// - Example: `100`
                 public static let seed = "gen_ai.openai.request.seed"
 
-                /// `gen_ai.openai.request.service_tier`: The service tier requested. May be a specific tier, detault, or auto.
+                /// `gen_ai.openai.request.service_tier`: The service tier requested. May be a specific tier, default, or auto.
                 ///
                 /// - Stability: experimental
                 ///
@@ -89,8 +92,17 @@ public extension SemConv {
                 ///
                 /// - Examples:
                 ///     - `scale`
-                ///     - `detault`
+                ///     - `default`
                 public static let service_tier = "gen_ai.openai.response.service_tier"
+
+                /// `gen_ai.openai.response.system_fingerprint`: A fingerprint to track any eventual change in the Generative AI environment.
+                ///
+                /// - Stability: experimental
+                ///
+                /// - Type: string
+                ///
+                /// - Example: `fp_44709d6fcb`
+                public static let system_fingerprint = "gen_ai.openai.response.system_fingerprint"
             }
         }
 
@@ -103,6 +115,7 @@ public extension SemConv {
             /// - Type: enum
             ///     - `chat`: Chat completion operation such as [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat)
             ///     - `text_completion`: Text completions operation such as [OpenAI Completions API (Legacy)](https://platform.openai.com/docs/api-reference/completions)
+            ///     - `embeddings`: Embeddings operation such as [OpenAI Create embeddings API](https://platform.openai.com/docs/api-reference/embeddings/create)
             ///
             /// If one of the predefined values applies, but specific system uses a different name it's RECOMMENDED to document it in the semantic conventions for specific GenAI system and use system-specific name in the instrumentation. If a different name is not documented, instrumentation libraries SHOULD use applicable predefined value.
             public static let name = "gen_ai.operation.name"
@@ -110,6 +123,15 @@ public extension SemConv {
 
         /// `gen_ai.request` namespace
         public enum request {
+            /// `gen_ai.request.encoding_formats`: The encoding formats requested in an embeddings operation, if specified.
+            ///
+            /// - Stability: experimental
+            ///
+            /// - Type: stringArray
+            ///
+            /// In some GenAI systems the encoding formats are called embedding types. Also, some GenAI systems only accept a single format per request.
+            public static let encoding_formats = "gen_ai.request.encoding_formats"
+
             /// `gen_ai.request.frequency_penalty`: The frequency penalty setting for the GenAI request.
             ///
             /// - Stability: experimental

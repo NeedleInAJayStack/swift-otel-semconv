@@ -1,5 +1,8 @@
 # Swift Opentelemetry Semantic Conventions
 
+**ARCHIVED**: This work has been merged into https://github.com/swift-otel/swift-otel-semantic-conventions, and is no
+longer being updated.
+
 [![SemConv][semconv-badge]][semconv-url]
 
 This repo contains Swift support for the [OpenTelemetry Semantic Convention Attribute Registry](https://opentelemetry.io/docs/specs/semconv/attributes-registry/).
@@ -21,10 +24,10 @@ withSpan("showAttributes") { span in
     // Primitive and array types use Swift primitives
     span.attributes.http.response.status_code = 200
     span.attributes.host.ip = ["192.168.1.140", "fe80::abc2:4a28:737a:609e"]
-    
+
     // Enum types are presented as Swift enums
     span.attributes.http.request.method = .post
-    
+
     // Template types can be set dynamically
     span.attributes.http.request.header.set("X-Foo", to: ["bar", "baz"])
 }
